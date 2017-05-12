@@ -1,4 +1,5 @@
-# theskeleton-admin
+# theskeleton-ui-admin
+Admin UI for theskeleton
 
 To start:
 
