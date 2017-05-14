@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div class="row" v-if="infos.app">
+    <div class="row" v-if="infos">
       <div class="col">
         <b-jumbotron header="The<strong>Skeleton</strong>" >
           <p>{{ infos.git.build.version }}</p>
         </b-jumbotron>
       </div>
     </div>
-    <div class="row" v-if="infos.app">
+    <div class="row" v-if="infos">
       <div class="col">
         <div class="card">
           <div class="card-block">

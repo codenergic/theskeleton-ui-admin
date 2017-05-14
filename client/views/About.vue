@@ -2,7 +2,7 @@
   <div>
     <div class="row">
       <div class="col">
-        <info :infos="$store.state.infos"></info>
+        <info :infos="$store.state.info.infos"></info>
       </div>
     </div>
   </div>
@@ -16,7 +16,7 @@ export default {
     Info
   },
   mounted() {
-    this.$store.dispatch('getInfos');
+    this.$store.dispatch('fetchInfos');
   }
 }
 </script>
