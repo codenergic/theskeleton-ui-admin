@@ -59,7 +59,11 @@
             <h4 class="card-title">Commit</h4>
             <p class="card-text">
               <dt>ID</dt>
-              <dd>{{ infos.git.commit['id.abbrev'] }}</dd>
+              <dd>
+                <b-popover placement="bottom" :content="infos.git.commit.id">
+                  <span class="btn-link">{{ infos.git.commit['id.abbrev'] }}</span>
+                </b-popover>
+              </dd>
               <dt>Time</dt>
               <dd>{{ infos.git.commit.time }}</dd>
               <dt>User</dt>
