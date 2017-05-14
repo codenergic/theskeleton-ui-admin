@@ -37,9 +37,16 @@ app.use(require('webpack-hot-middleware')(compiler, {
   log: () => {}
 }))
 
-app.use('/api', proxy({ target: config.backendUrl }))
-app.use('/manage', proxy({ target: config.backendUrl }))
-app.use('/oauth', proxy({ target: config.backendUrl }))
+function proxyServer() {
+  return proxy({ target: config.backendUrl });
+}
+
+app.use('/api', proxyServer())
+app.use('/auth', proxyServer())
+app.use('/login', proxyServer())
+app.use('/manage', proxyServer())
+app.use('/oauth', proxyServer())
+app.use('/webjars', proxyServer())
 
 const mfs = devMiddleWare.fileSystem
 const file = path.join(webpackConfig.output.path, 'index.html')

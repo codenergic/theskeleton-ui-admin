@@ -1,5 +1,7 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
+
+import modules from './module';
 
 Vue.use(Vuex)
 
@@ -36,7 +38,8 @@ const actions = {
 const store = new Vuex.Store({
   actions,
   mutations,
-  state
+  state,
+  modules
 })
 
 export default store

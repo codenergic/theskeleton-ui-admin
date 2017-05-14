@@ -73,10 +73,6 @@
 </template>
 <script>
 export default {
-  computed: {
-    infos() {
-      return this.$store.state.infos;
-    }
-  }
+  props: [ 'infos' ]
 }
 </script>
