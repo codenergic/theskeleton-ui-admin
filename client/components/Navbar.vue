@@ -9,8 +9,8 @@
 
       <b-collapse is-nav id="a">
         <b-nav is-nav-bar>
-          <b-nav-item :to="{ name: 'home' }">
-            Home
+          <b-nav-item :to="{ name: 'admin' }">
+            Admin
           </b-nav-item>
           <b-nav-item :to="{ name: 'about' }">
             About
