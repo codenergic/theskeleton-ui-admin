@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/codenergic/theskeleton-ui-admin.svg?branch=master)](https://travis-ci.org/codenergic/theskeleton-ui-admin)
+
 # theskeleton-ui-admin
 Admin UI for theskeleton
 
