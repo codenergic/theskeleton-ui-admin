@@ -5,7 +5,7 @@ import VueAxios from 'vue-axios';
 import queryString from 'query-string';
 import { sync } from 'vuex-router-sync'
 
-import Index from './Index';
+import Index from './Main';
 import router from './router'
 import store from './store'
 import styles from './styles';
