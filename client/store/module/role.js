@@ -13,11 +13,9 @@ const mutations = {
 };
 
 const actions = {
-  fetchRoles({commit}, page) {
-    page -= 1;
-    return Vue.axios.get('/api/roles', {
-      params: { page }
-    }).then(response => {
+  fetchRoles({commit}, params = { page: 1, size: 20}) {
+    params.page -= 1;
+    return Vue.axios.get('/api/roles', { params }).then(response => {
       return commit('setRoles', response.data);
     });
   }

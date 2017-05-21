@@ -1,6 +1,7 @@
 <template>
   <div>
     <nav-tab :tabs="tabs" @link-click="tabClicked"></nav-tab>
+    <br />
     <router-view></router-view>
   </div>
 </template>
