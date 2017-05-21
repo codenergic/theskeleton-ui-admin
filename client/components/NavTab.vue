@@ -5,10 +5,10 @@
       {{ tab.title }}
     </b-nav-item> -->
     <li class="nav-item" v-for="(tab, index) in tabs" :key="tab.title">
-      <a :class="'nav-link' + (tab.active ? ' active' : '')" @click="linkClick(tab, index)" :to="tab.to">
+      <router-link :class="'nav-link' + (tab.to.name === $route.name ? ' active' : '')" @click="linkClick(tab, index)" :to="tab.to">
         <i :class="tab.icon"></i>
         {{ tab.title }}
-      </a>
+      </router-link>
     </li>
   </b-nav>
 </template>

@@ -12,7 +12,7 @@ const mutations = {
 };
 
 const actions = {
-  fetchInfos({commit, dispatch, state}, hash) {
+  fetchInfos({commit}, hash) {
     return Vue.axios.get('/manage/info').then(response => {
       return commit('setInfos', response.data);
     });

@@ -56,9 +56,13 @@ const actions = {
     window.localStorage.removeItem('session');
     commit('deleteSession');
   },
-  saveSession({commit}, session) {
+  saveSession({commit, getters}, session) {
     window.localStorage.setItem('session', JSON.stringify(session));
     commit('setSession', session);
+    Vue.axios.interceptors.request.use(config => {
+      config.headers.Authorization = getters.getAuthorizationHeader;
+      return config;
+    });
   }
 };
 

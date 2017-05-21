@@ -19,12 +19,12 @@ export default {
           title: 'Users',
           icon: 'fa fa-user',
           active: true,
-          to: { name: 'user' }
+          to: { name: 'user-list' }
         },
         {
           title: 'Roles',
           icon: 'fa fa-users',
-          to: { name: 'role' }
+          to: { name: 'role-list' }
         }
       ]
     };
