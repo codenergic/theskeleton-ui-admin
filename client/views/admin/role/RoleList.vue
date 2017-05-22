@@ -6,25 +6,27 @@
         <small class="text-muted">Add or modify role</small>
       </h2>
       <hr />
-      <form>
-        <div class="form-group">
-          <b-form-input placeholder="Keywords"></b-form-input>
-        </div>
-        <div class="form-group">
-          <b-button>
-            <i class="fa fa-search"></i> Search
-          </b-button>
-        </div>
-      </form>
+      <b-button variant="primary" :to="{ name: 'role-form', params: { id: '+' } }">
+        <i class="fa fa-plus"></i> New role
+      </b-button>
     </div>
     <div class="col-xs-12 col-md-9">
-      <div>
-        <b-button variant="primary" class="pull-right">
-          <i class="fa fa-plus"></i> New role
-        </b-button>
-        <select class="custom-select" v-model.number="roles.size" @change="fetchRoles(1, roles.size)">
-          <option v-for="rs in roleSizeOptions" v-text="rs"></option>
-        </select>
+      <div class="row">
+        <div class="col-xs-2 col-md-6">
+          <select class="custom-select" v-model.number="roles.size" @change="fetchRoles(1, roles.size)">
+            <option v-for="rs in roleSizeOptions" v-text="rs"></option>
+          </select>
+        </div>
+        <div class="col-xs-10 col-md-6">
+          <b-input-group class="">
+            <b-form-input placeholder="Keywords"></b-form-input>
+            <b-input-group-button slot="right">
+              <b-button variant="primary">
+                <i class="fa fa-search"></i>
+              </b-button>
+            </b-input-group-button>
+          </b-input-group>
+        </div>
       </div>
       <br />
       <b-table hover responsive :items="roles.content" :fields="fields" :per-page="roles.size">

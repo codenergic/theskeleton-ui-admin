@@ -1,11 +1,7 @@
 <template>
   <b-nav tabs>
-    <!-- <b-nav-item v-for="(tab, index) in tabs" :key="tab.title" inactive @click="linkClick(tab, index)">
-      <i :class="tab.icon"></i>
-      {{ tab.title }}
-    </b-nav-item> -->
     <li class="nav-item" v-for="(tab, index) in tabs" :key="tab.title">
-      <router-link :class="'nav-link' + (tab.to.name === $route.name ? ' active' : '')" @click="linkClick(tab, index)" :to="tab.to">
+      <router-link :class="'nav-link' + (linkMatch(tab) ? ' active' : '')" @click="linkClick(tab, index)" :to="tab.to">
         <i :class="tab.icon"></i>
         {{ tab.title }}
       </router-link>
@@ -20,6 +16,16 @@ export default {
     linkClick(tab, index) {
       this.tabs.forEach((t, i) => { t.active = index === i });
       this.$emit('link-click', tab, index);
+    },
+    linkMatch(tab) {
+      const matched = this.$route.matched;
+      for (let m in matched) {
+        m = matched[m];
+        if (tab.to.name === m.name) {
+          return true;
+        }
+      }
+      return false;
     }
   }
 }

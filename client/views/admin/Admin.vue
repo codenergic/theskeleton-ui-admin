@@ -25,7 +25,7 @@ export default {
         {
           title: 'Roles',
           icon: 'fa fa-users',
-          to: { name: 'role-list' }
+          to: { name: 'role' }
         }
       ]
     };

@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 import Admin from '../views/admin/Admin';
+import AdminRole from '../views/admin/role/Role';
+import AdminRoleForm from '../views/admin/role/RoleForm';
 import AdminRoleList from '../views/admin/role/RoleList';
 
 import About from '../views/About';
@@ -39,9 +41,21 @@ export default new Router({
           component: AdminRoleList
         },
         {
-          name: 'role-list',
+          name: 'role',
           path: 'roles',
-          component: AdminRoleList
+          component: AdminRole,
+          children: [
+            {
+              name: 'role-form',
+              path: ':id',
+              component: AdminRoleForm
+            },
+            {
+              name: 'role-list',
+              path: '',
+              component: AdminRoleList
+            }
+          ]
         }
       ]
     }
