@@ -13,9 +13,12 @@
     <div class="col-xs-12 col-md-9">
       <div class="row">
         <div class="col-xs-2 col-md-6">
-          <select class="custom-select" v-model.number="roles.size" @change="fetchRoles(1, roles.size)">
+          <select class="custom-select" v-model.number="roles.size" @change="findRoles(1, roles.size)">
             <option v-for="rs in roleSizeOptions" v-text="rs"></option>
           </select>
+          <b-button @click="findRoles($route.query.page, $route.query.size)">
+            <i class="fa fa-refresh"></i>
+          </b-button>
         </div>
         <div class="col-xs-10 col-md-6">
           <b-input-group class="">
@@ -29,10 +32,21 @@
         </div>
       </div>
       <br />
-      <b-table hover responsive :items="roles.content" :fields="fields" :per-page="roles.size">
+      <b-table hover responsive striped :items="roles.content" :fields="fields" :per-page="roles.size">
+        <template slot="itemNumber" scope="item">
+          {{ item.index + (roles.size * roles.number) - roles.size + 1 }}
+        </template>
+        <template slot="code" scope="item">
+          <router-link :to="{ name: 'role-form', params: { id: item.value } }" v-text="item.value"></router-link>
+        </template>
+        <template slot="action" scope="item">
+          <b-button variant="danger" size="sm" @click="deleteRole(item.item)">
+            <i class="fa fa-close"></i>
+          </b-button>
+        </template>
       </b-table>
       <div>
-        <b-pagination size="md" :total-rows="roles.totalElements" :per-page="roles.size" v-model.number="roles.number" @input="fetchRoles(roles.number, roles.size)" />
+        <b-pagination size="md" :total-rows="roles.totalElements" :per-page="roles.size" v-model.number="roles.number" @input="findRoles(roles.number, roles.size)" />
       </div>
     </div>
   </div>
@@ -44,15 +58,10 @@ export default {
     return {
       roleSizeOptions: [5, 10, 20, 50, 100],
       fields: {
-        itemNumber: {
-          label: '#'
-        },
-        code: {
-          label: 'Code'
-        },
-        description: {
-          label: 'Description'
-        }
+        itemNumber: { label: '#' },
+        code: { label: 'Code' },
+        description: { label: 'Description' },
+        action: { label: 'Action' }
       }
     }
   },
@@ -62,13 +71,17 @@ export default {
     }
   },
   methods: {
-    fetchRoles(page = 1, size = 20) {
+    findRoles(page = 1, size = 20) {
       this.$router.push({ query: { page, size } });
-      this.$store.dispatch('fetchRoles', { page, size });
+      this.$store.dispatch('findRoles', { page, size });
+    },
+    deleteRole(role) {
     }
   },
   mounted() {
-    this.fetchRoles(this.$route.query.page, this.$route.query.size);
+    if (!this.roles.content) {
+      this.findRoles(this.$route.query.page, this.$route.query.size);
+    }
   }
 }
 </script>

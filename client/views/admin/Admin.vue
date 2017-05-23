@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav-tab :tabs="tabs" @link-click="tabClicked"></nav-tab>
+    <nav-tab :tabs="tabs"></nav-tab>
     <br />
     <router-view></router-view>
   </div>
@@ -31,7 +31,15 @@ export default {
     };
   },
   methods: {
-    tabClicked(tab, index) {
+    redirectToDefaultRoute() {
+      if (this.$route.name === 'admin') {
+        this.$router.push({ name: 'role' });
+      }
+    }
+  },
+  watch: {
+    ['$store.state.route.name']() {
+      this.redirectToDefaultRoute();
     }
   }
 }

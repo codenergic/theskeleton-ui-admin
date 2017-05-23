@@ -5,13 +5,18 @@
 <script>
 export default {
   mounted() {
-    this.$router.push({ name: 'role-list' });
+    this.redirectToDefaultRoute();
   },
-  watch: {
-    ['$store.state.route.name'](route) {
-      if (route === 'role') {
+  methods: {
+    redirectToDefaultRoute() {
+      if (this.$route.name === 'role') {
         this.$router.push({ name: 'role-list' });
       }
+    }
+  },
+  watch: {
+    ['$store.state.route.name']() {
+      this.redirectToDefaultRoute();
     }
   }
 }

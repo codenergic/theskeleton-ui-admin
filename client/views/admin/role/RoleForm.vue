@@ -3,7 +3,8 @@
     <div class="col-xs-12 col-md-3">
       <h2>
         Roles <br />
-        <small class="text-muted">Add or modify role</small>
+        <small class="text-muted" v-if="!role.id">Add new role</small>
+        <small class="text-muted" v-if="role.id">Modify role</small>
       </h2>
       <hr />
       <form>
@@ -15,13 +16,46 @@
       </form>
     </div>
     <div class="col-xs-12 col-md-9">
+      <form method="post" @submit.prevent @submit="save(role)">
+        <div class="form-group">
+          <label for="code">Code</label>
+          <b-form-input id="code" name="code" v-model="role.code" :readonly="role.id"></b-form-input>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <b-form-input id="description" name="description" textarea :rows="3" v-model="role.description"></b-form-input>
+        </div>
+        <div>
+          <b-button variant="primary">
+            <i class="fa fa-floppy-o"></i> Save
+          </b-button>
+        </div>
+      </form>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  computed: {
+    role() {
+      return this.$store.state.role.role;
+    }
+  },
+  methods: {
+    save(role) {
+      const router = this.$router;
+      this.$store.dispatch('saveRole', role).then(() => {
+        router.push({ name: 'role-list' });
+      });
+    }
+  },
   mounted() {
+    if (this.$route.params.id === '+') {
+      this.$store.commit('setRole', {});
+    } else {
+      this.$store.dispatch('findRoleByCode', this.$route.params.id);
+    }
   }
 }
 </script>
