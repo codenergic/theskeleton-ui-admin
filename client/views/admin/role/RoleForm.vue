@@ -19,7 +19,7 @@
       <form method="post" @submit.prevent @submit="save(role)">
         <div class="form-group">
           <label for="code">Code</label>
-          <b-form-input id="code" name="code" v-model="role.code" :readonly="role.id"></b-form-input>
+          <b-form-input id="code" name="code" v-model="role.code"></b-form-input>
         </div>
         <div class="form-group">
           <label for="description">Description</label>
@@ -46,7 +46,9 @@ export default {
     save(role) {
       const router = this.$router;
       this.$store.dispatch('saveRole', role).then(() => {
-        router.push({ name: 'role-list' });
+        this.$store.dispatch('findRoles', { q: role.code }).then(() => {
+          router.push({ name: 'role-list' });
+        });
       });
     }
   },

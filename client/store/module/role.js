@@ -22,11 +22,12 @@ const mutations = {
 const actions = {
   deleteRole({commit, dispatch, state}, code) {
     return Vue.axios.delete(`/api/roles/${code}`).then(response => {
-      return dispatch('findRoles', {})
+      return response.data;
     });
   },
-  findRoles({commit, rootState}, params = { page: 1, size: 20}) {
+  findRoles({commit, rootState}, params = { q: '', page: 1, size: 20}) {
     params.page -= 1;
+    params.sort = 'code,asc';
     return Vue.axios.get('/api/roles', { params }).then(response => {
       return commit('setRoles', response.data);
     });
@@ -38,7 +39,7 @@ const actions = {
   },
   saveRole({commit}, role = {}) {
     if (role.id) {
-      return Vue.axios.put(`/api/roles/${role.code}`, role).then(response => {
+      return Vue.axios.put(`/api/roles/${role.id}`, role).then(response => {
         return commit('setRole', response.data);
       });
     } else {

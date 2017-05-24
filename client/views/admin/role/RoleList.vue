@@ -13,22 +13,24 @@
     <div class="col-xs-12 col-md-9">
       <div class="row">
         <div class="col-xs-2 col-md-6">
-          <select class="custom-select" v-model.number="roles.size" @change="findRoles(1, roles.size)">
+          <select class="custom-select" v-model.number="roles.size" @change="findRoles($route.query.q, 1, roles.size)">
             <option v-for="rs in roleSizeOptions" v-text="rs"></option>
           </select>
-          <b-button @click="findRoles($route.query.page, $route.query.size)">
+          <b-button @click="findRoles($route.query.q, $route.query.page, $route.query.size)">
             <i class="fa fa-refresh"></i>
           </b-button>
         </div>
         <div class="col-xs-10 col-md-6">
-          <b-input-group class="">
-            <b-form-input placeholder="Keywords"></b-form-input>
-            <b-input-group-button slot="right">
-              <b-button variant="primary">
-                <i class="fa fa-search"></i>
-              </b-button>
-            </b-input-group-button>
-          </b-input-group>
+          <form @submit.prevent @submit="findRoles(q, $route.query.page, $route.query.size)">
+            <b-input-group class="">
+              <b-form-input placeholder="Keywords" v-model="q"></b-form-input>
+              <b-input-group-button slot="right">
+                <b-button variant="primary">
+                  <i class="fa fa-search"></i>
+                </b-button>
+              </b-input-group-button>
+            </b-input-group>
+          </form>
         </div>
       </div>
       <br />
@@ -56,6 +58,7 @@
 export default {
   data() {
     return {
+      q: '',
       roleSizeOptions: [5, 10, 20, 50, 100],
       fields: {
         itemNumber: { label: '#' },
@@ -71,16 +74,21 @@ export default {
     }
   },
   methods: {
-    findRoles(page = 1, size = 20) {
-      this.$router.push({ query: { page, size } });
-      this.$store.dispatch('findRoles', { page, size });
+    findRoles(q = '', page = 1, size = 20) {
+      this.q = q;
+      this.$router.push({ query: { q, page, size } });
+      this.$store.dispatch('findRoles', { q, page, size });
     },
     deleteRole(role) {
+      const self = this;
+      this.$store.dispatch('deleteRole', role.id).then(() => {
+        self.findRoles(this.$route.query.q, this.$route.query.page, this.$route.query.size);
+      });
     }
   },
   mounted() {
     if (!this.roles.content) {
-      this.findRoles(this.$route.query.page, this.$route.query.size);
+      this.findRoles(this.$route.query.q, this.$route.query.page, this.$route.query.size);
     }
   }
 }
