@@ -2,14 +2,10 @@ import Vue from 'vue';
 
 const state = {
   roles: {},
-  role: {},
-  params: {}
+  role: {}
 };
 
 const mutations = {
-  setParams(state, params) {
-    return state.params = { ...params };
-  },
   setRoles(state, roles) {
     roles.number += 1;
     return state.roles = { ...roles };

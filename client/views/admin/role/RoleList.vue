@@ -48,7 +48,7 @@
         </template>
       </b-table>
       <div>
-        <b-pagination size="md" :total-rows="roles.totalElements" :per-page="roles.size" v-model.number="roles.number" @input="findRoles(roles.number, roles.size)" />
+        <b-pagination size="md" :total-rows="roles.totalElements" :per-page="roles.size" v-model.number="roles.number" @input="findRoles(q, roles.number, roles.size)" />
       </div>
     </div>
   </div>
