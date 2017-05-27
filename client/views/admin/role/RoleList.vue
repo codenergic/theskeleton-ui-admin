@@ -3,8 +3,8 @@
     <div class="col-xs-12 col-md-3">
       <h2>
         Roles <br />
-        <small class="text-muted">Add or modify role</small>
       </h2>
+      <p class="text-muted">Add or modify role</p>
       <hr />
       <b-button variant="primary" :to="{ name: 'role-form', params: { id: '+' } }">
         <i class="fa fa-plus"></i> New role

@@ -3,9 +3,9 @@
     <div class="col-xs-12 col-md-3">
       <h2>
         Roles <br />
-        <small class="text-muted" v-if="!role.id">Add new role</small>
-        <small class="text-muted" v-if="role.id">Modify role</small>
       </h2>
+      <p class="text-muted" v-if="!role.id">Add new role</p>
+      <p class="text-muted" v-if="role.id">Modify role ({{ $route.params.id }})</p>
       <hr />
       <form>
         <div class="form-group">

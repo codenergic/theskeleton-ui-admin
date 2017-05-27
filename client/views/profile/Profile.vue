@@ -17,15 +17,14 @@ export default {
     return {
       tabs: [
         {
-          title: 'Users',
+          title: 'Basic',
           icon: 'fa fa-user',
-          active: true,
-          to: { name: 'user-list' }
+          to: { name: 'profile-basic' }
         },
         {
-          title: 'Roles',
-          icon: 'fa fa-users',
-          to: { name: 'role' }
+          title: 'Password',
+          icon: 'fa fa-key',
+          to: { name: 'profile-password' }
         }
       ]
     };
@@ -35,8 +34,8 @@ export default {
   },
   methods: {
     redirectToDefaultRoute() {
-      if (this.$route.name === 'admin') {
-        this.$router.push({ name: 'role' });
+      if (this.$route.name === 'profile') {
+        this.$router.push({ name: 'profile-basic' });
       }
     }
   },

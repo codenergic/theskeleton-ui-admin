@@ -6,6 +6,10 @@ import AdminRole from '../views/admin/role/Role';
 import AdminRoleForm from '../views/admin/role/RoleForm';
 import AdminRoleList from '../views/admin/role/RoleList';
 
+import Profile from '../views/profile/Profile';
+import ProfileBasic from '../views/profile/ProfileBasic';
+import ProfilePassword from '../views/profile/ProfilePassword';
+
 import About from '../views/About';
 import Home from '../views/Home';
 import Login from '../components/Login';
@@ -56,6 +60,23 @@ export default new Router({
               component: AdminRoleList
             }
           ]
+        }
+      ]
+    },
+    {
+      name: 'profile',
+      path: '/profile',
+      component: Profile,
+      children: [
+        {
+          name: 'profile-basic',
+          path: 'basic',
+          component: ProfileBasic
+        },
+        {
+          name: 'profile-password',
+          path: 'password',
+          component: ProfilePassword
         }
       ]
     }
