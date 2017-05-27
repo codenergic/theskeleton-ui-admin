@@ -9,16 +9,16 @@
           <form @submit.prevent>
             <div class="form-group">
               <label for="old-password">Old password</label>
-              <b-form-input id="old-password" name="old-password" password></b-form-input>
+              <b-form-input id="old-password" name="old-password" type="password"></b-form-input>
             </div>
             <br />
             <div class="form-group">
               <label for="new-password">New Password</label>
-              <b-form-input id="new-password" name="new-password" password></b-form-input>
+              <b-form-input id="new-password" name="new-password" type="password"></b-form-input>
             </div>
             <div class="form-group">
               <label for="confirm-new-password">Confirm New Password</label>
-              <b-form-input id="confirm-new-password" name="confirm-new-password" password></b-form-input>
+              <b-form-input id="confirm-new-password" name="confirm-new-password" type="password"></b-form-input>
             </div>
             <div>
               <b-button variant="primary">

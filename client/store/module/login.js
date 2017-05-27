@@ -56,13 +56,14 @@ const actions = {
     window.localStorage.removeItem('session');
     commit('deleteSession');
   },
-  saveSession({commit, getters}, session) {
+  saveSession({commit, dispatch, getters}, session) {
     window.localStorage.setItem('session', JSON.stringify(session));
     commit('setSession', session);
     Vue.axios.interceptors.request.use(config => {
       config.headers.Authorization = getters.getAuthorizationHeader;
       return config;
     });
+    dispatch('findCurrentUser');
   }
 };
 

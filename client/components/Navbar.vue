@@ -19,7 +19,8 @@
         <b-nav is-nav-bar class="ml-auto">
           <b-nav-item-dropdown right>
             <template slot="text">
-              User
+              <i class="fa fa-user"></i>
+              {{ $store.getters.loggedInUser.username }}
             </template>
             <b-dropdown-item :to="{ name: 'profile' }">
               <i class="fa fa-user"></i> Profile

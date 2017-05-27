@@ -10,7 +10,25 @@ const mutations = {
   }
 };
 
-const actions = {
+const getters = {
+  loggedInUser(state) {
+    return state.loggedInUser;
+  }
 };
 
-export default { actions, mutations, state };
+const actions = {
+  findCurrentUser({commit}) {
+    return Vue.axios.get('/api/users/me').then(response => {
+      commit('setLoggedInUser', response.data);
+      return response.data;
+    });
+  },
+  updateCurrentUser({commit}, user) {
+    return Vue.axios.put('/api/users/me', user).then(response => {
+      commit('setLoggedInUser', response.data);
+      return response.data;
+    });
+  }
+};
+
+export default { actions, getters, mutations, state };
