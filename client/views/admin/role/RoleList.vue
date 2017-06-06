@@ -3,8 +3,8 @@
     <div class="col-xs-12 col-md-3">
       <h2>
         Roles <br />
+        <small class="text-muted">Add or modify role</small>
       </h2>
-      <p class="text-muted">Add or modify role</p>
       <hr />
       <b-button variant="primary" :to="{ name: 'role-form', params: { id: '+' } }">
         <i class="fa fa-plus"></i> New role
@@ -82,6 +82,7 @@ export default {
     deleteRole(role) {
       const self = this;
       this.$store.dispatch('deleteRole', role.id).then(() => {
+        self.$store.commit('showNotification', { text: `${role.code} deleted` });
         self.findRoles(this.$route.query.q, this.$route.query.page, this.$route.query.size);
       });
     }
