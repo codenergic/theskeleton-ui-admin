@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <navbar></navbar>
+    <vue-progress-bar></vue-progress-bar>
     <div class="container">
       <notification :variant="$store.state.notif.variant" :text="$store.state.notif.text" :countdown="$store.state.notif.countdown" @countdownChanged="countdownChanged"></notification>
     </div>
@@ -28,7 +29,6 @@ export default {
 <style>
 /* Show it is fixed to the top */
 body {
-  min-height: 75rem;
   padding-top: 4.5rem;
 }
 </style>
