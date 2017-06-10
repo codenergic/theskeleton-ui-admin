@@ -1,13 +1,13 @@
 <template>
   <b-navbar toggleable type="inverse" variant="inverse" class="fixed-top">
     <div class="container">
-      <b-nav-toggle target="nav_collapse"></b-nav-toggle>
+      <b-nav-toggle target="nav-collapse" position="right"></b-nav-toggle>
 
       <b-link class="navbar-brand" :to="{ name: 'home' }">
         <span>The<strong>Skeleton</strong></span>
       </b-link>
 
-      <b-collapse is-nav id="a">
+      <b-collapse is-nav id="nav-collapse">
         <b-nav is-nav-bar>
           <b-nav-item :to="{ name: 'admin' }">
             Admin
@@ -34,3 +34,12 @@
     </div>
   </b-navbar>
 </template>
+
+<style>
+@media (max-width: 767px) {
+  .navbar-toggleable-sm > .container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+</style>
