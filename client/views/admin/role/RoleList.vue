@@ -1,5 +1,8 @@
 <template>
   <div class="row">
+    <confirm-dialog id="confirm-delete" title="Confirm Delete Role" @dialog-confirm="deleteRole(role)">
+      Are you sure you want to delete <strong v-text="role.code"></strong>?
+    </confirm-dialog>
     <div class="col-xs-12 col-md-3">
       <h2>
         Roles <br />
@@ -42,7 +45,7 @@
           <router-link :to="{ name: 'role-form', params: { id: item.value } }" v-text="item.value"></router-link>
         </template>
         <template slot="action" scope="item">
-          <b-button variant="danger" size="sm" @click="deleteRole(item.item)">
+          <b-button variant="danger" size="sm" v-b-modal.confirm-delete @click="role = item.item">
             <i class="fa fa-close"></i>
           </b-button>
         </template>
@@ -55,9 +58,15 @@
 </template>
 
 <script>
+import ConfirmDialog from 'components/ConfirmDialog';
+
 export default {
+  components: {
+    ConfirmDialog
+  },
   data() {
     return {
+      role: {},
       q: '',
       roleSizeOptions: [5, 10, 20, 50, 100],
       fields: {
@@ -84,6 +93,7 @@ export default {
       this.$store.dispatch('deleteRole', role.id).then(() => {
         self.$store.commit('showNotification', { text: `${role.code} deleted` });
         self.findRoles(this.$route.query.q, this.$route.query.page, this.$route.query.size);
+        self.role = {};
       });
     }
   },
