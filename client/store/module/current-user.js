@@ -17,10 +17,15 @@ const getters = {
 };
 
 const actions = {
-  findCurrentUser({commit}) {
+  findCurrentUser({commit, dispatch}) {
     return Vue.axios.get('/api/users/me').then(response => {
       commit('setLoggedInUser', response.data);
       return response.data;
+    }).catch(error => {
+      if (error.response.status === 401) {
+        dispatch('deleteSession');
+      }
+      return error.response.data;
     });
   },
   updateCurrentUser({commit}, user) {

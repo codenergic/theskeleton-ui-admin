@@ -55,6 +55,7 @@ const actions = {
   deleteSession({commit}) {
     window.localStorage.removeItem('session');
     commit('deleteSession');
+    window.location.reload();
   },
   saveSession({commit, dispatch, getters}, session) {
     window.localStorage.setItem('session', JSON.stringify(session));
