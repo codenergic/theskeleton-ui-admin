@@ -4,7 +4,7 @@
       <b-nav-toggle target="nav-collapse" position="right"></b-nav-toggle>
 
       <b-link class="navbar-brand" :to="{ name: 'home' }">
-        <span>The<strong>Skeleton</strong></span>
+        <span v-html="brand"></span>
       </b-link>
 
       <b-collapse is-nav id="nav-collapse">
@@ -34,6 +34,12 @@
     </div>
   </b-navbar>
 </template>
+
+<script>
+export default {
+  props: [ 'brand' ]
+}
+</script>
 
 <style>
 @media (max-width: 767px) {

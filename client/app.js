@@ -6,6 +6,7 @@ import VueProgressBar from 'vue-progressbar'
 import { sync } from 'vuex-router-sync'
 
 import Index from './Main';
+import i18n from './i18n/i18n';
 import router from './router'
 import store from './store'
 import styles from './styles';
@@ -23,9 +24,13 @@ store.dispatch('checkSession').then(result => {
 sync(store, router);
 
 const app = new Vue({
+  i18n,
   router,
   store,
-  ...Index
+  ...Index,
+  mounted() {
+    document.title = this.$t('main.title');
+  }
 });
 
 Vue.axios.interceptors.request.use(config => {

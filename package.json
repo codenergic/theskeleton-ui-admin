@@ -27,6 +27,7 @@
     "query-string": "^4.3.4",
     "vue": "^2.2.0",
     "vue-axios": "^2.0.2",
+    "vue-i18n": "^7.0.2",
     "vue-progressbar": "^0.7.2",
     "vue-router": "^2.0.0",
     "vuex": "^2.0.0",
