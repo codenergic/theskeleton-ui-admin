@@ -4,14 +4,11 @@
       Are you sure you want to delete <strong v-text="role.code"></strong>?
     </confirm-dialog>
     <div class="col-xs-12 col-md-3">
-      <h2>
-        Roles <br />
-      </h2>
-      <p class="text-muted">Add or modify role</p>
-      <hr />
-      <b-button variant="primary" :to="{ name: 'role-form', params: { id: '+' } }">
-        <i class="fa fa-plus"></i> New role
-      </b-button>
+      <module-title :title="$t('admin.role.title')" :subtitle="$t('common.addOrModify', [$t('admin.role.label')])">
+        <b-button variant="primary" :to="{ name: 'role-form', params: { id: '+' } }">
+          <i class="fa fa-plus"></i> {{ $t('common.addNew', [$t('admin.role.label')]) }}
+        </b-button>
+      </module-title>
     </div>
     <div class="col-xs-12 col-md-9">
       <div class="row">
@@ -59,10 +56,12 @@
 
 <script>
 import ConfirmDialog from 'components/ConfirmDialog';
+import ModuleTitle from 'components/ModuleTitle';
 
 export default {
   components: {
-    ConfirmDialog
+    ConfirmDialog,
+    ModuleTitle
   },
   data() {
     return {

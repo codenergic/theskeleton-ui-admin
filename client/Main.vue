@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <navbar :brand="$t('main.nav-title')"></navbar>
+    <navbar :brand="$t('main.navTitle')"></navbar>
     <vue-progress-bar></vue-progress-bar>
     <div class="container">
       <notification :variant="$store.state.notif.variant" :text="$store.state.notif.text" :countdown="$store.state.notif.countdown" @countdownChanged="countdownChanged"></notification>

@@ -1,19 +1,15 @@
 <template>
   <div class="row">
     <div class="col-xs-12 col-md-3">
-      <h2>
-        Roles <br />
-      </h2>
-      <p class="text-muted" v-if="!role.id">Add new role</p>
-      <p class="text-muted" v-if="role.id">Modify role ({{ $route.params.id }})</p>
-      <hr />
-      <form>
-        <div class="form-group">
-          <b-button :to="{ name: 'role-list' }">
-            <i class="fa fa-list"></i> View roles
-          </b-button>
-        </div>
-      </form>
+      <module-title :title="$t('admin.role.title')" :subtitle="addOrModifyLabel">
+        <form>
+          <div class="form-group">
+            <b-button :to="{ name: 'role-list' }">
+              <i class="fa fa-list"></i> {{ $t('common.view', [$t('admin.role.label')]) }}
+            </b-button>
+          </div>
+        </form>
+      </module-title>
     </div>
     <div class="col-xs-12 col-md-9">
       <form method="post" @submit.prevent @submit="save(role)">
@@ -36,10 +32,19 @@
 </template>
 
 <script>
+import ModuleTitle from 'components/ModuleTitle';
+
 export default {
+  components: {
+    ModuleTitle
+  },
   computed: {
     role() {
       return this.$store.state.role.role;
+    },
+    addOrModifyLabel() {
+      const roleLabel = this.$t('admin.role.label');
+      return this.role.id ? this.$t('common.modify', [roleLabel, this.role.code]) : this.$t('common.addNew', [roleLabel]);
     }
   },
   methods: {
