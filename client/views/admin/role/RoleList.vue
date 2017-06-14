@@ -1,7 +1,9 @@
 <template>
   <div class="row">
-    <confirm-dialog id="confirm-delete" title="Confirm Delete Role" @dialog-confirm="deleteRole(role)">
-      Are you sure you want to delete <strong v-text="role.code"></strong>?
+    <confirm-dialog id="confirm-delete" :title="$t('common.deleteConfirm')" @dialog-confirm="deleteRole(role)">
+      <i18n path="common.deleteConfirmation" tag="span">
+        <strong v-text="role.code"></strong>
+      </i18n>
     </confirm-dialog>
     <div class="col-xs-12 col-md-3">
       <module-title :title="$t('admin.role.title')" :subtitle="$t('common.addOrModify', [$t('admin.role.label')])">
@@ -42,7 +44,7 @@
           <router-link :to="{ name: 'role-form', params: { id: item.value } }" v-text="item.value"></router-link>
         </template>
         <template slot="action" scope="item">
-          <b-button variant="danger" size="sm" v-b-modal.confirm-delete @click="role = item.item">
+          <b-button variant="danger" size="sm" v-b-modal.confirm-delete @click="role = item.item" :title="$t('common.delete', [ item.item.code ])">
             <i class="fa fa-close"></i>
           </b-button>
         </template>
@@ -70,9 +72,9 @@ export default {
       roleSizeOptions: [5, 10, 20, 50, 100],
       fields: {
         itemNumber: { label: '#' },
-        code: { label: 'Code' },
-        description: { label: 'Description' },
-        action: { label: 'Action' }
+        code: { label: this.$t('admin.role.labelCode') },
+        description: { label: this.$t('admin.role.labelDescription') },
+        action: { label: this.$t('common.action') }
       }
     }
   },
@@ -90,7 +92,7 @@ export default {
     deleteRole(role) {
       const self = this;
       this.$store.dispatch('deleteRole', role.id).then(() => {
-        self.$store.commit('showNotification', { text: `${role.code} deleted` });
+        self.$store.commit('showNotification', { text: self.$t('common.deleteSuccess', [ role.code ]) });
         self.findRoles(this.$route.query.q, this.$route.query.page, this.$route.query.size);
         self.role = {};
       });

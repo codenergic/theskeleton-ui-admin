@@ -2,28 +2,24 @@
   <div class="row">
     <div class="col-xs-12 col-md-3">
       <module-title :title="$t('admin.role.title')" :subtitle="addOrModifyLabel">
-        <form>
-          <div class="form-group">
-            <b-button :to="{ name: 'role-list' }">
-              <i class="fa fa-list"></i> {{ $t('common.view', [$t('admin.role.label')]) }}
-            </b-button>
-          </div>
-        </form>
+        <b-button :to="{ name: 'role-list' }">
+          <i class="fa fa-list"></i> {{ $t('common.view', [$t('admin.role.label')]) }}
+        </b-button>
       </module-title>
     </div>
     <div class="col-xs-12 col-md-9">
       <form method="post" @submit.prevent @submit="save(role)">
         <div class="form-group">
-          <label for="code">Code</label>
+          <label for="code" v-text="$t('admin.role.labelCode')"></label>
           <b-form-input id="code" name="code" v-model="role.code"></b-form-input>
         </div>
         <div class="form-group">
-          <label for="description">Description</label>
+          <label for="description" v-text="$t('admin.role.labelDescription')"></label>
           <b-form-input id="description" name="description" textarea :rows="3" v-model="role.description"></b-form-input>
         </div>
         <div>
           <b-button variant="primary">
-            <i class="fa fa-floppy-o"></i> Save
+            <i class="fa fa-floppy-o"></i> {{ $t('common.save') }}
           </b-button>
         </div>
       </form>
