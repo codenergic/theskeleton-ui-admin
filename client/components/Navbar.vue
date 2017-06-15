@@ -10,22 +10,23 @@
       <b-collapse is-nav id="nav-collapse">
         <b-nav is-nav-bar>
           <b-nav-item :to="{ name: 'admin' }">
+            <i class="fa fa-bolt"></i>
             Admin
-          </b-nav-item>
-          <b-nav-item :to="{ name: 'about' }">
-            About
           </b-nav-item>
         </b-nav>
         <b-nav is-nav-bar class="ml-auto">
           <b-nav-item-dropdown right>
             <template slot="text">
               <i class="fa fa-user"></i>
-              {{ $store.getters.loggedInUser.username }}
             </template>
             <b-dropdown-item :to="{ name: 'profile' }">
               <i class="fa fa-user"></i> Profile
             </b-dropdown-item>
             <b-dropdown-item :to="{ name: 'about' }">
+              <i class="fa fa-info-circle"></i> About
+            </b-dropdown-item>
+            <div class="dropdown-divider"></div>
+            <b-dropdown-item>
               <i class="fa fa-sign-out"></i> Sign out
             </b-dropdown-item>
           </b-nav-item-dropdown>

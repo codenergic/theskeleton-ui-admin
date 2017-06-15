@@ -17,12 +17,12 @@ export default {
     return {
       tabs: [
         {
-          title: 'Basic',
+          title: this.$t('profile.basic.title'),
           icon: 'fa fa-user',
           to: { name: 'profile-basic' }
         },
         {
-          title: 'Password',
+          title: this.$t('profile.password.title'),
           icon: 'fa fa-key',
           to: { name: 'profile-password' }
         }

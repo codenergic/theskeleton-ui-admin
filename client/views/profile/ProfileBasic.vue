@@ -2,25 +2,23 @@
   <div>
     <div class="row">
         <div class="col-xs-12 col-md-4 col-lg-3">
-          <h2>Basic Profile</h2>
-          <p class="text-muted">Update your basic profile</p>
+          <module-title :title="$t('profile.basic.title')" :subtitle="$t('profile.basic.subtitle')">
+          </module-title>
         </div>
         <div class="col-xs-12 col-md-8 col-lg-6">
           <form @submit.prevent @submit="updateCurrentUser(currentUser)">
             <div class="form-group">
-              <label for="username">Username</label>
+              <label for="username" v-text="$t('profile.basic.labelUsername')"></label>
               <b-form-input id="username" name="username" v-model="currentUser.username"></b-form-input>
-              <small class="text-warning">
-                If you change your username, you will need to sign in again
-              </small>
+              <small class="text-warning" v-text="$t('profile.basic.messageChangeUsername')"></small>
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
+              <label for="email" v-text="$t('profile.basic.labelEmail')"></label>
               <b-form-input id="email" name="email" type="email" v-model="currentUser.email"></b-form-input>
             </div>
             <div>
               <b-button variant="primary">
-                <i class="fa fa-floppy-o"></i> Update
+                <i class="fa fa-floppy-o"></i> {{ $t('common.update', []) }}
               </b-button>
             </div>
           </form>
@@ -30,7 +28,12 @@
 </template>
 
 <script>
+import ModuleTitle from 'components/ModuleTitle';
+
 export default {
+  components: {
+    ModuleTitle
+  },
   data() {
     return {
       currentUser: {}

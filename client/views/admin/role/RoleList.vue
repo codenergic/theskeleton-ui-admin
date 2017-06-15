@@ -44,9 +44,12 @@
           <router-link :to="{ name: 'role-form', params: { id: item.value } }" v-text="item.value"></router-link>
         </template>
         <template slot="action" scope="item">
-          <b-button variant="danger" size="sm" v-b-modal.confirm-delete @click="role = item.item" :title="$t('common.delete', [ item.item.code ])">
+          <router-link :class="['btn', 'btn-secondary', 'btn-sm']" :to="{ name: 'role-form', params: { id: item.item.code } }" :title="$t('common.modify', [ '', item.item.code ])">
+            <i class="fa fa-pencil"></i>
+          </router-link>
+          <b-link :class="['btn', 'btn-danger', 'btn-sm']" v-b-modal.confirm-delete @click="role = item.item" :title="$t('common.delete', [ item.item.code ])">
             <i class="fa fa-close"></i>
-          </b-button>
+          </b-link>
         </template>
       </b-table>
       <div>

@@ -19,7 +19,7 @@
         </div>
         <div>
           <b-button variant="primary">
-            <i class="fa fa-floppy-o"></i> {{ $t('common.save') }}
+            <i class="fa fa-floppy-o"></i> {{ role.id ? $t('common.update', []) : $t('common.save') }}
           </b-button>
         </div>
       </form>

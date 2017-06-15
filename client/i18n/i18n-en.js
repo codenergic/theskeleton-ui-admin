@@ -25,6 +25,25 @@ export default {
       label: 'role',
       labelCode: 'Code',
       labelDescription: 'Description'
+    },
+    user: {
+      title: 'Users'
+    }
+  },
+  profile: {
+    basic: {
+      title: 'Basic',
+      subtitle: 'Update your basic profile',
+      labelEmail: 'Email',
+      labelUsername: 'Username',
+      messageChangeUsername: 'If you change your username, you will need to sign in again'
+    },
+    password: {
+      title: 'Password',
+      subtitle: 'Update your password',
+      labelPasswordConfirm: 'Confirm new password',
+      labelPasswordNew: 'New password',
+      labelPasswordOld: 'Old password',
     }
   }
 }

@@ -17,13 +17,13 @@ export default {
     return {
       tabs: [
         {
-          title: 'Users',
+          title: this.$t('admin.user.title'),
           icon: 'fa fa-user',
           active: true,
           to: { name: 'user' }
         },
         {
-          title: 'Roles',
+          title: this.$t('admin.role.title'),
           icon: 'fa fa-users',
           to: { name: 'role' }
         }
@@ -36,7 +36,7 @@ export default {
   methods: {
     redirectToDefaultRoute() {
       if (this.$route.name === 'admin') {
-        this.$router.push({ name: 'user' });
+        this.$router.push({ name: 'role' });
       }
     }
   },
