@@ -2,10 +2,13 @@
 process.env.NODE_ENV = 'production'
 
 const exec = require('child_process').execSync
+const glob = require('glob-all')
+const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const ProgressPlugin = require('webpack/lib/ProgressPlugin')
 const OfflinePlugin = require('offline-plugin')
+const PurifyCSSPlugin = require('purifycss-webpack')
 const base = require('./webpack.base')
 const pkg = require('../package')
 const _ = require('./utils')
@@ -27,6 +30,13 @@ base.output.filename = '[name].[chunkhash:8].js'
 base.plugins.push(
   new ProgressPlugin(),
   new ExtractTextPlugin('styles.[contenthash:8].css'),
+  new PurifyCSSPlugin({
+    minimize: true,
+    paths: glob.sync([
+      path.join(__dirname, '../client/**/*.vue'),
+      path.join(__dirname, '../node_modules/bootstrap-vue/lib/components/*.vue')
+    ])
+  }),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify('production')
   }),
