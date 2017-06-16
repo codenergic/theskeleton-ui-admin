@@ -34,7 +34,8 @@ base.plugins.push(
     minimize: true,
     paths: glob.sync([
       path.join(__dirname, '../client/**/*.vue'),
-      path.join(__dirname, '../node_modules/bootstrap-vue/lib/components/*.vue')
+      path.join(__dirname, '../node_modules/bootstrap-vue/lib/components/*.vue'),
+      path.join(__dirname, '../node_modules/vue-progressbar/vue-progressbar.vue')
     ])
   }),
   new webpack.DefinePlugin({
