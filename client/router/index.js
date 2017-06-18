@@ -7,6 +7,8 @@ import AdminRoleForm from '../views/admin/role/RoleForm';
 import AdminRoleList from '../views/admin/role/RoleList';
 
 import AdminUser from '../views/admin/user/User';
+import AdminUserForm from '../views/admin/user/UserForm';
+import AdminUserList from '../views/admin/user/UserList';
 
 import Profile from '../views/profile/Profile';
 import ProfileBasic from '../views/profile/ProfileBasic';
@@ -44,7 +46,19 @@ export default new Router({
         {
           name: 'user',
           path: 'users',
-          component: AdminUser
+          component: AdminUser,
+          children: [
+            {
+              name: 'user-form',
+              path: ':id',
+              component: AdminUserForm
+            },
+            {
+              name: 'user-list',
+              path: '',
+              component: AdminUserList
+            }
+          ]
         },
         {
           name: 'role',

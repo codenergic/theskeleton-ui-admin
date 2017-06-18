@@ -27,7 +27,10 @@ export default {
       labelDescription: 'Description'
     },
     user: {
-      title: 'Users'
+      title: 'Users',
+      label: 'user',
+      labelEmail: 'Email',
+      labelUsername: 'Username'
     }
   },
   profile: {

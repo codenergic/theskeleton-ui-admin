@@ -34,18 +34,24 @@ export default {
   components: {
     ModuleTitle
   },
+  data() {
+    return {
+      originalRole: {}
+    }
+  },
   computed: {
     role() {
       return this.$store.state.role.role;
     },
     addOrModifyLabel() {
       const roleLabel = this.$t('admin.role.label');
-      return this.role.id ? this.$t('common.modify', [roleLabel, this.role.code]) : this.$t('common.addNew', [roleLabel]);
+      return this.role.id ? this.$t('common.modify', [roleLabel, this.originalRole.code]) : this.$t('common.addNew', [roleLabel]);
     }
   },
   methods: {
     save(role) {
       const router = this.$router;
+      role.id = this.originalRole.code;
       this.$store.dispatch('saveRole', role).then(() => {
         this.$store.dispatch('findRoles', { q: role.code }).then(() => {
           router.push({ name: 'role-list' });
@@ -54,10 +60,13 @@ export default {
     }
   },
   mounted() {
+    const self = this;
     if (this.$route.params.id === '+') {
       this.$store.commit('setRole', {});
     } else {
-      this.$store.dispatch('findRoleByCode', this.$route.params.id);
+      this.$store.dispatch('findRoleByCode', this.$route.params.id).then(role => {
+        this.originalRole = role;
+      });
     }
   }
 }
