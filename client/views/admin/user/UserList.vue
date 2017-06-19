@@ -100,7 +100,7 @@ export default {
     },
     deleteUser(user) {
       const self = this;
-      this.$store.dispatch('deleteUser', user.id).then(() => {
+      this.$store.dispatch('deleteUser', user.username).then(() => {
         self.$store.commit('showNotification', { text: self.$t('common.deleteSuccess', [ user.username ]) });
         self.findUsers(this.$route.query.q, this.$route.query.page, this.$route.query.size);
         self.user = {};
