@@ -13,28 +13,7 @@
       </module-title>
     </div>
     <div class="col-xs-12 col-md-9">
-      <div class="row">
-        <div class="col-xs-2 col-md-6">
-          <select class="custom-select" v-model.number="roles.size" @change="findRoles($route.query.q, 1, roles.size)">
-            <option v-for="rs in roleSizeOptions" v-text="rs"></option>
-          </select>
-          <b-button @click="findRoles($route.query.q, $route.query.page, $route.query.size)">
-            <i class="fa fa-refresh"></i>
-          </b-button>
-        </div>
-        <div class="col-xs-10 col-md-6">
-          <form @submit.prevent @submit="findRoles(q, $route.query.page, $route.query.size)">
-            <b-input-group class="">
-              <b-form-input placeholder="Keywords" v-model="q"></b-form-input>
-              <b-input-group-button slot="right">
-                <b-button variant="primary">
-                  <i class="fa fa-search"></i>
-                </b-button>
-              </b-input-group-button>
-            </b-input-group>
-          </form>
-        </div>
-      </div>
+      <search-box-pagination :query="q" :page-size="roles.size" @search="v => findRoles(v.query, $route.query.page, v.pageSize)"></search-box-pagination>
       <br />
       <b-table hover responsive striped :items="roles.content" :fields="fields" :per-page="roles.size">
         <template slot="itemNumber" scope="item">
@@ -62,11 +41,13 @@
 <script>
 import ConfirmDialog from 'components/ConfirmDialog';
 import ModuleTitle from 'components/ModuleTitle';
+import SearchBoxPagination from 'components/SearchBoxPagination';
 
 export default {
   components: {
     ConfirmDialog,
-    ModuleTitle
+    ModuleTitle,
+    SearchBoxPagination
   },
   data() {
     return {

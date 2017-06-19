@@ -13,28 +13,7 @@
       </module-title>
     </div>
     <div class="col-xs-12 col-md-9">
-      <div class="row">
-        <div class="col-xs-2 col-md-6">
-          <select class="custom-select" v-model.number="users.size" @change="findUsers($route.query.q, 1, users.size)">
-            <option v-for="rs in userSizeOptions" v-text="rs"></option>
-          </select>
-          <b-button @click="findUsers($route.query.q, $route.query.page, $route.query.size)">
-            <i class="fa fa-refresh"></i>
-          </b-button>
-        </div>
-        <div class="col-xs-10 col-md-6">
-          <form @submit.prevent @submit="findUsers(q, $route.query.page, $route.query.size)">
-            <b-input-group class="">
-              <b-form-input placeholder="Keywords" v-model="q"></b-form-input>
-              <b-input-group-button slot="right">
-                <b-button variant="primary">
-                  <i class="fa fa-search"></i>
-                </b-button>
-              </b-input-group-button>
-            </b-input-group>
-          </form>
-        </div>
-      </div>
+      <search-box-pagination :query="q" :page-size="users.size" @search="v => findUsers(v.query, $route.query.page, v.pageSize)"></search-box-pagination>
       <br />
       <b-table hover responsive striped :items="users.content" :fields="fields" :per-page="users.size">
         <template slot="itemNumber" scope="item">
@@ -68,11 +47,13 @@
 <script>
 import ConfirmDialog from 'components/ConfirmDialog';
 import ModuleTitle from 'components/ModuleTitle';
+import SearchBoxPagination from 'components/SearchBoxPagination';
 
 export default {
   components: {
     ConfirmDialog,
-    ModuleTitle
+    ModuleTitle,
+    SearchBoxPagination
   },
   data() {
     return {
@@ -93,10 +74,10 @@ export default {
     }
   },
   methods: {
-    findUsers(q = '', page = 1, size = 20) {
-      this.q = q;
-      this.$router.push({ query: { q, page, size } });
-      this.$store.dispatch('findUsers', { q, page, size });
+    findUsers(username = '', page = 1, size = 20) {
+      this.q = username;
+      this.$router.push({ query: { q: username, page, size } });
+      this.$store.dispatch('findUsers', { username, page, size });
     },
     deleteUser(user) {
       const self = this;
