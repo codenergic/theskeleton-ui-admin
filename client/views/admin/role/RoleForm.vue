@@ -1,37 +1,35 @@
 <template>
-  <div class="row">
-    <div class="col-xs-12 col-md-3">
-      <module-title :title="$t('admin.role.title')" :subtitle="addOrModifyLabel">
-        <b-button :to="{ name: 'role-list' }">
-          <i class="fa fa-list"></i> {{ $t('common.view', [$t('admin.role.label')]) }}
+  <main-layout>
+    <module-title slot="menu" :title="$t('admin.role.title')" :subtitle="addOrModifyLabel">
+      <b-button :to="{ name: 'role-list' }">
+        <i class="fa fa-list"></i> {{ $t('common.view', [$t('admin.role.label')]) }}
+      </b-button>
+    </module-title>
+    <form slot="content" method="post" @submit.prevent @submit="save(role)">
+      <div class="form-group">
+        <label for="code" v-text="$t('admin.role.labelCode')"></label>
+        <b-form-input id="code" name="code" v-model="role.code"></b-form-input>
+      </div>
+      <div class="form-group">
+        <label for="description" v-text="$t('admin.role.labelDescription')"></label>
+        <b-form-input id="description" name="description" textarea :rows="3" v-model="role.description"></b-form-input>
+      </div>
+      <div>
+        <b-button variant="primary">
+          <i class="fa fa-floppy-o"></i> {{ role.id ? $t('common.update', []) : $t('common.save') }}
         </b-button>
-      </module-title>
-    </div>
-    <div class="col-xs-12 col-md-9">
-      <form method="post" @submit.prevent @submit="save(role)">
-        <div class="form-group">
-          <label for="code" v-text="$t('admin.role.labelCode')"></label>
-          <b-form-input id="code" name="code" v-model="role.code"></b-form-input>
-        </div>
-        <div class="form-group">
-          <label for="description" v-text="$t('admin.role.labelDescription')"></label>
-          <b-form-input id="description" name="description" textarea :rows="3" v-model="role.description"></b-form-input>
-        </div>
-        <div>
-          <b-button variant="primary">
-            <i class="fa fa-floppy-o"></i> {{ role.id ? $t('common.update', []) : $t('common.save') }}
-          </b-button>
-        </div>
-      </form>
-    </div>
-  </div>
+      </div>
+    </form>
+  </main-layout>
 </template>
 
 <script>
+import MainLayout from 'components/MainLayout';
 import ModuleTitle from 'components/ModuleTitle';
 
 export default {
   components: {
+    MainLayout,
     ModuleTitle
   },
   data() {

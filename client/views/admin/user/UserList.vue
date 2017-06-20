@@ -1,18 +1,16 @@
 <template>
-  <div class="row">
-    <confirm-dialog id="confirm-delete" :title="$t('common.deleteConfirm')" @dialog-confirm="deleteUser(user)">
-      <i18n path="common.deleteConfirmation" tag="span">
-        <strong v-text="user.username"></strong>
-      </i18n>
-    </confirm-dialog>
-    <div class="col-xs-12 col-md-3">
-      <module-title :title="$t('admin.user.title')" :subtitle="$t('common.addOrModify', [$t('admin.user.label')])">
-        <b-button variant="primary" :to="{ name: 'user-form', params: { id: '+' } }">
-          <i class="fa fa-plus"></i> {{ $t('common.addNew', [$t('admin.user.label')]) }}
-        </b-button>
-      </module-title>
-    </div>
-    <div class="col-xs-12 col-md-9">
+  <main-layout>
+    <module-title slot="menu" :title="$t('admin.user.title')" :subtitle="$t('common.addOrModify', [$t('admin.user.label')])">
+      <b-button variant="primary" :to="{ name: 'user-form', params: { id: '+' } }">
+        <i class="fa fa-plus"></i> {{ $t('common.addNew', [$t('admin.user.label')]) }}
+      </b-button>
+    </module-title>
+    <template slot="content">
+      <confirm-dialog id="confirm-delete" :title="$t('common.deleteConfirm')" @dialog-confirm="deleteUser(user)">
+        <i18n path="common.deleteConfirmation" tag="span">
+          <strong v-text="user.username"></strong>
+        </i18n>
+      </confirm-dialog>
       <search-box-pagination :query="q" :page-size="$store.state.paginationLimit" @search="v => findUsers(v.query, $route.query.page, v.pageSize)"></search-box-pagination>
       <br />
       <b-table hover responsive striped :items="users.content" :fields="fields" :per-page="$store.state.paginationLimit">
@@ -40,18 +38,20 @@
       <div>
         <b-pagination size="md" :total-rows="users.totalElements" :per-page="$store.state.paginationLimit" v-model.number="users.number" @input="findUsers(q, users.number, $store.state.paginationLimit)" />
       </div>
-    </div>
-  </div>
+    </template>
+  </main-layout>
 </template>
 
 <script>
 import ConfirmDialog from 'components/ConfirmDialog';
+import MainLayout from 'components/MainLayout';
 import ModuleTitle from 'components/ModuleTitle';
 import SearchBoxPagination from 'components/SearchBoxPagination';
 
 export default {
   components: {
     ConfirmDialog,
+    MainLayout,
     ModuleTitle,
     SearchBoxPagination
   },

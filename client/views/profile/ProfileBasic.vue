@@ -1,37 +1,35 @@
 <template>
-  <div>
-    <div class="row">
-        <div class="col-xs-12 col-md-4 col-lg-3">
-          <module-title :title="$t('profile.basic.title')" :subtitle="$t('profile.basic.subtitle')">
-          </module-title>
+  <main-layout>
+    <module-title slot="menu" :title="$t('profile.basic.title')" :subtitle="$t('profile.basic.subtitle')">
+    </module-title>
+    <div slot="content" class="row">
+      <form class="col-xs-12 col-lg-8" @submit.prevent @submit="updateCurrentUser(currentUser)">
+        <div class="form-group">
+          <label for="username" v-text="$t('profile.basic.labelUsername')"></label>
+          <b-form-input id="username" name="username" v-model="currentUser.username"></b-form-input>
+          <small class="text-warning" v-text="$t('profile.basic.messageChangeUsername')"></small>
         </div>
-        <div class="col-xs-12 col-md-8 col-lg-6">
-          <form @submit.prevent @submit="updateCurrentUser(currentUser)">
-            <div class="form-group">
-              <label for="username" v-text="$t('profile.basic.labelUsername')"></label>
-              <b-form-input id="username" name="username" v-model="currentUser.username"></b-form-input>
-              <small class="text-warning" v-text="$t('profile.basic.messageChangeUsername')"></small>
-            </div>
-            <div class="form-group">
-              <label for="email" v-text="$t('profile.basic.labelEmail')"></label>
-              <b-form-input id="email" name="email" type="email" v-model="currentUser.email"></b-form-input>
-            </div>
-            <div>
-              <b-button variant="primary">
-                <i class="fa fa-floppy-o"></i> {{ $t('common.update', []) }}
-              </b-button>
-            </div>
-          </form>
+        <div class="form-group">
+          <label for="email" v-text="$t('profile.basic.labelEmail')"></label>
+          <b-form-input id="email" name="email" type="email" v-model="currentUser.email"></b-form-input>
         </div>
+        <div>
+          <b-button variant="primary">
+            <i class="fa fa-floppy-o"></i> {{ $t('common.update', []) }}
+          </b-button>
+        </div>
+      </form>
     </div>
-  </div>
+  </main-layout>
 </template>
 
 <script>
+import MainLayout from 'components/MainLayout';
 import ModuleTitle from 'components/ModuleTitle';
 
 export default {
   components: {
+    MainLayout,
     ModuleTitle
   },
   data() {

@@ -1,18 +1,16 @@
 <template>
-  <div class="row">
-    <confirm-dialog id="confirm-delete" :title="$t('common.deleteConfirm')" @dialog-confirm="deleteRole(role)">
-      <i18n path="common.deleteConfirmation" tag="span">
-        <strong v-text="role.code"></strong>
-      </i18n>
-    </confirm-dialog>
-    <div class="col-xs-12 col-md-3">
-      <module-title :title="$t('admin.role.title')" :subtitle="$t('common.addOrModify', [$t('admin.role.label')])">
-        <b-button variant="primary" :to="{ name: 'role-form', params: { id: '+' } }">
-          <i class="fa fa-plus"></i> {{ $t('common.addNew', [$t('admin.role.label')]) }}
-        </b-button>
-      </module-title>
-    </div>
-    <div class="col-xs-12 col-md-9">
+  <main-layout>
+    <module-title slot="menu" :title="$t('admin.role.title')" :subtitle="$t('common.addOrModify', [$t('admin.role.label')])">
+      <b-button variant="primary" :to="{ name: 'role-form', params: { id: '+' } }">
+        <i class="fa fa-plus"></i> {{ $t('common.addNew', [$t('admin.role.label')]) }}
+      </b-button>
+    </module-title>
+    <template slot="content">
+      <confirm-dialog id="confirm-delete" :title="$t('common.deleteConfirm')" @dialog-confirm="deleteRole(role)">
+        <i18n path="common.deleteConfirmation" tag="span">
+          <strong v-text="role.code"></strong>
+        </i18n>
+      </confirm-dialog>
       <search-box-pagination :query="q" :page-size="$store.state.paginationLimit" @search="v => findRoles(v.query, $route.query.page, v.pageSize)"></search-box-pagination>
       <br />
       <b-table hover responsive striped :items="roles.content" :fields="fields" :per-page="$store.state.paginationLimit">
@@ -34,18 +32,20 @@
       <div>
         <b-pagination size="md" :total-rows="roles.totalElements" :per-page="$store.state.paginationLimit" v-model.number="roles.number" @input="findRoles(q, roles.number, $store.state.paginationLimit)" />
       </div>
-    </div>
-  </div>
+    </template>
+  </main-layout>
 </template>
 
 <script>
 import ConfirmDialog from 'components/ConfirmDialog';
+import MainLayout from 'components/MainLayout';
 import ModuleTitle from 'components/ModuleTitle';
 import SearchBoxPagination from 'components/SearchBoxPagination';
 
 export default {
   components: {
     ConfirmDialog,
+    MainLayout,
     ModuleTitle,
     SearchBoxPagination
   },

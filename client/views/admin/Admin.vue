@@ -36,7 +36,7 @@ export default {
   methods: {
     redirectToDefaultRoute() {
       if (this.$route.name === 'admin') {
-        this.$router.push({ name: 'role' });
+        this.$router.push({ name: 'user' });
       }
     }
   },
