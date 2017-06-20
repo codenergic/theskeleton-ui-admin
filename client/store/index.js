@@ -7,10 +7,14 @@ Vue.use(Vuex);
 
 // global state
 const state = {
+  paginationLimit: 20
 }
 
 // global mutations
 const mutations = {
+  setPaginationLimit(state, limit) {
+    state.paginationLimit = limit;
+  }
 }
 
 // global actions

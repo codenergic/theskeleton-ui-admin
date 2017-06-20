@@ -13,9 +13,9 @@
       </module-title>
     </div>
     <div class="col-xs-12 col-md-9">
-      <search-box-pagination :query="q" :page-size="users.size" @search="v => findUsers(v.query, $route.query.page, v.pageSize)"></search-box-pagination>
+      <search-box-pagination :query="q" :page-size="$store.state.paginationLimit" @search="v => findUsers(v.query, $route.query.page, v.pageSize)"></search-box-pagination>
       <br />
-      <b-table hover responsive striped :items="users.content" :fields="fields" :per-page="users.size">
+      <b-table hover responsive striped :items="users.content" :fields="fields" :per-page="$store.state.paginationLimit">
         <template slot="itemNumber" scope="item">
           {{ item.index + (users.size * users.number) - users.size + 1 }}
         </template>
@@ -38,7 +38,7 @@
         </template>
       </b-table>
       <div>
-        <b-pagination size="md" :total-rows="users.totalElements" :per-page="users.size" v-model.number="users.number" @input="findUsers(q, users.number, users.size)" />
+        <b-pagination size="md" :total-rows="users.totalElements" :per-page="$store.state.paginationLimit" v-model.number="users.number" @input="findUsers(q, users.number, $store.state.paginationLimit)" />
       </div>
     </div>
   </div>
@@ -78,6 +78,7 @@ export default {
       this.q = username;
       this.$router.push({ query: { q: username, page, size } });
       this.$store.dispatch('findUsers', { username, page, size });
+      this.$store.commit('setPaginationLimit', size);
     },
     deleteUser(user) {
       const self = this;

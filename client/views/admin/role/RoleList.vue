@@ -13,9 +13,9 @@
       </module-title>
     </div>
     <div class="col-xs-12 col-md-9">
-      <search-box-pagination :query="q" :page-size="roles.size" @search="v => findRoles(v.query, $route.query.page, v.pageSize)"></search-box-pagination>
+      <search-box-pagination :query="q" :page-size="$store.state.paginationLimit" @search="v => findRoles(v.query, $route.query.page, v.pageSize)"></search-box-pagination>
       <br />
-      <b-table hover responsive striped :items="roles.content" :fields="fields" :per-page="roles.size">
+      <b-table hover responsive striped :items="roles.content" :fields="fields" :per-page="$store.state.paginationLimit">
         <template slot="itemNumber" scope="item">
           {{ item.index + (roles.size * roles.number) - roles.size + 1 }}
         </template>
@@ -32,7 +32,7 @@
         </template>
       </b-table>
       <div>
-        <b-pagination size="md" :total-rows="roles.totalElements" :per-page="roles.size" v-model.number="roles.number" @input="findRoles(q, roles.number, roles.size)" />
+        <b-pagination size="md" :total-rows="roles.totalElements" :per-page="$store.state.paginationLimit" v-model.number="roles.number" @input="findRoles(q, roles.number, $store.state.paginationLimit)" />
       </div>
     </div>
   </div>
@@ -72,6 +72,7 @@ export default {
       this.q = q;
       this.$router.push({ query: { q, page, size } });
       this.$store.dispatch('findRoles', { q, page, size });
+      this.$store.commit('setPaginationLimit', size);
     },
     deleteRole(role) {
       const self = this;
