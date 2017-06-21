@@ -13,7 +13,7 @@ const state = {
 // global mutations
 const mutations = {
   setPaginationLimit(state, limit) {
-    state.paginationLimit = limit;
+    state.paginationLimit = Number(limit);
   }
 }
 
