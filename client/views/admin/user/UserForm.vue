@@ -62,7 +62,7 @@ export default {
     if (this.$route.params.id === '+') {
       this.$store.commit('setUser', {});
     } else {
-      this.$store.dispatch('findUserByCode', this.$route.params.id).then(user => {
+      this.$store.dispatch('findUserByUsername', this.$route.params.id).then(user => {
         self.originalUser = user;
       });
     }

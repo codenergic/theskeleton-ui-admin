@@ -30,6 +30,7 @@ export default {
       title: 'Users',
       label: 'user',
       labelEmail: 'Email',
+      labelRoles: 'Roles',
       labelUsername: 'Username'
     }
   },

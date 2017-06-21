@@ -26,6 +26,9 @@
           </a>
           {{ item.value }}
         </template>
+        <template slot="roles" scope="item">
+          <b-badge v-for="r in roles[item.item.username]" :key="r" v-text="r.code"></b-badge>
+        </template>
         <template slot="action" scope="item">
           <router-link :class="['btn', 'btn-secondary', 'btn-sm']" :to="{ name: 'user-form', params: { id: item.item.username } }" :title="$t('common.modify', [ '', item.item.username ])">
             <i class="fa fa-pencil"></i>
@@ -64,6 +67,7 @@ export default {
         itemNumber: { label: '#' },
         username: { label: this.$t('admin.user.labelUsername') },
         email: { label: this.$t('admin.user.labelEmail') },
+        roles: { label: this.$t('admin.user.labelRoles') },
         action: { label: this.$t('common.action') }
       }
     }
@@ -71,6 +75,9 @@ export default {
   computed: {
     users() {
       return this.$store.state.user.users;
+    },
+    roles() {
+      return this.$store.state.user.roles;
     }
   },
   methods: {

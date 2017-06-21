@@ -1,6 +1,7 @@
 import Vue from 'vue';
 
 const state = {
+  roles: {},
   users: {},
   user: {}
 };
@@ -12,6 +13,9 @@ const mutations = {
   },
   setUser(state, user) {
     state.user = { ...user };
+  },
+  setRoles(state, {username, roles}) {
+    state.roles = { ...state.roles, [username]: roles };
   }
 };
 
@@ -21,17 +25,26 @@ const actions = {
       return response.data;
     });
   },
-  findUsers({commit, rootState}, params = { q: '', page: 1, size: 20}) {
+  findUsers({commit, dispatch, rootState}, params = { q: '', page: 1, size: 20}) {
     params.page -= 1;
     params.sort = 'username,asc';
     return Vue.axios.get('/api/users', { params }).then(response => {
       commit('setUsers', response.data);
+      response.data.content.forEach(user => {
+        dispatch('findUserRolesByUsername', user.username);
+      });
       return response.data;
     });
   },
-  findUserByCode({commit}, code) {
-    return Vue.axios.get(`/api/users/${code}`).then(response => {
+  findUserByUsername({commit}, username) {
+    return Vue.axios.get(`/api/users/${username}`).then(response => {
       commit('setUser', response.data);
+      return response.data;
+    });
+  },
+  findUserRolesByUsername({commit}, username) {
+    return Vue.axios.get(`/api/users/${username}/roles`).then(response => {
+      commit('setRoles', {username, roles: response.data});
       return response.data;
     });
   },
