@@ -53,16 +53,18 @@ export default {
     return {
       role: {},
       q: '',
-      roleSizeOptions: [5, 10, 20, 50, 100],
-      fields: {
+      roleSizeOptions: [5, 10, 20, 50, 100]
+    }
+  },
+  computed: {
+    fields() {
+      return {
         itemNumber: { label: '#' },
         code: { label: this.$t('admin.role.labelCode') },
         description: { label: this.$t('admin.role.labelDescription') },
         action: { label: this.$t('common.action') }
       }
-    }
-  },
-  computed: {
+    },
     roles() {
       return this.$store.state.role.roles;
     }

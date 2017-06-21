@@ -1,5 +1,3 @@
-import Vue from 'vue';
-
 export default {
   main: {
     navTitle: 'The<strong>Skeleton</strong>',

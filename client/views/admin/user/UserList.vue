@@ -62,17 +62,19 @@ export default {
     return {
       user: {},
       q: '',
-      userSizeOptions: [5, 10, 20, 50, 100],
-      fields: {
+      userSizeOptions: [5, 10, 20, 50, 100]
+    }
+  },
+  computed: {
+    fields() {
+      return {
         itemNumber: { label: '#' },
         username: { label: this.$t('admin.user.labelUsername') },
         email: { label: this.$t('admin.user.labelEmail') },
         roles: { label: this.$t('admin.user.labelRoles') },
         action: { label: this.$t('common.action') }
       }
-    }
-  },
-  computed: {
+    },
     users() {
       return this.$store.state.user.users;
     },
