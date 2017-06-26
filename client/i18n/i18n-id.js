@@ -15,6 +15,7 @@ export default {
     modify: 'Modifikasi {0} ({1})',
     save: 'Simpan',
     update: 'Perbarui {0}',
+    updateSuccess: '{0} telah diperbarui',
     view: 'Lihat {0}'
   },
   admin: {
@@ -46,6 +47,7 @@ export default {
       labelPasswordConfirm: 'Konfirmasi kata sandi',
       labelPasswordNew: 'Kata sandi baru',
       labelPasswordOld: 'Kata sandi lama',
+      messagePasswordUpdated: 'Kata sandi telah diperbarui'
     }
   }
 }

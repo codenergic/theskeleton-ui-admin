@@ -15,6 +15,7 @@ export default {
     modify: 'Modify {0} ({1})',
     save: 'Save',
     update: 'Update {0}',
+    updateSuccess: '{0} updated',
     view: 'View {0}'
   },
   admin: {
@@ -46,6 +47,7 @@ export default {
       labelPasswordConfirm: 'Confirm new password',
       labelPasswordNew: 'New password',
       labelPasswordOld: 'Old password',
+      messagePasswordUpdated: 'Password updated'
     }
   }
 }

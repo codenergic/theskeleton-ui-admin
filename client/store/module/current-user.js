@@ -33,6 +33,11 @@ const actions = {
       commit('setLoggedInUser', response.data);
       return response.data;
     });
+  },
+  updateCurrentUserPassword({commit}, password) {
+    return Vue.axios.put('/api/users/me/password', { password: password.newPassword }).then(response => {
+      return response.data;
+    });
   }
 };
 
