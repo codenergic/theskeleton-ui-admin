@@ -13,22 +13,24 @@
       </confirm-dialog>
       <search-box-pagination :query="q" :page-size="$store.state.paginationLimit" @search="v => findRoles(v.query, $route.query.page, v.pageSize)"></search-box-pagination>
       <br />
-      <b-table hover responsive striped :items="roles.content" :fields="fields" :per-page="$store.state.paginationLimit">
-        <template slot="itemNumber" scope="item">
-          {{ item.index + (roles.size * roles.number) - roles.size + 1 }}
-        </template>
-        <template slot="code" scope="item">
-          <router-link :to="{ name: 'role-form', params: { id: item.value } }" v-text="item.value"></router-link>
-        </template>
-        <template slot="action" scope="item">
-          <router-link :class="['btn', 'btn-secondary', 'btn-sm']" :to="{ name: 'role-form', params: { id: item.item.code } }" :title="$t('common.modify', [ '', item.item.code ])">
-            <i class="fa fa-pencil"></i>
-          </router-link>
-          <b-button variant="danger" size="sm" v-b-modal.confirm-delete @click="role=item.item" :title="$t('common.delete', [ role.code ])">
-            <i class="fa fa-close"></i>
-          </b-button>
-        </template>
-      </b-table>
+      <div class="table-responsive">
+        <b-table hover striped :class="['table-sm']" :items="roles.content" :fields="fields" :per-page="$store.state.paginationLimit">
+          <template slot="itemNumber" scope="item">
+            {{ item.index + (roles.size * roles.number) - roles.size + 1 }}
+          </template>
+          <template slot="code" scope="item">
+            <router-link :to="{ name: 'role-form', params: { id: item.value } }" v-text="item.value"></router-link>
+          </template>
+          <template slot="action" scope="item">
+            <router-link :class="['btn', 'btn-secondary', 'btn-sm']" :to="{ name: 'role-form', params: { id: item.item.code } }" :title="$t('common.modify', [ '', item.item.code ])">
+              <i class="fa fa-pencil"></i>
+            </router-link>
+            <b-button variant="danger" size="sm" v-b-modal.confirm-delete @click="role=item.item" :title="$t('common.delete', [ role.code ])">
+              <i class="fa fa-close"></i>
+            </b-button>
+          </template>
+        </b-table>
+      </div>
       <div>
         <b-pagination size="md" :total-rows="roles.totalElements" :per-page="$store.state.paginationLimit" v-model.number="roles.number" @input="findRoles(q, roles.number, $store.state.paginationLimit)" />
       </div>

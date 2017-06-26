@@ -13,31 +13,33 @@
       </confirm-dialog>
       <search-box-pagination :query="q" :page-size="$store.state.paginationLimit" @search="v => findUsers(v.query, $route.query.page, v.pageSize)"></search-box-pagination>
       <br />
-      <b-table hover responsive striped :items="users.content" :fields="fields" :per-page="$store.state.paginationLimit">
-        <template slot="itemNumber" scope="item">
-          {{ item.index + (users.size * users.number) - users.size + 1 }}
-        </template>
-        <template slot="username" scope="item">
-          <router-link :to="{ name: 'user-form', params: { id: item.value } }" v-text="item.value"></router-link>
-        </template>
-        <template slot="email" scope="item">
-          <a :href="'mailto:' + item.value">
-            <i class="fa fa-envelope"></i>
-          </a>
-          {{ item.value }}
-        </template>
-        <template slot="roles" scope="item">
-          <b-badge v-for="r in roles[item.item.username]" :key="r" v-text="r.code"></b-badge>
-        </template>
-        <template slot="action" scope="item">
-          <router-link :class="['btn', 'btn-secondary', 'btn-sm']" :to="{ name: 'user-form', params: { id: item.item.username } }" :title="$t('common.modify', [ '', item.item.username ])">
-            <i class="fa fa-pencil"></i>
-          </router-link>
-          <b-button variant="danger" size="sm" v-b-modal.confirm-delete @click="user=item.item" :title="$t('common.delete', [ user.username ])">
-            <i class="fa fa-close"></i>
-          </b-button>
-        </template>
-      </b-table>
+      <div class="table-reponsive">
+        <b-table hover striped :class="['table-sm']" :items="users.content" :fields="fields" :per-page="$store.state.paginationLimit">
+          <template slot="itemNumber" scope="item">
+            {{ item.index + (users.size * users.number) - users.size + 1 }}
+          </template>
+          <template slot="username" scope="item">
+            <router-link :to="{ name: 'user-form', params: { id: item.value } }" v-text="item.value"></router-link>
+          </template>
+          <template slot="email" scope="item">
+            <a :href="'mailto:' + item.value">
+              <i class="fa fa-envelope"></i>
+            </a>
+            {{ item.value }}
+          </template>
+          <template slot="roles" scope="item">
+            <b-badge v-for="r in roles[item.item.username]" :key="r" v-text="r.code"></b-badge>
+          </template>
+          <template slot="action" scope="item">
+            <router-link :class="['btn', 'btn-secondary', 'btn-sm']" :to="{ name: 'user-form', params: { id: item.item.username } }" :title="$t('common.modify', [ '', item.item.username ])">
+              <i class="fa fa-pencil"></i>
+            </router-link>
+            <b-button variant="danger" size="sm" v-b-modal.confirm-delete @click="user=item.item" :title="$t('common.delete', [ user.username ])">
+              <i class="fa fa-close"></i>
+            </b-button>
+          </template>
+        </b-table>
+      </div>
       <div>
         <b-pagination size="md" :total-rows="users.totalElements" :per-page="$store.state.paginationLimit" v-model.number="users.number" @input="findUsers(q, users.number, $store.state.paginationLimit)" />
       </div>
