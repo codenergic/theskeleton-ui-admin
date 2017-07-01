@@ -7,6 +7,10 @@
           <i class="fa fa-bolt"></i>
           Go to admin
         </b-button>
+        <b-button :to="{ name: 'about' }" size="lg" variant="secondary">
+          <i class="fa fa-info-circle"></i>
+          About
+        </b-button>
       </div>
     </b-jumbotron>
   </div>
