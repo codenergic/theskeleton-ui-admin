@@ -27,6 +27,7 @@ export default {
     },
     user: {
       title: 'Pengguna',
+      subtitleAssignRole: 'Tugaskan peran kepada pengguna',
       label: 'pengguna',
       labelEmail: 'Surel',
       labelRoles: 'Peran',

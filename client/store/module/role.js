@@ -21,7 +21,7 @@ const actions = {
       return response.data;
     });
   },
-  findRoles({commit, rootState}, params = { q: '', page: 1, size: 20}) {
+  findRoles({commit}, params = { q: '', page: 1, size: 20}) {
     params.page -= 1;
     params.sort = 'code,asc';
     return Vue.axios.get('/api/roles', { params }).then(response => {

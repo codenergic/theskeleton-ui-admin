@@ -14,18 +14,23 @@ const mutations = {
   setUser(state, user) {
     state.user = { ...user };
   },
-  setRoles(state, {username, roles}) {
+  setUserRoles(state, {username, roles}) {
     state.roles = { ...state.roles, [username]: roles };
   }
 };
 
 const actions = {
+  assignRoleToUser(context, {username, role}) {
+    return Vue.axios.put(`/api/users/${username}/roles`, {role}).then(response => {
+      return response.data;
+    });
+  },
   deleteUser({commit, dispatch, state}, code) {
     return Vue.axios.delete(`/api/users/${code}`).then(response => {
       return response.data;
     });
   },
-  findUsers({commit, dispatch, rootState}, params = { q: '', page: 1, size: 20}) {
+  findUsers({commit, dispatch}, params = { q: '', page: 1, size: 20}) {
     params.page -= 1;
     params.sort = 'username,asc';
     return Vue.axios.get('/api/users', { params }).then(response => {
@@ -44,7 +49,12 @@ const actions = {
   },
   findUserRolesByUsername({commit}, username) {
     return Vue.axios.get(`/api/users/${username}/roles`).then(response => {
-      commit('setRoles', {username, roles: response.data});
+      commit('setUserRoles', {username, roles: response.data});
+      return response.data;
+    });
+  },
+  removeRoleFromUser(context, {username, role}) {
+    return Vue.axios.delete(`/api/users/${username}/roles`, { data: { role } }).then(response => {
       return response.data;
     });
   },

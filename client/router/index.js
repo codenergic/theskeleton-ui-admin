@@ -9,6 +9,7 @@ import AdminRoleList from '../views/admin/role/RoleList';
 import AdminUser from '../views/admin/user/User';
 import AdminUserForm from '../views/admin/user/UserForm';
 import AdminUserList from '../views/admin/user/UserList';
+import AdminUserRoleForm from '../views/admin/user/UserRoleForm';
 
 import Profile from '../views/profile/Profile';
 import ProfileBasic from '../views/profile/ProfileBasic';
@@ -52,6 +53,11 @@ export default new Router({
               name: 'user-form',
               path: ':id',
               component: AdminUserForm
+            },
+            {
+              name: 'user-role-form',
+              path: ':id/roles',
+              component: AdminUserRoleForm
             },
             {
               name: 'user-list',

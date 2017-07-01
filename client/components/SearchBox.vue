@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="$emit('search')">
+  <form @submit.prevent="$emit('search', model)">
     <b-input-group>
       <b-form-input placeholder="Keywords" v-model="model" :input="value"></b-form-input>
       <b-input-group-button slot="right">

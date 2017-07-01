@@ -29,6 +29,9 @@
           </template>
           <template slot="roles" scope="item">
             <b-badge v-for="r in roles[item.item.username]" :key="r" v-text="r.code"></b-badge>
+            <b-button :class="['btn-sm']" :to="{ name: 'user-role-form', params: { id: item.item.username } }">
+              <i class="fa fa-plus"></i>
+            </b-button>
           </template>
           <template slot="action" scope="item">
             <router-link :class="['btn', 'btn-secondary', 'btn-sm']" :to="{ name: 'user-form', params: { id: item.item.username } }" :title="$t('common.modify', [ '', item.item.username ])">
@@ -101,6 +104,7 @@ export default {
     }
   },
   mounted() {
+    this.$store.commit('setUser', {});
     if (!this.users.content) {
       this.findUsers(this.$route.query.q, this.$route.query.page, this.$route.query.size);
     }

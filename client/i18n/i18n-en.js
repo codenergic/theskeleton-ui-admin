@@ -27,6 +27,7 @@ export default {
     },
     user: {
       title: 'Users',
+      subtitleAssignRole: 'Assign role to user',
       label: 'user',
       labelEmail: 'Email',
       labelRoles: 'Roles',
