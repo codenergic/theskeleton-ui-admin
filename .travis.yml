@@ -13,7 +13,7 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -a --delete-after --quiet $TRAVIS_BUILD_DIR/dist/ build@tlsfree.org:/home/build/ui/admin/theskeleton-$TRAVIS_BUILD_ID ; ssh build@tlsfree.org 'rm -rf /home/build/ui/admin/current/*' ; ssh build@tlsfree.org 'cp -r /home/build/ui/admin/theskeleton-$TRAVIS_BUILD_ID/* /home/build/ui/admin/current/'
+  script: rsync -a --delete-after --quiet $TRAVIS_BUILD_DIR/dist/ theskeleton@azure.ns.codenergic.org:/home/theskeleton/ui/admin/theskeleton-$TRAVIS_BUILD_ID ; ssh theskeleton@azure.ns.codenergic.org 'rm -rf /home/theskeleton/ui/admin/current/*' ; ssh theskeleton@azure.ns.codenergic.org 'cp -r /home/theskeleton/ui/admin/theskeleton-$TRAVIS_BUILD_ID/* /home/theskeleton/ui/admin/current/'
 addons:
   ssh_known_hosts:
-  - tlsfree.org
+  - azure.ns.codenergic.org
