@@ -13,6 +13,14 @@
             <i class="fa fa-bolt"></i>
             Admin
           </b-nav-item>
+          <b-nav-item :to="{ name: 'write' }">
+            <i class="fa fa-pencil"></i>
+            Write a Story
+          </b-nav-item>
+          <b-nav-item :to="{ name: 'read' }">
+            <i class="fa fa-book"></i>
+            Read Stories
+          </b-nav-item>
         </b-nav>
         <b-nav is-nav-bar class="ml-auto">
           <b-nav-item-dropdown right>

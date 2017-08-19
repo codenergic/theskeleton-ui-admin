@@ -3,6 +3,8 @@ import Axios from 'axios';
 import BootstrapVue from 'bootstrap-vue';
 import VueAxios from 'vue-axios';
 import VueProgressBar from 'vue-progressbar'
+import VueQuillEditor from 'vue-quill-editor'
+
 import { sync } from 'vuex-router-sync'
 
 import Index from './Main';
@@ -14,6 +16,7 @@ import styles from './styles';
 Vue.use(BootstrapVue);
 Vue.use(VueAxios, Axios);
 Vue.use(VueProgressBar);
+Vue.use(VueQuillEditor)
 
 store.dispatch('checkSession').then(result => {
   if (!result && router.currentRoute.name !== 'login') {
