@@ -24,7 +24,8 @@ export default {
       subtitleAssignPrivilege: 'Assign privilege to role',
       label: 'role',
       labelCode: 'Code',
-      labelDescription: 'Description'
+      labelDescription: 'Description',
+      labelPrivileges: 'Privileges'
     },
     user: {
       title: 'Users',
