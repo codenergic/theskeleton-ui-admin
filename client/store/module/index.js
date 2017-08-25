@@ -5,6 +5,7 @@ import notif from './notif';
 import role from './role';
 import user from './user';
 import privilege from './privilege';
+import post from './post';
 
 export default {
   currentUser,
@@ -13,5 +14,6 @@ export default {
   notif,
   role,
   user,
-  privilege
+  privilege,
+  post
 }

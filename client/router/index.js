@@ -21,6 +21,9 @@ import About from '../views/About';
 import Home from '../views/Home';
 import Login from '../components/Login';
 
+import Write from '../views/post/Write';
+import Read from  '../views/post/Read';
+
 Vue.use(Router);
 
 export default new Router({
@@ -108,6 +111,16 @@ export default new Router({
           component: ProfilePassword
         }
       ]
+    },
+    {
+      name: 'write',
+      path: '/write',
+      component: Write
+    },
+    {
+      name: 'read',
+      path: '/read',
+      component: Read
     }
   ]
 });

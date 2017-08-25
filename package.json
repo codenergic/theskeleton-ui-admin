@@ -30,6 +30,7 @@
     "vue-axios": "^2.0.2",
     "vue-i18n": "^7.0.2",
     "vue-progressbar": "^0.7.2",
+    "vue-quill-editor": "^2.3.0",
     "vue-router": "^2.0.0",
     "vuex": "^2.0.0",
     "vuex-router-sync": "^4.0.0"
