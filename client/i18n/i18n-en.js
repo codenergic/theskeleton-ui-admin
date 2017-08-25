@@ -21,6 +21,7 @@ export default {
   admin: {
     role: {
       title: 'Roles',
+      subtitleAssignPrivilege: 'Assign privilege to role',
       label: 'role',
       labelCode: 'Code',
       labelDescription: 'Description'

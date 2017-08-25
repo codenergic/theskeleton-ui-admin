@@ -4,6 +4,7 @@ import login from './login';
 import notif from './notif';
 import role from './role';
 import user from './user';
+import privilege from './privilege';
 
 export default {
   currentUser,
@@ -11,5 +12,6 @@ export default {
   login,
   notif,
   role,
-  user
+  user,
+  privilege
 }

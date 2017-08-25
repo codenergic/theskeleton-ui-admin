@@ -21,9 +21,11 @@ export default {
   admin: {
     role: {
       title: 'Peran',
+      subtitleAssignPrivilege: 'Tugaskan hak khusus kepada peran',
       label: 'peran',
       labelCode: 'Kode',
-      labelDescription: 'Deskripsi'
+      labelDescription: 'Deskripsi',
+      labelPrivileges: 'Hak Khusus'
     },
     user: {
       title: 'Pengguna',

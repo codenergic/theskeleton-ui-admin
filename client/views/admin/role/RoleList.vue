@@ -21,6 +21,11 @@
           <template slot="code" scope="item">
             <router-link :to="{ name: 'role-form', params: { id: item.value } }" v-text="item.value"></router-link>
           </template>
+          <template slot="privileges" scope="item">
+            <b-button :class="['btn-sm']" :to="{ name: 'role-privilege-form', params: { id: item.item.code } }">
+              <i class="fa fa-plus"></i>
+            </b-button>
+          </template>
           <template slot="action" scope="item">
             <router-link :class="['btn', 'btn-secondary', 'btn-sm']" :to="{ name: 'role-form', params: { id: item.item.code } }" :title="$t('common.modify', [ '', item.item.code ])">
               <i class="fa fa-pencil"></i>
@@ -64,6 +69,7 @@ export default {
         itemNumber: { label: '#' },
         code: { label: this.$t('admin.role.labelCode') },
         description: { label: this.$t('admin.role.labelDescription') },
+        privileges: { label: this.$t('admin.role.labelPrivileges') },
         action: { label: this.$t('common.action') }
       }
     },

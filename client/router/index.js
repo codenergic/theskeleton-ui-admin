@@ -2,9 +2,11 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 import Admin from '../views/admin/Admin';
+
 import AdminRole from '../views/admin/role/Role';
 import AdminRoleForm from '../views/admin/role/RoleForm';
 import AdminRoleList from '../views/admin/role/RoleList';
+import AdminRolePrivilegeForm from '../views/admin/role/RolePrivilegeForm';
 
 import AdminUser from '../views/admin/user/User';
 import AdminUserForm from '../views/admin/user/UserForm';
@@ -75,6 +77,11 @@ export default new Router({
               name: 'role-form',
               path: ':id',
               component: AdminRoleForm
+            },
+            {
+              name: 'role-privilege-form',
+              path: ':id/privileges',
+              component: AdminRolePrivilegeForm
             },
             {
               name: 'role-list',
