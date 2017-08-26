@@ -20,6 +20,7 @@ import ProfilePassword from '../views/profile/ProfilePassword';
 import About from '../views/About';
 import Home from '../views/Home';
 import Login from '../components/Login';
+import Forbidden from '../views/Forbidden';
 
 import Write from '../views/post/Write';
 import Read from  '../views/post/Read';
@@ -43,6 +44,11 @@ export default new Router({
       name: 'about',
       path: '/about',
       component: About
+    },
+    {
+      name: 'forbidden',
+      path: '/forbidden',
+      component: Forbidden
     },
     {
       name: 'admin',
