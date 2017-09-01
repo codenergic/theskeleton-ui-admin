@@ -1,28 +1,22 @@
-[![Build Status](https://travis-ci.org/codenergic/theskeleton-ui-admin.svg?branch=master)](https://travis-ci.org/codenergic/theskeleton-ui-admin)
-
 # theskeleton-ui-admin
-Admin UI for theskeleton
 
-To start:
+> TheSkeleton Admin UI
 
-```bash
-$ npm install
-```
+## Build Setup
 
-To develop:
+``` bash
+# install dependencies
+$ npm install # Or yarn install
 
-```bash
+# serve with hot reload at localhost:3000
 $ npm run dev
-```
 
-To build for production:
-
-```bash
+# build for production and launch server
 $ npm run build
+$ npm start
+
+# generate static project
+$ npm run generate
 ```
 
-To lint you code:
-
-```bash
-$ npm run lint
-```
+For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).

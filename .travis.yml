@@ -4,7 +4,7 @@ node_js:
 before_script:
 - yarn
 script:
-- yarn run build
+- yarn run generate
 before_deploy:
 - openssl aes-256-cbc -K $encrypted_47773e7a01a0_key -iv $encrypted_47773e7a01a0_iv -in deploy_rsa.enc -out /tmp/deploy_rsa -d
 - eval "$(ssh-agent -s)"
