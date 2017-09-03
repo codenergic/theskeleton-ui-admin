@@ -12,6 +12,12 @@
     nuxt "^1.0.0-rc8"
     whatwg-url "^6.1.0"
 
+"@nuxtjs/bootstrap-vue@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/bootstrap-vue/-/bootstrap-vue-2.0.0.tgz#e1da23dd82ae39ad42bad9a285c9c11c35068997"
+  dependencies:
+    bootstrap-vue "^1.0.0-beta.5"
+
 "@nuxtjs/bootstrap@^0.0.1":
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@nuxtjs/bootstrap/-/bootstrap-0.0.1.tgz#7d2a4bf65cf546b67273f5c91644e76142d52590"
@@ -911,7 +917,17 @@ bootstrap-vue@^0.15.5:
     uglify-js-harmony "^2.7.5"
     vue "^2.2.6"
 
-bootstrap@^4.0.0-alpha.6:
+bootstrap-vue@^1.0.0-beta.5:
+  version "1.0.0-beta.7"
+  resolved "https://registry.yarnpkg.com/bootstrap-vue/-/bootstrap-vue-1.0.0-beta.7.tgz#dab0eb35421df80fe0966849b8e992f0ec0a270e"
+  dependencies:
+    bootstrap "^4.0.0-beta"
+    jquery "^3.0.0"
+    popper.js "^1.12.5"
+    vue "^2.4.2"
+    vue-functional-data-merge "^1.0.6"
+
+bootstrap@^4.0.0-alpha.6, bootstrap@^4.0.0-beta:
   version "4.0.0-beta"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.0.0-beta.tgz#dc5928175d2e71310bc668cf9e05a907211b72a6"
 
@@ -2936,6 +2952,10 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
+jquery@^3.0.0:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
+
 js-base64@^2.1.8, js-base64@^2.1.9:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.1.9.tgz#f0e80ae039a4bd654b5f281fc93f04a914a7fcce"
@@ -3915,6 +3935,10 @@ pleeease-filters@^4.0.0:
 pluralize@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-4.0.0.tgz#59b708c1c0190a2f692f1c7618c446b052fd1762"
+
+popper.js@^1.12.5:
+  version "1.12.5"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.12.5.tgz#229e4dea01629e1f1a1e26991ffade5024220fa6"
 
 postcss-apply@^0.8.0:
   version "0.8.0"
@@ -5505,6 +5529,10 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
+vue-functional-data-merge@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/vue-functional-data-merge/-/vue-functional-data-merge-1.0.6.tgz#cde4f0cf3f251f7f0196341156d2c936cca63d40"
+
 vue-hot-reload-api@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.1.0.tgz#9ca58a6e0df9078554ce1708688b6578754d86de"
@@ -5570,7 +5598,7 @@ vue-template-es2015-compiler@^1.5.3:
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.5.3.tgz#22787de4e37ebd9339b74223bc467d1adee30545"
 
-vue@^2.2.6, vue@~2.4.2:
+vue@^2.2.6, vue@^2.4.2, vue@~2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.4.2.tgz#a9855261f191c978cc0dc1150531b8d08149b58c"
 
