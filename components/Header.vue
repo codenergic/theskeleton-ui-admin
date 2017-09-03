@@ -1,12 +1,26 @@
 <template>
   <header class="app-header navbar">
     <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button" @click="mobileSidebarToggle">&#9776;</button>
-    <b-link :to="{ name: 'index' }" class="navbar-brand"></b-link>
-    <button class="navbar-toggler sidebar-toggler d-md-down-none mr-auto" type="button" @click="sidebarMinimize">&#9776;</button>
-    <ul class="nav navbar-nav">
-      <li class="nav-item">
-      </li>
-    </ul>
+    <b-link class="navbar-brand" :to="{ name: 'index' }"></b-link>
+    <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" @click="sidebarMinimize">&#9776;</button>
+    <b-nav is-nav-bar class="d-md-down-none">
+      <b-nav-item class="px-3">Dashboard</b-nav-item>
+    </b-nav>
+    <b-nav is-nav-bar class="ml-auto">
+      <b-nav-item-dropdown right>
+        <template slot="text">
+          <span class="d-md-down-none"></span>
+          <i class="fa fa-user"></i>
+        </template>
+        <b-dropdown-header tag="div" class="text-center">
+          <strong>Account</strong>
+        </b-dropdown-header>
+        <b-dropdown-item><i class="fa fa-user"></i> Profile</b-dropdown-item>>
+        <b-dropdown-divider></b-dropdown-divider>
+        <b-dropdown-item><i class="fa fa-lock"></i> Logout</b-dropdown-item>
+      </b-nav-item-dropdown>
+    </b-nav>
+    &nbsp;&nbsp;&nbsp;
     <!-- <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" @click="asideToggle">&#9776;</button> -->
   </header>
 </template>

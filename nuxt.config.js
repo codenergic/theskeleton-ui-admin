@@ -54,7 +54,6 @@ module.exports = {
     extractCSS: true,
     vendor: [
       'axios',
-      'bootstrap',
       '@nuxtjs/axios',
       '@nuxtjs/bootstrap-vue',
       '@nuxtjs/font-awesome'
