@@ -12,8 +12,10 @@ export default {
     deleteConfirm: 'Confirm Delete',
     deleteConfirmation: 'Are you sure you want to delete {0}?',
     deleteSuccess: '{0} deleted',
+    lock: 'Lock {0} ({1})',
     modify: 'Modify {0} ({1})',
     save: 'Save',
+    unlock: 'Unlock {0} ({1})',
     update: 'Update {0}',
     updateSuccess: '{0} updated',
     view: 'View {0}'
@@ -33,6 +35,7 @@ export default {
       label: 'user',
       labelEmail: 'Email',
       labelRoles: 'Roles',
+      labelUnlocked: 'Unlocked',
       labelUsername: 'Username'
     }
   },

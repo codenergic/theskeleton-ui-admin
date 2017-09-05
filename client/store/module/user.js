@@ -53,6 +53,11 @@ const actions = {
       return response.data;
     });
   },
+  lockUnlockUser(context, {username, unlocked}) {
+    return Vue.axios.put(`/api/users/${username}/lock`, { unlocked }).then(response => {
+      return response.data;
+    });
+  },
   removeRoleFromUser(context, {username, role}) {
     return Vue.axios.delete(`/api/users/${username}/roles`, { data: { role } }).then(response => {
       return response.data;
