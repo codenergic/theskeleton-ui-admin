@@ -75,6 +75,11 @@ const actions = {
         return response.data;
       });
     }
+  },
+  updateUserPassword(context, {username, password}) {
+    return Vue.axios.put(`/api/users/${username}/password`, { password }).then(response => {
+      return response.data;
+    });
   }
 };
 
