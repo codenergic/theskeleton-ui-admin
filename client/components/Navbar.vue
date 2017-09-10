@@ -35,7 +35,9 @@
             </b-dropdown-item>
             <div class="dropdown-divider"></div>
             <b-dropdown-item>
-              <i class="fa fa-sign-out"></i> Sign out
+              <a href="" @click="signOut()">
+                <i class="fa fa-sign-out"></i> Sign out
+              </a>
             </b-dropdown-item>
           </b-nav-item-dropdown>
         </b-nav>
@@ -46,7 +48,14 @@
 
 <script>
 export default {
-  props: [ 'brand' ]
+  props: [ 'brand' ],
+  methods: {
+    signOut() {
+      this.$store.dispatch('deleteSession').then(() => {
+        window.location.href = `${window.location.origin}/auth/logout`;
+      });
+    }
+  }
 }
 </script>
 
