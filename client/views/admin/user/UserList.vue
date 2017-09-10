@@ -28,7 +28,7 @@
             {{ item.value }}
           </template>
           <template slot="unlocked" scope="item">
-            <i :class="['fa', item.item.nonLocked ? 'text-success fa-check' : 'text-danger fa-close']"></i>
+            <i :class="['fa', item.item.isNonLocked ? 'text-success fa-check' : 'text-danger fa-close']"></i>
           </template>
           <template slot="roles" scope="item">
             <b-badge v-for="r in roles[item.item.username]" :key="r" v-text="r.code"></b-badge>
@@ -37,7 +37,7 @@
             </b-button>
           </template>
           <template slot="action" scope="item">
-            <b-button variant="secondary" size="sm" v-if="item.item.nonLocked" @click="lockUnlockUser(item.item, false)" :title="$t('common.lock', [ '', item.item.username ])">
+            <b-button variant="secondary" size="sm" v-if="item.item.isNonLocked" @click="lockUnlockUser(item.item, false)" :title="$t('common.lock', [ '', item.item.username ])">
               <i class="fa fa-lock"></i>
             </b-button>
             <b-button variant="secondary" size="sm" v-else @click="lockUnlockUser(item.item, true)" :title="$t('common.unlock', [ '', item.item.username ])">
