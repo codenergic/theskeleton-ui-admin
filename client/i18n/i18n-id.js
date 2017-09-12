@@ -54,6 +54,11 @@ export default {
       labelPasswordNew: 'Kata sandi baru',
       labelPasswordOld: 'Kata sandi lama',
       messagePasswordUpdated: 'Kata sandi telah diperbarui'
+    },
+    picture: {
+      title: 'Foto',
+      subtitle: 'Unggah foto profil anda',
+      labelUpload: 'Unggah foto profil'
     }
   }
 }

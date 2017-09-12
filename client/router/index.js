@@ -16,6 +16,7 @@ import AdminUserRoleForm from '../views/admin/user/UserRoleForm';
 import Profile from '../views/profile/Profile';
 import ProfileBasic from '../views/profile/ProfileBasic';
 import ProfilePassword from '../views/profile/ProfilePassword';
+import ProfilePicture from '../views/profile/ProfilePicture';
 
 import About from '../views/About';
 import Home from '../views/Home';
@@ -115,6 +116,11 @@ export default new Router({
           name: 'profile-password',
           path: 'password',
           component: ProfilePassword
+        },
+        {
+          name: 'profile-picture',
+          path: 'picture',
+          component: ProfilePicture
         }
       ]
     },

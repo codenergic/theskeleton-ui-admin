@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable type="inverse" variant="inverse" class="fixed-top">
+  <b-navbar toggleable type="dark" variant="dark" class="fixed-top">
     <div class="container">
       <b-nav-toggle target="nav-collapse" position="right"></b-nav-toggle>
 

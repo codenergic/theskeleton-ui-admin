@@ -54,6 +54,11 @@ export default {
       labelPasswordNew: 'New password',
       labelPasswordOld: 'Old password',
       messagePasswordUpdated: 'Password updated'
+    },
+    picture: {
+      title: 'Picture',
+      subtitle: 'Upload your profile picture',
+      labelUpload: 'Upload profile picture'
     }
   }
 }

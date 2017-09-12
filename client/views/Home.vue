@@ -1,6 +1,9 @@
 <template>
   <div>
-    <b-jumbotron header="The<strong>Skeleton</strong>">
+    <b-jumbotron>
+      <div slot="header">
+        The<strong>Skeleton</strong>
+      </div>
       <br />
       <div>
         <b-button :to="{ name: 'admin' }" size="lg" variant="primary">
