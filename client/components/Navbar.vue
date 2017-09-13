@@ -1,11 +1,11 @@
 <template>
-  <b-navbar toggleable type="dark" variant="dark" class="fixed-top">
+  <b-navbar toggleable="md" type="dark" variant="dark" fixed="top">
     <div class="container">
-      <b-nav-toggle target="nav-collapse" position="right"></b-nav-toggle>
+      <b-nav-toggle target="nav-collapse" right></b-nav-toggle>
 
-      <b-link class="navbar-brand" :to="{ name: 'home' }">
+      <b-navbar-brand :to="{ name: 'home' }">
         <span v-html="brand"></span>
-      </b-link>
+      </b-navbar-brand>
 
       <b-collapse is-nav id="nav-collapse">
         <b-nav is-nav-bar>
@@ -60,10 +60,5 @@ export default {
 </script>
 
 <style>
-@media (max-width: 767px) {
-  .navbar-toggleable-sm > .container {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
+
 </style>

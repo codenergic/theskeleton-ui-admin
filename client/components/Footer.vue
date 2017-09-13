@@ -1,18 +1,14 @@
 <template>
-  <b-navbar toggleable type="light" variant="light" class="fixed-bottom">
+  <b-navbar type="light" variant="light" class="fixed-bottom">
     <div class="container">
-      <b-nav-toggle target="nav-collapse" position="right"></b-nav-toggle>
-
-      <b-collapse is-nav id="nav-collapse">
-        <b-nav is-nav-bar class="ml-auto" right>
-          <b-nav-item>
-            <i class="fa fa-globe"></i>
-          </b-nav-item>
-          <b-nav-item :active="lang === l.code" href="#" v-for="l in languages" :key="l" @click.prevent="$emit('change-lang', l.code)">
-            {{ l.name }}
-          </b-nav-item>
-        </b-nav>
-      </b-collapse>
+      <b-nav class="ml-auto" right>
+        <b-nav-item>
+          <i class="fa fa-globe"></i>
+        </b-nav-item>
+        <b-nav-item :active="lang === l.code" href="#" v-for="l in languages" :key="l" @click.prevent="$emit('change-lang', l.code)">
+          {{ l.name }}
+        </b-nav-item>
+      </b-nav>
     </div>
   </b-navbar>
 </template>
@@ -38,10 +34,4 @@ export default {
 </script>
 
 <style>
-@media (max-width: 767px) {
-  .navbar-toggleable-sm > .container {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
 </style>

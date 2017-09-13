@@ -4,8 +4,13 @@
     </module-title>
     <div slot="content" class="row">
       <div class="col-sm-12 col-md-8 col-lg-6">
-        <b-card :img-src="currentUser.pictureUrl" img-alt="Image" img-top class="mb-2">
-          <vue-core-image-upload class="btn btn-primary" :text="$t('profile.picture.labelUpload')" @imageuploading="imageChanged" resize="local" crop="local" crop-ratio="1:1" extensions="png,gif,jpeg,jpg" :is-xhr="false" :max-file-size="5242880"></vue-core-image-upload>
+        <b-card :img-src="currentUser.pictureUrl" img-top class="mb-2">
+          <cropper :height="300" :width="300" lang-type="en" @crop-success="imageChanged" @close="imageChanged" :no-circle="true" v-model="showCropper"></cropper>
+          <b-button variant="primary" @click="toggleShowCropper">
+            <i class="fa fa-upload"></i>
+            {{ $t('profile.picture.labelUpload') }}
+          </b-button>
+          <!-- <vue-core-image-upload class="btn btn-primary" :text="$t('profile.picture.labelUpload')" @imageuploading="imageChanged" resize="local" crop="local" crop-ratio="1:1" extensions="png,gif,jpeg,jpg" :is-xhr="false" :max-file-size="5242880"></vue-core-image-upload> -->
         </b-card>
       </div>
     </div>
@@ -15,17 +20,17 @@
 <script>
 import MainLayout from 'components/MainLayout';
 import ModuleTitle from 'components/ModuleTitle';
-import VueCoreImageUpload from 'vue-core-image-upload'
+import Cropper from 'vue-image-crop-upload';
 
 export default {
   components: {
     MainLayout,
     ModuleTitle,
-    VueCoreImageUpload
+    Cropper
   },
   data() {
     return {
-
+      showCropper: false
     }
   },
   computed: {
@@ -34,15 +39,25 @@ export default {
     }
   },
   methods: {
-    imageChanged(image) {
-      const config = {
-        headers: {
-          'Content-Type': image.type
-        }
-      }
-      this.axios.put('/api/profile/picture', image, config).then(data => {
-        return data.data;
-      }).then(data => this.$store.dispatch('findCurrentUser'));
+    toggleShowCropper() {
+      const showCropper = this.showCropper;
+      this.showCropper = !showCropper;
+      // this.showCropper = !this.showCropper;
+    },
+    imageChanged(image, field) {
+      fetch(image)
+        .then(res => res.arrayBuffer())
+        .then(buf => new File([buf], field, { type: 'image/jpg' }))
+        .then(file => ({ file, config: { headers: { 'Content-Type': 'image/jpg' } } }))
+        .then(({ file, config }) => {
+          return this.axios.put('/api/profile/picture', file, config);
+        }).then(() => this.$store.dispatch('findCurrentUser'));
+
+      // const config = {
+      //   headers: {
+      //     'Content-Type': image.type
+      //   }
+      // }
     }
   }
 }
