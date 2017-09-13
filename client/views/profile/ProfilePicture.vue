@@ -5,10 +5,9 @@
     <div slot="content" class="row">
       <div class="col-sm-12 col-md-8 col-lg-6">
         <b-card :img-src="currentUser.pictureUrl" img-alt="Image" img-top class="mb-2">
-          <vue-core-image-upload class="btn btn-primary" :text="$t('profile.picture.labelUpload')" @imageuploading="imageChanged" resize="local" crop="local" crop-ratio="1:1" extensions="png,gif,jpeg,jpg" :is-xhr="false" :max-file-size="5242880" />
+          <vue-core-image-upload class="btn btn-primary" :text="$t('profile.picture.labelUpload')" @imageuploading="imageChanged" resize="local" crop="local" crop-ratio="1:1" extensions="png,gif,jpeg,jpg" :is-xhr="false" :max-file-size="5242880"></vue-core-image-upload>
         </b-card>
       </div>
-    </vue-core-image-upload>
     </div>
   </main-layout>
 </template>
