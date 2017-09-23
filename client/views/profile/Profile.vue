@@ -25,6 +25,11 @@ export default {
           title: this.$t('profile.password.title'),
           icon: 'fa fa-key',
           to: { name: 'profile-password' }
+        },
+        {
+          title: this.$t('profile.picture.title'),
+          icon: 'fa fa-camera',
+          to: { name: 'profile-picture' }
         }
       ]
     };

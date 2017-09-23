@@ -1,11 +1,11 @@
 <template>
-  <b-navbar toggleable type="inverse" variant="inverse" class="fixed-top">
+  <b-navbar toggleable="md" type="dark" variant="dark" fixed="top">
     <div class="container">
-      <b-nav-toggle target="nav-collapse" position="right"></b-nav-toggle>
+      <b-nav-toggle target="nav-collapse" right></b-nav-toggle>
 
-      <b-link class="navbar-brand" :to="{ name: 'home' }">
+      <b-navbar-brand :to="{ name: 'home' }">
         <span v-html="brand"></span>
-      </b-link>
+      </b-navbar-brand>
 
       <b-collapse is-nav id="nav-collapse">
         <b-nav is-nav-bar>
@@ -35,7 +35,9 @@
             </b-dropdown-item>
             <div class="dropdown-divider"></div>
             <b-dropdown-item>
-              <i class="fa fa-sign-out"></i> Sign out
+              <a href="" @click="signOut()">
+                <i class="fa fa-sign-out"></i> Sign out
+              </a>
             </b-dropdown-item>
           </b-nav-item-dropdown>
         </b-nav>
@@ -46,15 +48,17 @@
 
 <script>
 export default {
-  props: [ 'brand' ]
+  props: [ 'brand' ],
+  methods: {
+    signOut() {
+      this.$store.dispatch('deleteSession').then(() => {
+        window.location.href = `${window.location.origin}/auth/logout`;
+      });
+    }
+  }
 }
 </script>
 
 <style>
-@media (max-width: 767px) {
-  .navbar-toggleable-sm > .container {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
+
 </style>

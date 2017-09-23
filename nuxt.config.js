@@ -1,3 +1,6 @@
+const proxy = require('http-proxy-middleware')
+const proxyTarget = 'http://localhost:8080'
+
 module.exports = {
   /*
   ** Headers of the page
@@ -23,16 +26,26 @@ module.exports = {
   */
   loading: { color: '#3B8070' },
 
+  mode: 'spa',
+
   modules: [
     [ '@nuxtjs/axios', { baseURL: '/api' } ],
     [ '@nuxtjs/bootstrap-vue', { css: false } ],
-    '@nuxtjs/font-awesome'
+    [ '@nuxtjs/font-awesome' ]
+  ],
+
+  plugins: [
+    { src: '~/plugins/i18n.js' }
   ],
 
   router: {
-    base: '/admin',
     linkActiveClass: 'active'
   },
+
+  serverMiddleware: [
+    { path: '/api', handler: proxy({ target: proxyTarget }) },
+    { path: '/manage', handler: proxy({ target: proxyTarget }) }
+  ],
 
   /*
   ** Build configuration

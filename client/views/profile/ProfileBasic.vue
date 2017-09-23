@@ -43,8 +43,9 @@ export default {
       const usernameChanged = user.username !== vm.$store.getters.loggedInUser.username;
       this.$store.dispatch('updateCurrentUser', user).then(data => {
         if (usernameChanged) {
-          vm.$store.dispatch('deleteSession');
-          window.location.href = `${window.location.origin}/auth/logout`;
+          vm.$store.dispatch('deleteSession').then(() => {
+            window.location.href = `${window.location.origin}/auth/logout`;
+          });
         }
       });
     }

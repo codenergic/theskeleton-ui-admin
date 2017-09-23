@@ -15,9 +15,14 @@
         <b-dropdown-header tag="div" class="text-center">
           <strong>Account</strong>
         </b-dropdown-header>
-        <b-dropdown-item><i class="fa fa-user"></i> Profile</b-dropdown-item>>
-        <b-dropdown-divider></b-dropdown-divider>
-        <b-dropdown-item><i class="fa fa-lock"></i> Logout</b-dropdown-item>
+        <b-dropdown-item>
+          <i class="fa fa-user"></i>
+          Profile
+        </b-dropdown-item>
+        <b-dropdown-item>
+          <i class="fa fa-lock"></i>
+          Logout
+        </b-dropdown-item>
       </b-nav-item-dropdown>
     </b-nav>
     &nbsp;&nbsp;&nbsp;

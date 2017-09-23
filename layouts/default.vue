@@ -1,20 +1,20 @@
 <template>
-  <div class="app">
-    <AppHeader />
-    <div class="app-body">
-      <no-ssr>
+  <no-ssr>
+    <div class="app">
+      <AppHeader />
+      <div class="app-body">
         <Sidebar :navItems="nav"/>
-      </no-ssr>
-      <main class="main">
-        <breadcrumb :list="list" />
-        <div class="container-fluid">
-          <nuxt />
-        </div>
-      </main>
-      <!-- <AppAside/> -->
+        <main class="main">
+          <breadcrumb :list="list" />
+          <div class="container-fluid">
+            <nuxt />
+          </div>
+        </main>
+        <!-- <AppAside/> -->
+      </div>
+      <AppFooter/>
     </div>
-    <AppFooter/>
-  </div>
+  </no-ssr>
 </template>
 
 <script>
@@ -33,7 +33,7 @@ export default {
       nav: [
         {
           name: 'User',
-          to: { name: 'user' },
+          to: { name: 'admin-users' },
           icon: 'fa fa-user'
         },
         {

@@ -12,8 +12,10 @@ export default {
     deleteConfirm: 'Konfirmasi Penghapusan',
     deleteConfirmation: 'Apakah anda yakin ingin menghapus {0}?',
     deleteSuccess: '{0} telah dihapus',
+    lock: 'Kunci {0} ({1})',
     modify: 'Modifikasi {0} ({1})',
     save: 'Simpan',
+    unlock: 'Buka {0} ({1})',
     update: 'Perbarui {0}',
     updateSuccess: '{0} telah diperbarui',
     view: 'Lihat {0}'
@@ -33,6 +35,7 @@ export default {
       label: 'pengguna',
       labelEmail: 'Surel',
       labelRoles: 'Peran',
+      labelUnlocked: 'Terbuka',
       labelUsername: 'Nama Pengguna'
     }
   },
@@ -51,6 +54,11 @@ export default {
       labelPasswordNew: 'Kata sandi baru',
       labelPasswordOld: 'Kata sandi lama',
       messagePasswordUpdated: 'Kata sandi telah diperbarui'
+    },
+    picture: {
+      title: 'Foto',
+      subtitle: 'Unggah foto profil anda',
+      labelUpload: 'Unggah foto profil'
     }
   }
 }

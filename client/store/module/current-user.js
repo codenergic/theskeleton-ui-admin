@@ -18,7 +18,7 @@ const getters = {
 
 const actions = {
   findCurrentUser({commit, dispatch}) {
-    return Vue.axios.get('/api/users/me').then(response => {
+    return Vue.axios.get('/api/profile').then(response => {
       commit('setLoggedInUser', response.data);
       return response.data;
     }).catch(error => {
@@ -29,13 +29,13 @@ const actions = {
     });
   },
   updateCurrentUser({commit}, user) {
-    return Vue.axios.put('/api/users/me', user).then(response => {
+    return Vue.axios.put('/api/profile', user).then(response => {
       commit('setLoggedInUser', response.data);
       return response.data;
     });
   },
   updateCurrentUserPassword({commit}, password) {
-    return Vue.axios.put('/api/users/me/password', { password: password.newPassword }).then(response => {
+    return Vue.axios.put('/api/profile/password', { password: password.newPassword }).then(response => {
       return response.data;
     });
   }
