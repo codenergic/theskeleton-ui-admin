@@ -1,5 +1,6 @@
 const proxy = require('http-proxy-middleware')
 const proxyTarget = 'http://localhost:8080'
+const proxyHandler = proxy({ target: proxyTarget })
 
 module.exports = {
   /*
@@ -29,7 +30,12 @@ module.exports = {
   mode: 'spa',
 
   modules: [
-    [ '@nuxtjs/axios', { baseURL: '/api' } ],
+    [ '@nuxtjs/axios', {
+      baseURL: '/api',
+      requestInterceptor: (config, { store }) => {
+        return config
+      }
+    }],
     [ '@nuxtjs/bootstrap-vue', { css: false } ],
     [ '@nuxtjs/font-awesome' ]
   ],
@@ -43,8 +49,12 @@ module.exports = {
   },
 
   serverMiddleware: [
-    { path: '/api', handler: proxy({ target: proxyTarget }) },
-    { path: '/manage', handler: proxy({ target: proxyTarget }) }
+    { path: '/api', handler: proxyHandler },
+    { path: '/auth', handler: proxyHandler },
+    { path: '/login', handler: proxyHandler },
+    { path: '/manage', handler: proxyHandler },
+    { path: '/oauth', handler: proxyHandler },
+    { path: '/webjars', handler: proxyHandler }
   ],
 
   /*

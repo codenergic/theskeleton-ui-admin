@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-card>
+    <!-- <b-card>
       <template slot="header">
       </template>
       <div class="row">
@@ -70,7 +70,7 @@
           <b-pagination size="md" :total-rows="users.totalElements" :per-page="$store.state.paginationLimit" v-model.number="users.number" @input="findUsers(q, users.number, $store.state.paginationLimit)" />
         </div>
       </div>
-    </b-card>
+    </b-card> -->
   </div>
 </template>
 
