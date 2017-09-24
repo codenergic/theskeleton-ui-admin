@@ -1,6 +1,6 @@
 <template>
   <no-ssr>
-    <div class="app">
+    <div class="app header-fixed">
       <AppHeader />
       <div class="app-body">
         <Sidebar :navItems="nav"/>
