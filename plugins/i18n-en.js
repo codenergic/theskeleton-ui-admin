@@ -10,7 +10,11 @@ export default {
       'admin-roles-id-privileges': 'Assign privileges to role',
       'admin-users': 'Users',
       'admin-users-id': 'Create / Update User',
-      'admin-users-id-roles': 'Assign roles to user'
+      'admin-users-id-roles': 'Assign roles to user',
+      'profile': 'Profile',
+      'profile-basic': 'Update your basic profile',
+      'profile-password': 'Update your password',
+      'profile-picture': 'Update your profile picture'
     }
   },
   common: {

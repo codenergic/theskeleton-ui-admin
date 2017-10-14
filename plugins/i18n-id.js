@@ -10,7 +10,11 @@ export default {
       'admin-roles-id-privileges': 'Tugaskan hak khusus kepada peran',
       'admin-users': 'Pengguna',
       'admin-users-id': 'Tambah / Perbarui Pengguna',
-      'admin-users-id-roles': 'Tugaskan peran kepada pengguna'
+      'admin-users-id-roles': 'Tugaskan peran kepada pengguna',
+      'profile': 'Profile',
+      'profile-basic': 'Perbarui profil dasar anda',
+      'profile-password': 'Perbarui kata sandi anda',
+      'profile-picture': 'Perbarui foto profil anda'
     }
   },
   common: {

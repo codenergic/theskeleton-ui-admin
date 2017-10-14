@@ -15,7 +15,7 @@
         <b-dropdown-header tag="div" class="text-center">
           <strong>Account</strong>
         </b-dropdown-header>
-        <b-dropdown-item>
+        <b-dropdown-item :to="{ name: 'profile' }">
           <i class="fa fa-user"></i>
           Profile
         </b-dropdown-item>
