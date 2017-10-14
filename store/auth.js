@@ -33,17 +33,18 @@ export const mutations = {
 }
 
 export const actions = {
-  checkSession ({ commit, dispatch, getters }) {
+  checkSession ({ commit, dispatch, getters, state }) {
     const session = window.localStorage.getItem('session')
     if (!session) {
       return dispatch('deleteSession').then(() => false)
     } else {
-      return dispatch('saveSession', JSON.parse(session)).then(() => {
-        if (getters.isSessionValid) {
+      if (getters.isSessionValid && state.loggedInUser.username) {
+        return true
+      } else {
+        return dispatch('saveSession', JSON.parse(session)).then(() => {
           return true
-        }
-        return false
-      })
+        })
+      }
     }
   },
   deleteSession ({ commit }) {

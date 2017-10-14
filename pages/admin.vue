@@ -22,13 +22,13 @@ export default {
     return {
       nav: [
         {
-          name: 'User',
+          name: this.$t('main.route.admin-users'),
           to: { name: 'admin-users' },
           icon: 'fa fa-user'
         },
         {
-          name: 'Role',
-          to: { name: 'admin' },
+          name: this.$t('main.route.admin-roles'),
+          to: { name: 'admin-roles' },
           icon: 'fa fa-users'
         }
       ]

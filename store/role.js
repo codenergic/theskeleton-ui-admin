@@ -33,9 +33,6 @@ export const actions = {
     params.sort = 'code,asc'
     return this.$axios.get('/roles', { params }).then(response => {
       commit('setRoles', response.data)
-      response.data.content.forEach(role => {
-        dispatch('findRolePrivilegesByCode', role.code)
-      })
       return response.data
     })
   },
