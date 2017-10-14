@@ -3,6 +3,7 @@ export default {
     navTitle: 'The<strong>Skeleton</strong>',
     title: 'TheSkeleton',
     route: {
+      'index': 'Dasbor',
       'admin': 'Admin',
       'admin-users': 'Pengguna',
       'admin-users-id': 'Tambah / Perbarui Pengguna',

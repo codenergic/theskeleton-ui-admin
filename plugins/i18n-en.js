@@ -3,6 +3,7 @@ export default {
     navTitle: 'The<strong>Skeleton</strong>',
     title: 'TheSkeleton',
     route: {
+      'index': 'Dashboard',
       'admin': 'Admin',
       'admin-users': 'Users',
       'admin-users-id': 'Create / Update User',
