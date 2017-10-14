@@ -19,6 +19,10 @@
           <i class="fa fa-user"></i>
           Profile
         </b-dropdown-item>
+        <b-dropdown-item :to="{ name: 'about' }">
+          <i class="fa fa-info"></i>
+          About
+        </b-dropdown-item>
         <b-dropdown-item>
           <i class="fa fa-lock"></i>
           Logout
