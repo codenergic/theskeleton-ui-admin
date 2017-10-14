@@ -4,7 +4,7 @@
     <b-link class="navbar-brand" :to="{ name: 'index' }"></b-link>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" @click="sidebarMinimize">&#9776;</button>
     <b-nav is-nav-bar class="d-md-down-none">
-      <b-nav-item class="px-3">Dashboard</b-nav-item>
+      <b-nav-item class="px-3" :to="{ name: 'admin' }">Admin</b-nav-item>
     </b-nav>
     <b-nav is-nav-bar class="ml-auto">
       <b-nav-item-dropdown right>

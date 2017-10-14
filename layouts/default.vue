@@ -1,17 +1,17 @@
 <template>
   <no-ssr>
-    <div class="app header-fixed">
+    <div class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
       <AppHeader />
-      <div class="app-body">
-        <Sidebar :navItems="nav"/>
+      <div class="app-body" v-if="$route.name === 'index'">
+        <Sidebar :navItems="[]"/>
         <main class="main">
-          <breadcrumb :list="list" />
+          <breadcrumb :list="[]" />
           <div class="container-fluid">
             <nuxt />
           </div>
         </main>
-        <!-- <AppAside/> -->
       </div>
+      <nuxt v-else />
       <AppFooter/>
     </div>
   </no-ssr>
@@ -29,30 +29,6 @@ export default {
     AppAside,
     AppFooter,
     Breadcrumb
-  },
-  data () {
-    return {
-      nav: [
-        {
-          name: 'User',
-          to: { name: 'admin-users' },
-          icon: 'fa fa-user'
-        },
-        {
-          name: 'Role',
-          to: { name: 'role' },
-          icon: 'fa fa-users'
-        }
-      ]
-    }
-  },
-  computed: {
-    name () {
-      return this.$route.name
-    },
-    list () {
-      return this.$route.matched
-    }
   },
   methods: {
     checkUserSession () {

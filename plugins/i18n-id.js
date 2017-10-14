@@ -1,7 +1,13 @@
 export default {
   main: {
     navTitle: 'The<strong>Skeleton</strong>',
-    title: 'TheSkeleton'
+    title: 'TheSkeleton',
+    route: {
+      'admin': 'Admin',
+      'admin-users': 'Pengguna',
+      'admin-users-id': 'Tambah / Perbarui Pengguna',
+      'admin-users-id-roles': 'Tugaskan peran kepada pengguna'
+    }
   },
   common: {
     action: 'Aksi',
@@ -21,6 +27,9 @@ export default {
     view: 'Lihat {0}'
   },
   admin: {
+    base: {
+      title: 'Admin'
+    },
     role: {
       title: 'Peran',
       subtitleAssignPrivilege: 'Tugaskan hak khusus kepada peran',

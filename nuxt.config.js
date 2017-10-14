@@ -7,7 +7,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'theskeleton-ui-admin',
+    title: 'TheSkeleton Admin',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -74,12 +74,11 @@ module.exports = {
         })
       }
     },
-    extractCSS: true,
-    vendor: [
-      'axios',
-      '@nuxtjs/axios',
-      '@nuxtjs/bootstrap-vue',
-      '@nuxtjs/font-awesome'
-    ]
+    extractCSS: true
+    // vendor: [
+    //   '@nuxtjs/axios',
+    //   '@nuxtjs/bootstrap-vue',
+    //   '@nuxtjs/font-awesome'
+    // ]
   }
 }

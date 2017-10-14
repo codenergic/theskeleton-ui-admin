@@ -1,7 +1,13 @@
 export default {
   main: {
     navTitle: 'The<strong>Skeleton</strong>',
-    title: 'TheSkeleton'
+    title: 'TheSkeleton',
+    route: {
+      'admin': 'Admin',
+      'admin-users': 'Users',
+      'admin-users-id': 'Create / Update User',
+      'admin-users-id-roles': 'Assign roles to user'
+    }
   },
   common: {
     action: 'Action',
@@ -21,6 +27,9 @@ export default {
     view: 'View {0}'
   },
   admin: {
+    base: {
+      title: 'Admin'
+    },
     role: {
       title: 'Roles',
       subtitleAssignPrivilege: 'Assign privilege to role',
