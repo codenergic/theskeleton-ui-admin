@@ -22,7 +22,7 @@
             <router-link :to="{ name: 'admin-roles-id', params: { id: item.value } }" v-text="item.value"></router-link>
           </template>
           <template slot="privileges" scope="item">
-            <b-button :class="['btn-sm']" :to="{ name: 'role-privilege-form', params: { id: item.item.code } }">
+            <b-button :class="['btn-sm']" :to="{ name: 'admin-roles-id-privileges', params: { id: item.item.code } }">
               <i class="fa fa-plus"></i>
             </b-button>
           </template>

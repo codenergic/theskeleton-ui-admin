@@ -5,6 +5,9 @@ export default {
     route: {
       'index': 'Dashboard',
       'admin': 'Admin',
+      'admin-roles': 'Roles',
+      'admin-roles-id': 'Create / Update Role',
+      'admin-roles-id-privileges': 'Assign privileges to role',
       'admin-users': 'Users',
       'admin-users-id': 'Create / Update User',
       'admin-users-id-roles': 'Assign roles to user'

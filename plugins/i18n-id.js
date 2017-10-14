@@ -5,6 +5,9 @@ export default {
     route: {
       'index': 'Dasbor',
       'admin': 'Admin',
+      'admin-roles': 'Peran',
+      'admin-roles-id': 'Tambah / Perbarui Peran',
+      'admin-roles-id-privileges': 'Tugaskan hak khusus kepada peran',
       'admin-users': 'Pengguna',
       'admin-users-id': 'Tambah / Perbarui Pengguna',
       'admin-users-id-roles': 'Tugaskan peran kepada pengguna'
