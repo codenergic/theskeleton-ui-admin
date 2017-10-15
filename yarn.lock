@@ -1425,6 +1425,10 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+cropperjs@~0.8.x:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/cropperjs/-/cropperjs-0.8.1.tgz#3dc01813e2f6d1df2c8909e1ce092146c692548e"
+
 cross-spawn@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-3.0.1.tgz#1256037ecb9f0c5f79e3d6ef135e30770184b982"
@@ -5580,6 +5584,12 @@ vm-browserify@0.0.4:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-0.0.4.tgz#5d7ea45bbef9e4a6ff65f95438e0a87c357d5a73"
   dependencies:
     indexof "0.0.1"
+
+vue-cropperjs@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/vue-cropperjs/-/vue-cropperjs-2.1.1.tgz#9d9afc3d94f21c37677abb30edd57e25423f229f"
+  dependencies:
+    cropperjs "~0.8.x"
 
 vue-hot-reload-api@^2.1.0:
   version "2.1.0"
