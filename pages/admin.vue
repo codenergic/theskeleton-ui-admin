@@ -1,0 +1,46 @@
+<template>
+  <div class="app-body">
+    <Sidebar :navItems="nav"/>
+    <main class="main">
+      <breadcrumb :list="list" />
+      <div class="container-fluid">
+        <nuxt />
+      </div>
+    </main>
+  </div>
+</template>
+
+<script>
+import { Sidebar, Breadcrumb } from '~/components/'
+
+export default {
+  components: {
+    Breadcrumb,
+    Sidebar
+  },
+  data () {
+    return {
+      nav: [
+        {
+          name: this.$t('main.route.admin-users'),
+          to: { name: 'admin-users' },
+          icon: 'fa fa-user'
+        },
+        {
+          name: this.$t('main.route.admin-roles'),
+          to: { name: 'admin-roles' },
+          icon: 'fa fa-users'
+        }
+      ]
+    }
+  },
+  computed: {
+    name () {
+      return this.$route.name
+    },
+    list () {
+      return this.$route.matched
+    }
+  }
+}
+</script>
