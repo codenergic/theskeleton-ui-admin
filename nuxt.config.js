@@ -1,6 +1,4 @@
-const proxy = require('http-proxy-middleware')
-const proxyTarget = 'http://localhost:8080'
-const proxyHandler = proxy({ target: proxyTarget })
+const serverUrl = process.env.SERVER_URL || 'http://localhost:8080'
 
 module.exports = {
   /*
@@ -22,6 +20,10 @@ module.exports = {
     '~/assets/css/style.scss'
   ],
 
+  env: {
+    serverUrl
+  },
+
   /*
   ** Customize the progress-bar color
   */
@@ -31,7 +33,7 @@ module.exports = {
 
   modules: [
     [ '@nuxtjs/axios', {
-      baseURL: '/api',
+      baseURL: serverUrl + '/api',
       requestInterceptor: (config, { store }) => {
         return config
       }
@@ -47,15 +49,6 @@ module.exports = {
   router: {
     linkActiveClass: 'active'
   },
-
-  serverMiddleware: [
-    { path: '/api', handler: proxyHandler },
-    { path: '/auth', handler: proxyHandler },
-    { path: '/login', handler: proxyHandler },
-    { path: '/manage', handler: proxyHandler },
-    { path: '/oauth', handler: proxyHandler },
-    { path: '/webjars', handler: proxyHandler }
-  ],
 
   /*
   ** Build configuration
@@ -75,10 +68,5 @@ module.exports = {
       }
     },
     extractCSS: true
-    // vendor: [
-    //   '@nuxtjs/axios',
-    //   '@nuxtjs/bootstrap-vue',
-    //   '@nuxtjs/font-awesome'
-    // ]
   }
 }
