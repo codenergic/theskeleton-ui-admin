@@ -1,4 +1,4 @@
-const serverUrl = process.env.SERVER_URL || 'http://localhost:8080'
+const serverUrl = process.env.SERVER_URL || 'https://theskeleton.codenergic.org'
 
 module.exports = {
   /*
@@ -43,7 +43,8 @@ module.exports = {
   ],
 
   plugins: [
-    { src: '~/plugins/i18n.js' }
+    { src: '~/plugins/i18n.js' },
+    { src: '~/plugins/axios.js' }
   ],
 
   router: {
