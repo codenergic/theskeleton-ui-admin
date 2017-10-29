@@ -1,4 +1,9 @@
-export default ({ app, store, redirect }) => {
+export default ({ app, store, route, redirect }) => {
+  store.lastState = JSON.stringify({
+    r: route.name, // route name
+    q: route.query, // url query
+    p: route.params // url params
+  })
   app.$axios.interceptors.response.use(response => {
     store.responseHttpStatus = response.status
     return response

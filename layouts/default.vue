@@ -41,7 +41,8 @@ export default {
             query: {
               state: JSON.stringify({
                 r: currentRoute.name, // route name
-                q: currentRoute.query // url query
+                q: currentRoute.query, // url query
+                p: currentRoute.params // url params
               })
             }
           })

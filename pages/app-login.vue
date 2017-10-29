@@ -23,7 +23,7 @@ export default {
           // redirect
           if (this.beforeLoginState) {
             const beforeLoginState = JSON.parse(this.beforeLoginState)
-            router.push({ name: beforeLoginState.r, query: beforeLoginState.q })
+            router.push({ name: beforeLoginState.r, query: beforeLoginState.q, params: beforeLoginState.p })
           } else {
             router.push({ name: 'index' })
           }
