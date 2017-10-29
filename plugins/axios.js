@@ -4,6 +4,8 @@ export default ({ app, store, redirect }) => {
     return response
   }, error => {
     store.responseHttpStatus = error.response.status
-    redirect('/error')
+    if (store.state.auth.session !== null) {
+      redirect('/error')
+    }
   })
 }
