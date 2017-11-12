@@ -1,6 +1,6 @@
 <template>
   <no-ssr>
-    <div class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+    <div id="app" class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
       <AppHeader />
       <div class="app-body" v-if="$route.name === 'index'">
         <Sidebar :navItems="[]"/>
@@ -41,7 +41,8 @@ export default {
             query: {
               state: JSON.stringify({
                 r: currentRoute.name, // route name
-                q: currentRoute.query // url query
+                q: currentRoute.query, // url query
+                p: currentRoute.params // url params
               })
             }
           })

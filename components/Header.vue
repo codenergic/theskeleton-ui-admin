@@ -39,19 +39,19 @@ export default {
   methods: {
     sidebarToggle (e) {
       e.preventDefault()
-      document.body.classList.toggle('sidebar-hidden')
+      document.getElementById('app').classList.toggle('sidebar-hidden')
     },
     sidebarMinimize (e) {
       e.preventDefault()
-      document.body.classList.toggle('sidebar-minimized')
+      document.getElementById('app').classList.toggle('sidebar-minimized')
     },
     mobileSidebarToggle (e) {
       e.preventDefault()
-      document.body.classList.toggle('sidebar-mobile-show')
+      document.getElementById('app').classList.toggle('sidebar-mobile-show')
     },
     asideToggle (e) {
       e.preventDefault()
-      document.body.classList.toggle('aside-menu-hidden')
+      document.getElementById('app').classList.toggle('aside-menu-hidden')
     }
   }
 }

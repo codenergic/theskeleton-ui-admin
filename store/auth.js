@@ -2,7 +2,9 @@ import queryString from 'query-string'
 
 export const state = () => ({
   session: null,
-  loggedInUser: {}
+  loggedInUser: {},
+  responseHttpStatus: null,
+  lastState: null
 })
 
 export const getters = {
