@@ -14,7 +14,7 @@
       </template>
       <div>
         <search-box-pagination :query="q" :page-size="paginationLimit" @search="v => find(v.query, $route.query.page, v.pageSize)"></search-box-pagination>
-        <b-table hover small responsive class="my-3" :items="roles.content" :fields="fields" :per-page="paginationLimit">
+        <b-table hover small responsive="sm" class="my-3" :items="roles.content" :fields="fields" :per-page="paginationLimit">
           <template slot="itemNumber" scope="item">
             {{ item.index + (roles.size * roles.number) - roles.size + 1 }}
           </template>
