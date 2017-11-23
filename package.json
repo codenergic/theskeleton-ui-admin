@@ -5,9 +5,9 @@
   "author": "dianw <dianw.aditya@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "PORT=9000 nuxt",
+    "dev": "cross-env PORT=9000 nuxt",
     "build": "nuxt build",
-    "start": "PORT=9000 nuxt start",
+    "start": "cross-env PORT=9000 nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.0.2",
+    "cross-env": "^5.1.1",
     "eslint": "^4.3.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-loader": "^1.9.0",
