@@ -1,0 +1,6 @@
+.git?
+.idea?
+.nuxt?
+dist?
+node_modules?
+docker?

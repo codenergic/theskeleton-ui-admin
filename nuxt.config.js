@@ -55,6 +55,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    publicPath: process.env.PUBLIC_PATH || '',
     /*
     ** Run ESLINT on save
     */
