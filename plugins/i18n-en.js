@@ -28,6 +28,7 @@ export default {
     deleteSuccess: '{0} deleted',
     lock: 'Lock {0} ({1})',
     modify: 'Modify {0} ({1})',
+    redirecting: 'Redirecting...',
     save: 'Save',
     unlock: 'Unlock {0} ({1})',
     update: 'Update {0}',

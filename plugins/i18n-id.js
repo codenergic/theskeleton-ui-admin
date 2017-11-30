@@ -28,6 +28,7 @@ export default {
     deleteSuccess: '{0} telah dihapus',
     lock: 'Kunci {0} ({1})',
     modify: 'Modifikasi {0} ({1})',
+    redirecting: 'Mengarahkan...',
     save: 'Simpan',
     unlock: 'Buka {0} ({1})',
     update: 'Perbarui {0}',
