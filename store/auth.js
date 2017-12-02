@@ -26,11 +26,17 @@ export const getters = {
 }
 
 export const mutations = {
-  setSession (state, session) {
-    state.session = session
+  setLastState (state, lastState) {
+    state.lastState = lastState
   },
   setLoggedInUser (state, user) {
     state.loggedInUser = { ...user }
+  },
+  setResponseHttpStatus (state, httpStatus) {
+    state.responseHttpStatus = httpStatus
+  },
+  setSession (state, session) {
+    state.session = session
   }
 }
 

@@ -1,6 +1,7 @@
 <template>
   <no-ssr>
     <div id="app" class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+      <vue-progress-bar></vue-progress-bar>
       <AppHeader />
       <div class="app-body" v-if="$route.name === 'index'">
         <Sidebar :navItems="[]"/>
@@ -19,7 +20,7 @@
 
 <script>
 import { Header as AppHeader, Sidebar, Aside as AppAside, Footer as AppFooter, Breadcrumb } from '~/components/'
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'full',
@@ -29,6 +30,12 @@ export default {
     AppAside,
     AppFooter,
     Breadcrumb
+  },
+  computed: {
+    ...mapState({
+      isLoading: state => state.loading.loading,
+      loadingProgress: state => state.loading.progress
+    })
   },
   methods: {
     checkUserSession () {
@@ -56,6 +63,10 @@ export default {
   watch: {
     $route () {
       this.checkUserSession()
+    },
+    isLoading (isLoading) {
+      if (isLoading) this.$Progress.start()
+      else this.$Progress.finish()
     }
   },
   mounted () {

@@ -1,4 +1,5 @@
 const serverUrl = process.env.SERVER_URL || 'https://theskeleton.codenergic.org'
+const loadingColor = process.env.LOADING_COLOR || '#20a8d8'
 
 module.exports = {
   /*
@@ -21,13 +22,14 @@ module.exports = {
   ],
 
   env: {
+    loadingColor,
     serverUrl
   },
 
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: loadingColor, height: '1px' },
 
   mode: 'spa',
 
@@ -43,8 +45,9 @@ module.exports = {
   ],
 
   plugins: [
+    { src: '~/plugins/axios.js' },
     { src: '~/plugins/i18n.js' },
-    { src: '~/plugins/axios.js' }
+    { src: '~/plugins/progressbar.js' }
   ],
 
   router: {
