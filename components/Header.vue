@@ -20,19 +20,19 @@
           <i class="fa fa-user"></i>
         </template>
         <b-dropdown-header tag="div" class="text-center">
-          <strong>Account</strong>
+          <strong>{{ $t('common.account') }}</strong>
         </b-dropdown-header>
         <b-dropdown-item :to="{ name: 'profile' }">
           <i class="fa fa-user"></i>
-          Profile
+          {{ $t('main.route.profile') }}
         </b-dropdown-item>
         <b-dropdown-item :to="{ name: 'about' }">
           <i class="fa fa-info"></i>
-          About
+          {{ $t('main.route.about') }}
         </b-dropdown-item>
         <b-dropdown-item :to="{ name: 'app-logout' }">
           <i class="fa fa-lock"></i>
-          Logout
+          {{ $t('main.route.app-logout') }}
         </b-dropdown-item>
       </b-nav-item-dropdown>
     </b-navbar-nav>

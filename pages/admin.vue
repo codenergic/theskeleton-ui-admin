@@ -18,9 +18,15 @@ export default {
     Breadcrumb,
     Sidebar
   },
-  data () {
-    return {
-      nav: [
+  computed: {
+    list () {
+      return this.$route.matched
+    },
+    name () {
+      return this.$route.name
+    },
+    nav () {
+      return [
         {
           name: this.$t('main.route.admin-users'),
           to: { name: 'admin-users' },
@@ -32,14 +38,6 @@ export default {
           icon: 'fa fa-users'
         }
       ]
-    }
-  },
-  computed: {
-    name () {
-      return this.$route.name
-    },
-    list () {
-      return this.$route.matched
     }
   }
 }

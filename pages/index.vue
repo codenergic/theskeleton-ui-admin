@@ -6,12 +6,14 @@
     <div class="d-flex flex-wrap">
       <div class="p-1">
         <b-button size="lg" variant="primary" :to="{ name: 'admin' }">
-          <i class="fa fa-info"></i> Admin
+          <i class="fa fa-info"></i>
+          {{ $t('main.route.admin') }}
         </b-button>
       </div>
       <div class="p-1">
         <b-button size="lg" variant="primary" :to="{ name: 'about' }">
-          <i class="fa fa-info"></i> About
+          <i class="fa fa-info"></i>
+          {{ $t('main.route.about') }}
         </b-button>
       </div>
       <div class="p-1">

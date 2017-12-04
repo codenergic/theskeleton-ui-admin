@@ -4,6 +4,7 @@ export default {
     title: 'TheSkeleton',
     route: {
       'index': 'Dashboard',
+      'about': 'About',
       'admin': 'Admin',
       'admin-roles': 'Roles',
       'admin-roles-id': 'Create / Update Role',
@@ -11,6 +12,7 @@ export default {
       'admin-users': 'Users',
       'admin-users-id': 'Create / Update User',
       'admin-users-id-roles': 'Assign roles to user',
+      'app-logout': 'Logout',
       'profile': 'Profile',
       'profile-basic': 'Update your basic profile',
       'profile-password': 'Update your password',
@@ -18,6 +20,7 @@ export default {
     }
   },
   common: {
+    account: 'Account',
     action: 'Action',
     add: 'Add',
     addNew: 'Add new {0}',

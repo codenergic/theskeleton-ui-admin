@@ -4,6 +4,7 @@ export default {
     title: 'TheSkeleton',
     route: {
       'index': 'Dasbor',
+      'about': 'Tentang',
       'admin': 'Admin',
       'admin-roles': 'Peran',
       'admin-roles-id': 'Tambah / Perbarui Peran',
@@ -11,13 +12,15 @@ export default {
       'admin-users': 'Pengguna',
       'admin-users-id': 'Tambah / Perbarui Pengguna',
       'admin-users-id-roles': 'Tugaskan peran kepada pengguna',
-      'profile': 'Profile',
+      'app-logout': 'Keluar',
+      'profile': 'Profil',
       'profile-basic': 'Perbarui profil dasar anda',
       'profile-password': 'Perbarui kata sandi anda',
       'profile-picture': 'Perbarui foto profil anda'
     }
   },
   common: {
+    account: 'Akun',
     action: 'Aksi',
     add: 'Tambah',
     addNew: 'Tambah {0} baru',

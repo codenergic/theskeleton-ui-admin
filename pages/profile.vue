@@ -18,9 +18,9 @@ export default {
     Breadcrumb,
     Sidebar
   },
-  data () {
-    return {
-      nav: [
+  computed: {
+    nav () {
+      return [
         {
           name: this.$t('profile.basic.title'),
           to: { name: 'profile-basic' },
