@@ -30,7 +30,7 @@
           <i class="fa fa-info"></i>
           About
         </b-dropdown-item>
-        <b-dropdown-item>
+        <b-dropdown-item :to="{ name: 'app-logout' }">
           <i class="fa fa-lock"></i>
           Logout
         </b-dropdown-item>
