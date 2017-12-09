@@ -1,6 +1,5 @@
-.git?
-.idea?
-.nuxt?
-dist?
-node_modules?
-docker?
+.git/
+.idea/
+.nuxt/
+dist/
+node_modules/
