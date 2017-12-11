@@ -1,7 +1,7 @@
 <template>
   <div>
-    <b-card v-for="app in apps" :key="app.id">
-      <i class="fa fa-laptop bg-primary p-3 font-2xl mr-3 float-left"></i>
+    <b-card v-for="app in apps" :key="app.id" class="mb-2">
+      <i class="fa fa-cube bg-primary p-3 font-2xl mr-3 float-left"></i>
       <b-button variant="danger" class="float-right btn-sm" @click="revokeConnectedApps(app.clientId)">
         <i class="fa fa-times"></i>
         {{ $t('common.revoke') }}

@@ -1,6 +1,7 @@
 export const state = () => ({
   connectedApps: [],
-  loggedInUser: {}
+  loggedInUser: {},
+  sessions: []
 })
 
 export const mutations = {
@@ -9,6 +10,9 @@ export const mutations = {
   },
   setLoggedInUser (state, user) {
     state.loggedInUser = { ...user }
+  },
+  setSessions (state, sessions) {
+    state.sessions = sessions
   }
 }
 
@@ -30,9 +34,19 @@ export const actions = {
       return error.response.data
     })
   },
+  findCurrentUserSessions ({ commit }) {
+    return this.$axios.get('/profile/sessions').then(response => {
+      commit('setSessions', response.data)
+      return response.data
+    })
+  },
   revokeConnectedApps ({ commit, dispatch }, id) {
     return this.$axios.delete('/profile/connected-apps', { data: id })
       .then(() => dispatch('findCurrentConnectedApps'))
+  },
+  revokeSession ({ commit, dispatch }, id) {
+    return this.$axios.delete('/profile/sessions', { data: id })
+      .then(() => dispatch('findCurrentUserSessions'))
   },
   updateCurrentUser ({ commit }, user) {
     return this.$axios.put('/profile', user).then(response => {

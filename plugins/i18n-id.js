@@ -17,7 +17,8 @@ export default {
       'profile-apps': 'Apps Terhubung',
       'profile-basic': 'Perbarui profil dasar anda',
       'profile-password': 'Perbarui kata sandi anda',
-      'profile-picture': 'Perbarui foto profil anda'
+      'profile-picture': 'Perbarui foto profil anda',
+      'profile-sessions': 'Sesi'
     }
   },
   common: {
@@ -34,6 +35,7 @@ export default {
     modify: 'Modifikasi {0} ({1})',
     redirecting: 'Mengarahkan...',
     revoke: 'Cabut',
+    terminate: 'Akhiri',
     save: 'Simpan',
     unlock: 'Buka {0} ({1})',
     update: 'Perbarui {0}',
@@ -85,6 +87,9 @@ export default {
       title: 'Foto',
       subtitle: 'Unggah foto profil anda',
       labelUpload: 'Unggah foto profil'
+    },
+    session: {
+      title: 'Sesi'
     }
   }
 }

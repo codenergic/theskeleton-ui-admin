@@ -17,7 +17,8 @@ export default {
       'profile-apps': 'Connected Apps',
       'profile-basic': 'Update your basic profile',
       'profile-password': 'Update your password',
-      'profile-picture': 'Update your profile picture'
+      'profile-picture': 'Update your profile picture',
+      'profile-sessions': 'Session'
     }
   },
   common: {
@@ -34,6 +35,7 @@ export default {
     modify: 'Modify {0} ({1})',
     redirecting: 'Redirecting...',
     revoke: 'Revoke',
+    terminate: 'Terminate',
     save: 'Save',
     unlock: 'Unlock {0} ({1})',
     update: 'Update {0}',
@@ -85,6 +87,9 @@ export default {
       title: 'Picture',
       subtitle: 'Upload your profile picture',
       labelUpload: 'Upload profile picture'
+    },
+    session: {
+      title: 'Sessions'
     }
   }
 }

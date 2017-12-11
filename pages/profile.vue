@@ -39,7 +39,12 @@ export default {
         {
           name: this.$t('profile.apps.title'),
           to: { name: 'profile-apps' },
-          icon: 'fa fa-laptop'
+          icon: 'fa fa-cubes'
+        },
+        {
+          name: this.$t('profile.session.title'),
+          to: { name: 'profile-sessions' },
+          icon: 'fa fa-lock'
         }
       ]
     }
