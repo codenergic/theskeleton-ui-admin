@@ -76,6 +76,9 @@ export const actions = {
     session.expires_at = expiresTime.getTime()
     return dispatch('saveSession', session)
   },
+  logout () {
+    return this.$axios.get('/../auth/logout')
+  },
   saveSession ({ commit, dispatch, getters }, session) {
     window.localStorage.setItem('session', JSON.stringify(session))
     commit('setSession', session)

@@ -10,13 +10,15 @@ import { mapActions } from 'vuex'
 export default {
   methods: {
     ...mapActions({
-      deleteSession: 'auth/deleteSession'
+      deleteSession: 'auth/deleteSession',
+      logout: 'auth/logout'
     })
   },
   mounted () {
-    this.deleteSession().then(() => {
-      window.location.href = process.env.serverUrl + '/auth/logout'
-    })
+    this.logout().then(() => this.deleteSession())
+      .then(() => {
+        this.$router.push({ name: 'index' })
+      })
   }
 }
 </script>
