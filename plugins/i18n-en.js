@@ -14,6 +14,7 @@ export default {
       'admin-users-id-roles': 'Assign roles to user',
       'app-logout': 'Logout',
       'profile': 'Profile',
+      'profile-apps': 'Connected Apps',
       'profile-basic': 'Update your basic profile',
       'profile-password': 'Update your password',
       'profile-picture': 'Update your profile picture'
@@ -32,6 +33,7 @@ export default {
     lock: 'Lock {0} ({1})',
     modify: 'Modify {0} ({1})',
     redirecting: 'Redirecting...',
+    revoke: 'Revoke',
     save: 'Save',
     unlock: 'Unlock {0} ({1})',
     update: 'Update {0}',
@@ -61,6 +63,9 @@ export default {
     }
   },
   profile: {
+    apps: {
+      title: 'Apps'
+    },
     basic: {
       title: 'Basic',
       subtitle: 'Update your basic profile',

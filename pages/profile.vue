@@ -35,6 +35,11 @@ export default {
           name: this.$t('profile.picture.title'),
           to: { name: 'profile-picture' },
           icon: 'fa fa-camera'
+        },
+        {
+          name: this.$t('profile.apps.title'),
+          to: { name: 'profile-apps' },
+          icon: 'fa fa-laptop'
         }
       ]
     }

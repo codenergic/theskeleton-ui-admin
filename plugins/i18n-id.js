@@ -14,6 +14,7 @@ export default {
       'admin-users-id-roles': 'Tugaskan peran kepada pengguna',
       'app-logout': 'Keluar',
       'profile': 'Profil',
+      'profile-apps': 'Apps Terhubung',
       'profile-basic': 'Perbarui profil dasar anda',
       'profile-password': 'Perbarui kata sandi anda',
       'profile-picture': 'Perbarui foto profil anda'
@@ -32,6 +33,7 @@ export default {
     lock: 'Kunci {0} ({1})',
     modify: 'Modifikasi {0} ({1})',
     redirecting: 'Mengarahkan...',
+    revoke: 'Cabut',
     save: 'Simpan',
     unlock: 'Buka {0} ({1})',
     update: 'Perbarui {0}',
@@ -61,6 +63,9 @@ export default {
     }
   },
   profile: {
+    apps: {
+      title: 'Apps'
+    },
     basic: {
       title: 'Dasar',
       subtitle: 'Perbarui profil dasar anda',
