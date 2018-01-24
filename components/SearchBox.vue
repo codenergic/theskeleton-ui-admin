@@ -2,11 +2,11 @@
   <form @submit.prevent="$emit('search', model)">
     <b-input-group>
       <b-form-input placeholder="Keywords" v-model="model" :input="value" class="my-0"></b-form-input>
-      <b-input-group-button slot="right">
+      <b-input-group-append>
         <b-button variant="primary" class="my-0">
           <i class="fa fa-search"></i>
         </b-button>
-      </b-input-group-button>
+      </b-input-group-append>
     </b-input-group>
   </form>
 </template>

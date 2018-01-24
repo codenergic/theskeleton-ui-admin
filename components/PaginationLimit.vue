@@ -1,11 +1,15 @@
 <template>
   <div>
-    <select class="custom-select my-0" v-model="model" :value="value" @input="onInput($event.target.value)" @change="$emit('refresh')">
-      <option v-for="s in sizes" v-text="s"></option>
-    </select>
-    <b-button variant="secondary" class="my-0" @click="$emit('refresh')">
-      <i class="fa fa-refresh"></i>
-    </b-button>
+    <b-input-group>
+      <select class="custom-select my-0" v-model="model" :value="value" @input="onInput($event.target.value)" @change="$emit('refresh')">
+        <option v-for="s in sizes" v-text="s"></option>
+      </select>
+      <b-input-group-append>
+        <b-button variant="secondary" class="my-0" @click="$emit('refresh')">
+          <i class="fa fa-refresh"></i>
+        </b-button>
+      </b-input-group-append>
+    </b-input-group>
   </div>
 </template>
 
