@@ -60,12 +60,12 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    publicPath: process.env.PUBLIC_PATH || '',
+    publicPath: process.env.PUBLIC_PATH || '/_/',
     /*
-    ** Run ESLINT on save
+    ** Run ESLint on save
     */
-    extend (config, ctx) {
-      if (ctx.dev && ctx.isClient) {
+    extend (config, { isDev, isClient }) {
+      if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
@@ -73,7 +73,6 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    },
-    extractCSS: true
+    }
   }
 }

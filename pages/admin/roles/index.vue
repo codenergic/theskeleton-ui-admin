@@ -15,18 +15,18 @@
       <div>
         <search-box-pagination :query="q" :page-size="paginationLimit" @search="v => find(v.query, $route.query.page, v.pageSize)"></search-box-pagination>
         <b-table hover small responsive="sm" class="my-3" :items="roles.content" :fields="fields" :per-page="paginationLimit">
-          <template slot="itemNumber" scope="item">
+          <template slot="itemNumber" slot-scope="item">
             {{ item.index + (roles.size * roles.number) - roles.size + 1 }}
           </template>
-          <template slot="code" scope="item">
+          <template slot="code" slot-scope="item">
             <router-link :to="{ name: 'admin-roles-id', params: { id: item.value } }" v-text="item.value"></router-link>
           </template>
-          <template slot="privileges" scope="item">
+          <template slot="privileges" slot-scope="item">
             <b-button :class="['btn-sm']" :to="{ name: 'admin-roles-id-privileges', params: { id: item.item.code } }">
               <i class="fa fa-plus"></i>
             </b-button>
           </template>
-          <template slot="action" scope="item">
+          <template slot="action" slot-scope="item">
             <router-link :class="['btn', 'btn-secondary', 'btn-sm']" :to="{ name: 'admin-roles-id', params: { id: item.item.code } }" :title="$t('common.modify', [ '', item.item.code ])">
               <i class="fa fa-pencil"></i>
             </router-link>

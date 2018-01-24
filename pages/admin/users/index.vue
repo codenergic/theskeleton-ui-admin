@@ -15,28 +15,28 @@
       <div>
         <search-box-pagination :query="q" :page-size="paginationLimit" @search="v => find(v.query, $route.query.page, v.pageSize)"></search-box-pagination>
         <b-table hover small responsive="sm" class="my-3" :items="users.content" :fields="fields" :per-page="paginationLimit">
-          <template slot="itemNumber" scope="item">
+          <template slot="itemNumber" slot-scope="item">
             {{ item.index + (users.size * users.number) - users.size + 1 }}
           </template>
-          <template slot="username" scope="item">
+          <template slot="username" slot-scope="item">
             <router-link :to="{ name: 'admin-users-id', params: { id: item.value } }" v-text="item.value"></router-link>
           </template>
-          <template slot="email" scope="item">
+          <template slot="email" slot-scope="item">
             <a :href="'mailto:' + item.value">
               <i class="fa fa-envelope"></i>
             </a>
             {{ item.value }}
           </template>
-          <template slot="unlocked" scope="item">
+          <template slot="unlocked" slot-scope="item">
             <i :class="['fa', item.item.isNonLocked ? 'text-success fa-check' : 'text-danger fa-close']"></i>
           </template>
-          <template slot="roles" scope="item">
+          <template slot="roles" slot-scope="item">
             <b-badge v-for="r in roles[item.item.username]" :key="r.code" v-text="r.code" class="mr-1"></b-badge>
             <b-button size="sm" :to="{ name: 'admin-users-id-roles', params: { id: item.item.username } }">
               <i class="fa fa-plus"></i>
             </b-button>
           </template>
-          <template slot="action" scope="item">
+          <template slot="action" slot-scope="item">
             <b-button variant="secondary" size="sm" v-if="item.item.isNonLocked" @click="lockUnlock(item.item, false)" :title="$t('common.lock', [ '', item.item.username ])">
               <i class="fa fa-lock"></i>
             </b-button>
