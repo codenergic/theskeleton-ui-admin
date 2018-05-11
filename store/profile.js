@@ -1,7 +1,11 @@
 export const state = () => ({
   connectedApps: [],
   loggedInUser: {},
-  sessions: []
+  sessions: [],
+  socials: {
+    facebook: {},
+    google: {}
+  }
 })
 
 export const mutations = {
@@ -13,13 +17,26 @@ export const mutations = {
   },
   setSessions (state, sessions) {
     state.sessions = sessions
+  },
+  setSocials (state, socials) {
+    state.socials.facebook = socials.facebook || {}
+    state.socials.google = socials.google || {}
   }
 }
 
 export const actions = {
+  disconnectCurrentConnectedSocial (ctx, provider) {
+    return this.$axios.delete('/profile/socials', { data: provider })
+  },
   findCurrentConnectedApps ({ commit }) {
     return this.$axios.get('/profile/connected-apps').then(response => {
       commit('setConnectedApps', response.data)
+      return response.data
+    })
+  },
+  findCurrentConnectedSocials ({ commit }) {
+    return this.$axios.get('/profile/socials').then(response => {
+      commit('setSocials', response.data)
       return response.data
     })
   },

@@ -18,7 +18,8 @@ export default {
       'profile-basic': 'Update your basic profile',
       'profile-password': 'Update your password',
       'profile-picture': 'Update your profile picture',
-      'profile-sessions': 'Session'
+      'profile-sessions': 'Session',
+      'profile-socials': 'Socials'
     }
   },
   common: {
@@ -27,10 +28,12 @@ export default {
     add: 'Add',
     addNew: 'Add new {0}',
     addOrModify: 'Add or modify {0}',
+    connected: 'Connected',
     delete: 'Delete {0}',
     deleteConfirm: 'Confirm Delete',
     deleteConfirmation: 'Are you sure you want to delete {0}?',
     deleteSuccess: '{0} deleted',
+    disconnect: 'Disconnect',
     lock: 'Lock {0} ({1})',
     modify: 'Modify {0} ({1})',
     redirecting: 'Redirecting...',
@@ -90,6 +93,9 @@ export default {
     },
     session: {
       title: 'Sessions'
+    },
+    social: {
+      title: 'Socials'
     }
   }
 }

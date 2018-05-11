@@ -45,6 +45,11 @@ export default {
           name: this.$t('profile.session.title'),
           to: { name: 'profile-sessions' },
           icon: 'fa fa-lock'
+        },
+        {
+          name: this.$t('profile.social.title'),
+          to: { name: 'profile-socials' },
+          icon: 'fa fa-handshake-o'
         }
       ]
     }

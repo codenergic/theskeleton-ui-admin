@@ -18,7 +18,8 @@ export default {
       'profile-basic': 'Perbarui profil dasar anda',
       'profile-password': 'Perbarui kata sandi anda',
       'profile-picture': 'Perbarui foto profil anda',
-      'profile-sessions': 'Sesi'
+      'profile-sessions': 'Sesi',
+      'profile-socials': 'Sosial'
     }
   },
   common: {
@@ -27,10 +28,12 @@ export default {
     add: 'Tambah',
     addNew: 'Tambah {0} baru',
     addOrModify: 'Tambah atau modifikasi {0}',
+    connected: 'Terhubung',
     delete: 'Hapus {0}',
     deleteConfirm: 'Konfirmasi Penghapusan',
     deleteConfirmation: 'Apakah anda yakin ingin menghapus {0}?',
     deleteSuccess: '{0} telah dihapus',
+    disconnect: 'Putuskan',
     lock: 'Kunci {0} ({1})',
     modify: 'Modifikasi {0} ({1})',
     redirecting: 'Mengarahkan...',
@@ -90,6 +93,9 @@ export default {
     },
     session: {
       title: 'Sesi'
+    },
+    social: {
+      title: 'Sosial'
     }
   }
 }
