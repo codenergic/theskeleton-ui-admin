@@ -37,19 +37,24 @@ export default {
           icon: 'fa fa-camera'
         },
         {
+          name: this.$t('profile.social.title'),
+          to: { name: 'profile-socials' },
+          icon: 'fa fa-handshake-o'
+        },
+        {
           name: this.$t('profile.apps.title'),
           to: { name: 'profile-apps' },
           icon: 'fa fa-cubes'
         },
         {
+          name: this.$t('profile.oauthApps.title'),
+          to: { name: 'profile-oauth-apps' },
+          icon: 'fa fa-cube'
+        },
+        {
           name: this.$t('profile.session.title'),
           to: { name: 'profile-sessions' },
           icon: 'fa fa-lock'
-        },
-        {
-          name: this.$t('profile.social.title'),
-          to: { name: 'profile-socials' },
-          icon: 'fa fa-handshake-o'
         }
       ]
     }

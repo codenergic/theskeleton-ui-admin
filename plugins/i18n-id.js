@@ -16,6 +16,8 @@ export default {
       'profile': 'Profil',
       'profile-apps': 'Apps Terhubung',
       'profile-basic': 'Perbarui profil dasar anda',
+      'profile-oauth-apps': 'OAuth Apps',
+      'profile-oauth-apps-id': 'OAuth Apps',
       'profile-password': 'Perbarui kata sandi anda',
       'profile-picture': 'Perbarui foto profil anda',
       'profile-sessions': 'Sesi',
@@ -69,7 +71,7 @@ export default {
   },
   profile: {
     apps: {
-      title: 'Apps'
+      title: 'Apps Tersambung'
     },
     basic: {
       title: 'Dasar',
@@ -77,6 +79,18 @@ export default {
       labelEmail: 'Surel',
       labelUsername: 'Nama Pengguna',
       messageChangeUsername: 'Jika anda mengubah nama pengguna, anda perlu masuk kembali'
+    },
+    oauthApps: {
+      title: 'OAuth Apps',
+      subtitle: 'Apps Saya',
+      label: 'apps',
+      labelAppDescription: 'Deskripsi App',
+      labelAppId: 'App ID',
+      labelAppName: 'Nama App',
+      labelAppSecret: 'Sandi Rahasia App',
+      labelAuthorizedGrantTypes: 'Authorized Grant Types',
+      labelCreateNewApp: 'Buat OAuth App Baru',
+      labelRedirectUris: 'Alamat (URI) Pengalihan'
     },
     password: {
       title: 'Kata Sandi',

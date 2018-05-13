@@ -17,6 +17,8 @@ export default {
       'profile-apps': 'Connected Apps',
       'profile-basic': 'Update your basic profile',
       'profile-password': 'Update your password',
+      'profile-oauth-apps': 'OAuth Apps',
+      'profile-oauth-apps-id': 'OAuth Apps',
       'profile-picture': 'Update your profile picture',
       'profile-sessions': 'Session',
       'profile-socials': 'Socials'
@@ -69,7 +71,7 @@ export default {
   },
   profile: {
     apps: {
-      title: 'Apps'
+      title: 'Connected Apps'
     },
     basic: {
       title: 'Basic',
@@ -77,6 +79,18 @@ export default {
       labelEmail: 'Email',
       labelUsername: 'Username',
       messageChangeUsername: 'If you change your username, you will need to sign in again'
+    },
+    oauthApps: {
+      title: 'OAuth Apps',
+      subtitle: 'My Apps',
+      label: 'apps',
+      labelAppDescription: 'App Description',
+      labelAppId: 'App ID',
+      labelAppName: 'App Name',
+      labelAppSecret: 'App Secret',
+      labelAuthorizedGrantTypes: 'Authorized Grant Types',
+      labelCreateNewApp: 'Create New OAuth App',
+      labelRedirectUris: 'Redirect URIs'
     },
     password: {
       title: 'Password',
