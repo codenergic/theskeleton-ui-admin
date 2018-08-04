@@ -12,7 +12,7 @@
     <div v-if="connected">
       <img :src="pictureUrl" style="width: 5em;" class="mr-3" />
       <b-button :variant="providerClass" :href="profileUrl" target="_blank">
-        <span v-text="$t('common.connected')"></span>
+        <span v-text="displayName"></span>
       </b-button>
     </div>
   </b-card>
@@ -26,6 +26,10 @@ export default {
       default: () => false
     },
     connectUrl: {
+      type: String,
+      default: () => ''
+    },
+    displayName: {
       type: String,
       default: () => ''
     },

@@ -5,6 +5,7 @@
       <h4 :class="['mb-1', session.expired ? 'text-muted' : 'text-primary']">
         {{ formatDate(session.lastRequest) }}
         <small>{{ formatTime(session.lastRequest) }}</small>
+        <span v-if="!session.expired" class="badge badge-success ml-2" v-text="$t('common.active')"></span>
       </h4>
       <small v-text="session.sessionId.toUpperCase()" class="text-muted"></small>
     </b-card>

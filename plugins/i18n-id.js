@@ -27,6 +27,7 @@ export default {
   common: {
     account: 'Akun',
     action: 'Aksi',
+    active: 'Aktif',
     add: 'Tambah',
     addNew: 'Tambah {0} baru',
     addOrModify: 'Tambah atau modifikasi {0}',

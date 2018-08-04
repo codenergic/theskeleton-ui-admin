@@ -60,7 +60,7 @@ export const actions = {
     commit('setSession', null)
   },
   findCurrentUser ({ commit, dispatch }) {
-    return this.$axios.get('/profile').then(response => {
+    return this.$axios.get('/users/me').then(response => {
       commit('setLoggedInUser', response.data)
       return response.data
     }).catch(error => {
@@ -87,16 +87,5 @@ export const actions = {
       return config
     })
     dispatch('findCurrentUser')
-  },
-  updateCurrentUser ({ commit }, user) {
-    return this.$axios.put('/api/profile', user).then(response => {
-      commit('setLoggedInUser', response.data)
-      return response.data
-    })
-  },
-  updateCurrentUserPassword ({ commit }, password) {
-    return this.$axios
-      .put('/api/profile/password', { password: password.newPassword })
-      .then(response => response.data)
   }
 }

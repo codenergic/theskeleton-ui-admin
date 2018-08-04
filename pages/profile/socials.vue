@@ -4,6 +4,7 @@
       <social-connection-box
         :connected="Boolean(socials.facebook.profileUrl)"
         :connect-url="getConnectUrl('facebook')"
+        :display-name="socials.facebook.displayName"
         :picture-url="socials.facebook.imageUrl"
         :profileUrl="socials.facebook.profileUrl"
         provider="Facebook"
@@ -16,6 +17,7 @@
       <social-connection-box
         :connected="Boolean(socials.google.profileUrl)"
         :connect-url="getConnectUrl('google')"
+        :display-name="socials.google.displayName"
         :picture-url="socials.google.imageUrl"
         :profileUrl="socials.google.profileUrl"
         provider="Google+"

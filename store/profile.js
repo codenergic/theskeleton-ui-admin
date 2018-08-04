@@ -26,22 +26,22 @@ export const mutations = {
 
 export const actions = {
   disconnectCurrentConnectedSocial (ctx, provider) {
-    return this.$axios.delete('/profile/socials', { data: provider })
+    return this.$axios.delete('/users/me/socials', { data: provider })
   },
   findCurrentConnectedApps ({ commit }) {
-    return this.$axios.get('/profile/connected-apps').then(response => {
+    return this.$axios.get('/users/me/connected-apps').then(response => {
       commit('setConnectedApps', response.data)
       return response.data
     })
   },
   findCurrentConnectedSocials ({ commit }) {
-    return this.$axios.get('/profile/socials').then(response => {
+    return this.$axios.get('/users/me/socials').then(response => {
       commit('setSocials', response.data)
       return response.data
     })
   },
   findCurrentUser ({ commit, dispatch }) {
-    return this.$axios.get('/profile').then(response => {
+    return this.$axios.get('/users/me').then(response => {
       commit('setLoggedInUser', response.data)
       return response.data
     }).catch(error => {
@@ -52,27 +52,27 @@ export const actions = {
     })
   },
   findCurrentUserSessions ({ commit }) {
-    return this.$axios.get('/profile/sessions').then(response => {
+    return this.$axios.get('/users/me/sessions').then(response => {
       commit('setSessions', response.data)
       return response.data
     })
   },
   revokeConnectedApps ({ commit, dispatch }, id) {
-    return this.$axios.delete('/profile/connected-apps', { data: id })
+    return this.$axios.delete('/users/me/connected-apps', { data: id })
       .then(() => dispatch('findCurrentConnectedApps'))
   },
   revokeSession ({ commit, dispatch }, id) {
-    return this.$axios.delete('/profile/sessions', { data: id })
+    return this.$axios.delete('/users/me/sessions', { data: id })
       .then(() => dispatch('findCurrentUserSessions'))
   },
   updateCurrentUser ({ commit }, user) {
-    return this.$axios.put('/profile', user).then(response => {
+    return this.$axios.put('/users/me', user).then(response => {
       commit('setLoggedInUser', response.data)
       return response.data
     })
   },
   updateCurrentUserPassword ({ commit }, password) {
-    return this.$axios.put('/profile/password', { password: password.newPassword }).then(response => {
+    return this.$axios.put('/users/me/password', { password: password.newPassword }).then(response => {
       return response.data
     })
   }

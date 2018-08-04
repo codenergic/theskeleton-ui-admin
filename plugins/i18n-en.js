@@ -27,6 +27,7 @@ export default {
   common: {
     account: 'Account',
     action: 'Action',
+    active: 'Active',
     add: 'Add',
     addNew: 'Add new {0}',
     addOrModify: 'Add or modify {0}',
