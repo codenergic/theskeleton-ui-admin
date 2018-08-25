@@ -1,20 +1,11 @@
 export default ({ app, store, route, redirect }) => {
-  store.lastState = JSON.stringify({
-    r: route.name, // route name
-    q: route.query, // url query
-    p: route.params // url params
-  })
   app.$axios.interceptors.response.use(response => {
-    store.responseHttpStatus = response.status
-    // store.commit('auth/responseHttpStatus', response.status)
+    // do nothing
     return response
   }, error => {
+    // on error
     store.commit('loading/stop')
-    store.responseHttpStatus = error.response.status
-    // store.commit('auth/responseHttpStatus', error.response.status)
-    if (store.state.auth.session !== null) {
-      redirect('/error')
-    }
+    window.$nuxt.error({ statusCode: error.response.status, message: error.message })
   })
 
   app.$axios.interceptors.request.use(config => {
