@@ -60,7 +60,7 @@ export default {
         width: 400,
         height: 400
       }).toBlob(blob => {
-        this.$axios.put('/profile/picture', blob, { headers: { 'Content-Type': 'image/jpg' } })
+        this.$axios.put('/users/me/picture', blob, { headers: { 'Content-Type': 'image/jpg' } })
           .then(() => this.findCurrentUser())
           .then(() => this.cancelCrop())
       }, 'image/jpg', 1)
