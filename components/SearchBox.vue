@@ -14,7 +14,7 @@
 <script>
 export default {
   props: {
-    value: { default: this.model }
+    value: { default: '' }
   },
   data () {
     return {

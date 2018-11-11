@@ -47,7 +47,7 @@ export const actions = {
   },
   findUserRolesByUsername ({ commit }, username) {
     return this.$axios.get(`/users/${username}/roles`).then(response => {
-      commit('setUserRoles', {username, roles: response.data})
+      commit('setUserRoles', { username, roles: response.data })
       return response.data
     })
   },
@@ -74,7 +74,7 @@ export const actions = {
       })
     }
   },
-  updateUserPassword (context, {username, password}) {
+  updateUserPassword (context, { username, password }) {
     return this.$axios.put(`/users/${username}/password`, { password }).then(response => {
       return response.data
     })

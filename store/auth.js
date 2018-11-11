@@ -77,15 +77,11 @@ export const actions = {
     return dispatch('saveSession', session)
   },
   logout () {
-    return this.$axios.get('/../auth/logout')
+    return this.$axios.post('/../auth/logout')
   },
   saveSession ({ commit, dispatch, getters }, session) {
     window.localStorage.setItem('session', JSON.stringify(session))
     commit('setSession', session)
-    this.$axios.interceptors.request.use(config => {
-      config.headers.Authorization = getters.getAuthorizationHeader
-      return config
-    })
     dispatch('findCurrentUser')
   }
 }

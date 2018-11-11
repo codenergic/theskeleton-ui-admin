@@ -1,21 +1,19 @@
 <template>
-  <no-ssr>
-    <div id="app" class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
-      <vue-progress-bar></vue-progress-bar>
-      <AppHeader />
-      <div class="app-body" v-if="$route.name === 'index'">
-        <Sidebar :navItems="[]"/>
-        <main class="main">
-          <breadcrumb :list="[]" />
-          <div class="container-fluid">
-            <nuxt />
-          </div>
-        </main>
-      </div>
-      <nuxt v-else />
-      <AppFooter/>
+  <div id="app" class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+    <vue-progress-bar></vue-progress-bar>
+    <AppHeader />
+    <div class="app-body" v-if="$route.name === 'index'">
+      <Sidebar :navItems="[]"/>
+      <main class="main">
+        <breadcrumb :list="[]" />
+        <div class="container-fluid">
+          <nuxt />
+        </div>
+      </main>
     </div>
-  </no-ssr>
+    <nuxt v-else />
+    <AppFooter/>
+  </div>
 </template>
 
 <script>

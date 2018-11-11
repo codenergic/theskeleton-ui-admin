@@ -19,29 +19,29 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.3.1",
+    "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/bootstrap": "^0.0.1",
     "@nuxtjs/bootstrap-vue": "^2.0.0",
     "@nuxtjs/font-awesome": "^1.0.2",
     "bootstrap-vue": "^2.0.0-rc.11",
     "moment": "^2.22.2",
-    "nuxt": "^1.4.2",
-    "query-string": "^6.1.0",
-    "vue-cropperjs": "^2.2.1",
-    "vue-i18n": "^8.0.0",
+    "nuxt": "^2.2.0",
+    "query-string": "^6.2.0",
+    "vue-cropperjs": "^2.2.2",
+    "vue-i18n": "^8.3.1",
     "vue-progressbar": "^0.7.5"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.6",
-    "eslint": "^5.4.0",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-loader": "^2.1.0",
-    "eslint-plugin-html": "^4.0.5",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.8.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-html": "^4.0.6",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-promise": "^4.0.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "node-sass": "^4.9.3",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "node-sass": "^4.10.0",
     "sass-loader": "^7.1.0"
   }
 }

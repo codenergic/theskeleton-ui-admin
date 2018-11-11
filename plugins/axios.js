@@ -13,6 +13,11 @@ export default ({ app, store, route, redirect }) => {
     return config
   })
 
+  app.$axios.interceptors.request.use(config => {
+    config.headers.Authorization = store.getters['auth/getAuthorizationHeader']
+    return config
+  })
+
   // progress bar
   app.$axios.defaults.onDownloadProgress = (progressEvent) => {
     if (progressEvent.total === 0 || progressEvent.total === progressEvent.loaded) {
