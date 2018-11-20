@@ -1,5 +1,11 @@
 <template>
   <b-card>
+    <div class="pull-right text-secondary" style="font-family: monospace">
+      <h4>
+        <small v-text="serverTime && serverTime.format('DD MMM YYYY')"></small>
+        <span v-text="serverTime && serverTime.format('hh:mm:ss')"></span>
+      </h4>
+    </div>
     <h1 class="display-1 mb-3">
       The<strong>Skeleton</strong>
     </h1>
@@ -32,6 +38,26 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
+  data () {
+    return {
+      subscription: null,
+      serverTime: null
+    }
+  },
+  mounted () {
+    this.$stomp().then(client => {
+      this.subscription = client.subscribe('/topic/server-time', message => {
+        this.serverTime = moment(message.body)
+      })
+    })
+  },
+  destroyed () {
+    if (this.subscription) {
+      this.subscription.unsubscribe()
+    }
+  }
 }
 </script>

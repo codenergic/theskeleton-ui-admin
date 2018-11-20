@@ -49,7 +49,8 @@ module.exports = {
     { src: '~/plugins/axios.js' },
     { src: '~/plugins/i18n.js' },
     { src: '~/plugins/progressbar.js' },
-    { src: '~/plugins/title.js' }
+    { src: '~/plugins/title.js' },
+    { src: '~/plugins/websocket.js' }
   ],
 
   router: {
