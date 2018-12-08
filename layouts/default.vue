@@ -1,9 +1,9 @@
 <template>
   <div id="app" class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
     <vue-progress-bar></vue-progress-bar>
-    <AppHeader />
-    <div class="app-body" v-if="$route.name === 'index'">
-      <Sidebar :navItems="[]"/>
+    <app-header />
+    <div v-if="$route.name === 'index'" class="app-body">
+      <sidebar :nav-items="[]" />
       <main class="main">
         <breadcrumb :list="[]" />
         <div class="container-fluid">
@@ -12,20 +12,19 @@
       </main>
     </div>
     <nuxt v-else />
-    <AppFooter/>
+    <app-footer />
   </div>
 </template>
 
 <script>
-import { Header as AppHeader, Sidebar, Aside as AppAside, Footer as AppFooter, Breadcrumb } from '~/components/'
+import { Header as AppHeader, Sidebar, Footer as AppFooter, Breadcrumb } from '~/components/'
 import { mapActions, mapState } from 'vuex'
 
 export default {
-  name: 'full',
+  name: 'Full',
   components: {
     AppHeader,
     Sidebar,
-    AppAside,
     AppFooter,
     Breadcrumb
   },

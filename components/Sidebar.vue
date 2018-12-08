@@ -3,34 +3,34 @@
     <nav class="sidebar-nav">
       <div slot="header"></div>
       <ul class="nav">
-        <li class="nav-item" v-for="(item, index) in navItems">
+        <li v-for="item in navItems" :key="item.name" class="nav-item">
           <template v-if="item.title">
-            <SidebarNavTitle :name="item.name" :classes="item.class" :wrapper="item.wrapper"/>
+            <sidebar-nav-title :name="item.name" :classes="item.class" :wrapper="item.wrapper" />
           </template>
           <template v-else-if="item.divider">
             <li class="divider"></li>
           </template>
           <template v-else>
             <template v-if="item.children">
-              <SidebarNavDropdown :name="item.name" :to="item.to" :icon="item.icon">
-                <template v-for="(child, index) in item.children">
+              <sidebar-nav-dropdown :name="item.name" :to="item.to" :icon="item.icon">
+                <template v-for="child in item.children">
                   <template v-if="child.children">
-                    <SidebarNavDropdown :name="child.name" :to="child.to" :icon="child.icon">
-                      <li class="nav-item" v-for="(child, index) in item.children">
-                        <SidebarNavLink :name="child.name" :to="child.to" :icon="child.icon" :badge="child.badge"/>
+                    <sidebar-nav-dropdown :key="child.name" :name="child.name" :to="child.to" :icon="child.icon">
+                      <li v-for="ch in item.children" :key="ch.name" class="nav-item">
+                        <sidebar-nav-link :name="ch.name" :to="ch.to" :icon="ch.icon" :badge="ch.badge" />
                       </li>
-                    </SidebarNavDropdown>
+                    </sidebar-nav-dropdown>
                   </template>
                   <template v-else>
-                    <li class="nav-item">
-                      <SidebarNavLink :name="child.name" :to="child.to" :icon="child.icon" :badge="child.badge"/>
+                    <li :key="child.name" class="nav-item">
+                      <sidebar-nav-link :name="child.name" :to="child.to" :icon="child.icon" :badge="child.badge" />
                     </li>
                   </template>
                 </template>
-              </SidebarNavDropdown>
+              </sidebar-nav-dropdown>
             </template>
             <template v-else>
-              <SidebarNavLink :name="item.name" :to="item.to" :icon="item.icon" :badge="item.badge"/>
+              <sidebar-nav-link :name="item.name" :to="item.to" :icon="item.icon" :badge="item.badge" />
             </template>
           </template>
         </li>
@@ -45,7 +45,7 @@ import SidebarNavDropdown from './SidebarNavDropdown'
 import SidebarNavLink from './SidebarNavLink'
 import SidebarNavTitle from './SidebarNavTitle'
 export default {
-  name: 'sidebar',
+  name: 'Sidebar',
   props: {
     navItems: {
       type: Array,

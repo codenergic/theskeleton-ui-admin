@@ -1,4 +1,4 @@
-export default ({ app, store, route, redirect }) => {
+export default ({ app, store }) => {
   app.$axios.interceptors.response.use(response => {
     // do nothing
     return response

@@ -12,11 +12,11 @@
           <form method="post" @submit.prevent @submit="save(user)">
             <div class="form-group">
               <label for="code" v-text="$t('admin.user.labelUsername')"></label>
-              <b-form-input id="username" name="username" v-model="user.username"></b-form-input>
+              <b-form-input id="username" v-model="user.username" name="username"></b-form-input>
             </div>
             <div class="form-group">
               <label for="description" v-text="$t('admin.user.labelEmail')"></label>
-              <b-form-input id="email" name="email" email v-model="user.email"></b-form-input>
+              <b-form-input id="email" v-model="user.email" name="email" email></b-form-input>
             </div>
             <div>
               <b-button variant="primary" type="submit">
@@ -25,15 +25,15 @@
             </div>
           </form>
         </b-tab>
-        <b-tab :title="$t('profile.password.title')" v-if="user.id">
+        <b-tab v-if="user.id" :title="$t('profile.password.title')">
           <form @submit.prevent="updatePassword(user.username, password.confirmPassword)">
             <div class="form-group">
               <label for="new-password" v-text="$t('profile.password.labelPasswordNew')"></label>
-              <b-form-input id="new-password" name="new-password" type="password" v-model="password.newPassword"></b-form-input>
+              <b-form-input id="new-password" v-model="password.newPassword" name="new-password" type="password"></b-form-input>
             </div>
             <div class="form-group">
               <label for="confirm-new-password" v-text="$t('profile.password.labelPasswordConfirm')"></label>
-              <b-form-input id="confirm-new-password" name="confirm-new-password" type="password" v-model="password.confirmPassword"></b-form-input>
+              <b-form-input id="confirm-new-password" v-model="password.confirmPassword" name="confirm-new-password" type="password"></b-form-input>
             </div>
             <div>
               <b-button variant="primary" :disabled="!passwordMatch" type="submit">

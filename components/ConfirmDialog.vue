@@ -1,5 +1,5 @@
 <template>
-  <b-modal :title="title" :id="id" @ok="$emit('dialog-confirm')" @cancel="$emit('dialog-cancel')">
+  <b-modal :id="id" :title="title" @ok="$emit('dialog-confirm')" @cancel="$emit('dialog-cancel')">
     <slot></slot>
   </b-modal>
 </template>

@@ -1,8 +1,8 @@
 <template>
   <div>
     <b-input-group>
-      <select class="custom-select my-0" v-model="model" :value="value" @input="onInput($event.target.value)" @change="$emit('refresh')">
-        <option v-for="s in sizes" v-text="s"></option>
+      <select v-model="model" class="custom-select my-0" :value="value" @input="onInput($event.target.value)" @change="$emit('refresh')">
+        <option v-for="s in sizes" :key="s" v-text="s"></option>
       </select>
       <b-input-group-append>
         <b-button variant="secondary" class="my-0" @click="$emit('refresh')">
@@ -22,7 +22,7 @@ export default {
     },
     sizes: {
       type: Array,
-      default: [ 5, 10, 20, 50, 100 ]
+      default: () => [ 5, 10, 20, 50, 100 ]
     }
   },
   data () {

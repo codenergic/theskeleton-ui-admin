@@ -12,13 +12,13 @@
           <div class="col-xs-12 col-sm-6">
             <div class="form-group">
               <label for="code" v-text="$t('admin.role.labelCode')"></label>
-              <b-form-input readonly id="code" name="code" v-model="role.code"></b-form-input>
+              <b-form-input id="code" v-model="role.code" readonly name="code"></b-form-input>
             </div>
           </div>
           <div class="col-xs-12 col-sm-6">
             <div class="form-group">
               <label for="description" v-text="$t('admin.role.labelDescription')"></label>
-              <b-form-input readonly id="description" name="description" v-model="role.description"></b-form-input>
+              <b-form-input id="description" v-model="role.description" readonly name="description"></b-form-input>
             </div>
           </div>
         </div>

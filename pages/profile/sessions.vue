@@ -7,7 +7,7 @@
         <small>{{ formatTime(session.lastRequest) }}</small>
         <span v-if="!session.expired" class="badge badge-success ml-2" v-text="$t('common.active')"></span>
       </h4>
-      <small v-text="session.sessionId.toUpperCase()" class="text-muted"></small>
+      <small class="text-muted" v-text="session.sessionId.toUpperCase()"></small>
     </b-card>
   </div>
 </template>

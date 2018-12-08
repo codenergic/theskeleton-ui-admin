@@ -23,7 +23,7 @@ export const actions = {
       return response.data
     })
   },
-  deleteUser ({ commit, dispatch, state }, code) {
+  deleteUser (ctx, code) {
     return this.$axios.delete(`/users/${code}`).then(response => {
       return response.data
     })

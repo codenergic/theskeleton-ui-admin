@@ -1,12 +1,12 @@
 <template>
   <b-card>
     <div slot="header">
-      <b-button variant="danger" class="m-0 pull-right" v-if="connected" @click="$emit('disconnect')" v-text="$t('common.disconnect')"></b-button>
+      <b-button v-if="connected" variant="danger" class="m-0 pull-right" @click="$emit('disconnect')" v-text="$t('common.disconnect')"></b-button>
       <h3 class="m-0">
         <i :class="`fa fa-${providerId}`"></i>
       </h3>
     </div>
-    <b-button :variant="providerClass" :href="connectUrl" target="_blank" v-if="!connected">
+    <b-button v-if="!connected" :variant="providerClass" :href="connectUrl" target="_blank">
       <span v-text="provider"></span>
     </b-button>
     <div v-if="connected">

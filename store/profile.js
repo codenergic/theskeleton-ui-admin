@@ -57,11 +57,11 @@ export const actions = {
       return response.data
     })
   },
-  revokeConnectedApps ({ commit, dispatch }, id) {
+  revokeConnectedApps ({ dispatch }, id) {
     return this.$axios.delete('/users/me/connected-apps', { data: id })
       .then(() => dispatch('findCurrentConnectedApps'))
   },
-  revokeSession ({ commit, dispatch }, id) {
+  revokeSession ({ dispatch }, id) {
     return this.$axios.delete('/users/me/sessions', { data: id })
       .then(() => dispatch('findCurrentUserSessions'))
   },
@@ -71,7 +71,7 @@ export const actions = {
       return response.data
     })
   },
-  updateCurrentUserPassword ({ commit }, password) {
+  updateCurrentUserPassword (ctx, password) {
     return this.$axios.put('/users/me/password', { password: password.newPassword }).then(response => {
       return response.data
     })
