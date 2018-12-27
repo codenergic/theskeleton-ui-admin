@@ -3,12 +3,12 @@
     <form @submit.prevent @submit="updateCurrentUser(currentUser)">
       <div class="form-group">
         <label for="username" v-text="$t('profile.basic.labelUsername')"></label>
-        <b-form-input id="username" name="username" v-model="currentUser.username"></b-form-input>
+        <b-form-input id="username" v-model="currentUser.username" name="username"></b-form-input>
         <small class="text-warning" v-text="$t('profile.basic.messageChangeUsername')"></small>
       </div>
       <div class="form-group">
         <label for="email" v-text="$t('profile.basic.labelEmail')"></label>
-        <b-form-input id="email" name="email" type="email" v-model="currentUser.email"></b-form-input>
+        <b-form-input id="email" v-model="currentUser.email" name="email" type="email"></b-form-input>
       </div>
       <div>
         <b-button variant="primary" type="submit">
@@ -37,7 +37,7 @@ export default {
   methods: {
     update (user) {
       const usernameChanged = user.username !== this.profileCurrentUser.username
-      this.updateCurrentUser(user).then(data => {
+      this.updateCurrentUser(user).then(() => {
         if (usernameChanged) {
           this.deleteSession().then(() => {
             window.location.href = `${window.location.origin}/auth/logout`

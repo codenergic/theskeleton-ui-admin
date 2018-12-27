@@ -45,7 +45,7 @@
 import { mapActions, mapState } from 'vuex'
 
 export default {
-  name: 'header',
+  name: 'Header',
   computed: {
     ...mapState({
       lang: state => state.i18n.lang,

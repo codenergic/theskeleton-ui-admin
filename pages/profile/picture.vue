@@ -2,8 +2,8 @@
   <b-card>
     <div class="row">
       <div class="col-xs-12 col-md-6">
-        <img :src="currentUser.pictureUrl" v-if="!pictureUrl" class="mb-1" />
-        <b-form-file accept="image/*" v-model="picture" :capture="true" class="mb-3"></b-form-file>
+        <img v-if="!pictureUrl" :src="currentUser.pictureUrl" class="mb-1" />
+        <b-form-file v-model="picture" accept="image/*" :capture="true" class="mb-3"></b-form-file>
         <div class="my-1">
           <b-button v-if="pictureUrl" variant="secondary" @click="cancelCrop">
             <i class="fa fa-ban"></i>
@@ -14,8 +14,8 @@
             Ok
           </b-button>
         </div>
-        <cropper ref="cropper"
-        v-if="pictureUrl"
+        <cropper v-if="pictureUrl"
+        ref="cropper"
         :src="pictureUrl"
         :aspect-ratio="1"
         :auto-crop-area="1"
@@ -24,7 +24,8 @@
         :min-canvas-width="400"
         :min-canvas-height="400"
         :min-container-width="400"
-        :min-container-height="400" />
+        :min-container-height="400"
+/>
       </div>
     </div>
   </b-card>

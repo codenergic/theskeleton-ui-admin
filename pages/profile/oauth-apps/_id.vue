@@ -12,14 +12,14 @@
           <div class="col-md-5">
             <div class="form-group">
               <label for="id" v-text="$t('profile.oauthApps.labelAppId')"></label>
-              <b-form-input id="id" name="id" v-model="app.id" readonly></b-form-input>
+              <b-form-input id="id" v-model="app.id" name="id" readonly></b-form-input>
             </div>
           </div>
           <div class="col-md-7">
             <div class="form-group">
               <label for="secret" v-text="$t('profile.oauthApps.labelAppSecret')"></label>
               <b-input-group>
-                <b-form-input id="secret" name="secret" v-model="app.clientSecret" readonly></b-form-input>
+                <b-form-input id="secret" v-model="app.clientSecret" name="secret" readonly></b-form-input>
                 <b-button v-if="app.id" @click="generateSecret">
                   <i class="fa fa-refresh"></i>
                 </b-button>
@@ -31,13 +31,13 @@
           <div class="col-md-5">
             <div class="form-group">
               <label for="name" v-text="$t('profile.oauthApps.labelAppName')"></label>
-              <b-form-input id="name" name="name" v-model="app.name"></b-form-input>
+              <b-form-input id="name" v-model="app.name" name="name"></b-form-input>
             </div>
           </div>
           <div class="col-md-7">
             <div class="form-group">
               <label for="description" v-text="$t('profile.oauthApps.labelAppDescription')"></label>
-              <b-form-input id="description" name="description" v-model="app.description"></b-form-input>
+              <b-form-input id="description" v-model="app.description" name="description"></b-form-input>
             </div>
           </div>
         </div>
@@ -53,10 +53,10 @@
           <label for="redirectUri0" v-text="$t('profile.oauthApps.labelRedirectUris')"></label>
           <div v-for="(redirectUri, index) in app.registeredRedirectUris" :key="index" class="mb-1">
             <b-input-group>
-              <b-button variant="danger" v-if="app.registeredRedirectUris.length > 1 && index < (app.registeredRedirectUris.length - 1)" @click="app.registeredRedirectUris.splice(index, 1)">
+              <b-button v-if="app.registeredRedirectUris.length > 1 && index < (app.registeredRedirectUris.length - 1)" variant="danger" @click="app.registeredRedirectUris.splice(index, 1)">
                 <i class="fa fa-times"></i>
               </b-button>
-              <b-form-input :id="'redirectUri' + index" :name="'redirectUri' + index" v-model="app.registeredRedirectUris[index]"></b-form-input>
+              <b-form-input :id="'redirectUri' + index" v-model="app.registeredRedirectUris[index]" :name="'redirectUri' + index"></b-form-input>
             </b-input-group>
           </div>
         </div>
@@ -120,7 +120,7 @@ export default {
     })
   },
   watch: {
-    'app.registeredRedirectUris' (value) {
+    'app.registeredRedirectUris' () {
       const redirectUris = this.app.registeredRedirectUris
       if (redirectUris[redirectUris.length - 1] !== '') {
         redirectUris.push('')

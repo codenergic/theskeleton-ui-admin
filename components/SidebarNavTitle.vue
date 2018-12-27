@@ -1,12 +1,12 @@
 <template>
-  <li class="nav-title" v-bind:class="classes">
+  <li class="nav-title" :class="classes">
     <template v-if="wrapper && wrapper.element">
-      <component v-bind:is="wrapper.element" v-bind="wrapper.attributes">
-        {{name}}
+      <component :is="wrapper.element" v-bind="wrapper.attributes">
+        {{ name }}
       </component>
     </template>
     <template v-else>
-      {{name}}
+      {{ name }}
     </template>
   </li>
 </template>

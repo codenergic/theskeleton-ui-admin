@@ -31,28 +31,28 @@
             <i :class="['fa', item.item.isNonLocked ? 'text-success fa-check' : 'text-danger fa-close']"></i>
           </template>
           <template slot="roles" slot-scope="item">
-            <b-badge v-for="r in roles[item.item.username]" :key="r.code" v-text="r.code" class="mr-1"></b-badge>
+            <b-badge v-for="r in roles[item.item.username]" :key="r.code" class="mr-1" v-text="r.code"></b-badge>
             <b-button size="sm" :to="{ name: 'admin-users-id-roles', params: { id: item.item.username } }">
               <i class="fa fa-plus"></i>
             </b-button>
           </template>
           <template slot="action" slot-scope="item">
-            <b-button variant="secondary" size="sm" v-if="item.item.isNonLocked" @click="lockUnlock(item.item, false)" :title="$t('common.lock', [ '', item.item.username ])">
+            <b-button v-if="item.item.isNonLocked" variant="secondary" size="sm" :title="$t('common.lock', [ '', item.item.username ])" @click="lockUnlock(item.item, false)">
               <i class="fa fa-lock"></i>
             </b-button>
-            <b-button variant="secondary" size="sm" v-else @click="lockUnlock(item.item, true)" :title="$t('common.unlock', [ '', item.item.username ])">
+            <b-button v-else variant="secondary" size="sm" :title="$t('common.unlock', [ '', item.item.username ])" @click="lockUnlock(item.item, true)">
               <i class="fa fa-unlock"></i>
             </b-button>
             <b-button variant="secondary" size="sm" :to="{ name: 'admin-users-id', params: { id: item.item.username } }" :title="$t('common.modify', [ '', item.item.username ])">
               <i class="fa fa-pencil"></i>
             </b-button>
-            <b-button variant="danger" size="sm" v-b-modal.confirm-delete @click="user=item.item" :title="$t('common.delete', [ user.username ])">
+            <b-button v-b-modal.confirm-delete variant="danger" size="sm" :title="$t('common.delete', [ user.username ])" @click="user=item.item">
               <i class="fa fa-close"></i>
             </b-button>
           </template>
         </b-table>
         <div>
-          <b-pagination size="md" :total-rows="users.totalElements" :per-page="paginationLimit" v-model.number="users.number" @input="find(q, users.number, paginationLimit)" />
+          <b-pagination v-model.number="users.number" size="md" :total-rows="users.totalElements" :per-page="paginationLimit" @input="find(q, users.number, paginationLimit)" />
         </div>
       </div>
     </b-card>

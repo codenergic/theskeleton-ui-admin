@@ -3,11 +3,11 @@
     <form @submit.prevent="update(password)">
       <div class="form-group">
         <label for="new-password" v-text="$t('profile.password.labelPasswordNew')"></label>
-        <b-form-input id="new-password" name="new-password" type="password" v-model="password.newPassword"></b-form-input>
+        <b-form-input id="new-password" v-model="password.newPassword" name="new-password" type="password"></b-form-input>
       </div>
       <div class="form-group">
         <label for="confirm-new-password" v-text="$t('profile.password.labelPasswordConfirm')"></label>
-        <b-form-input id="confirm-new-password" name="confirm-new-password" type="password" v-model="password.confirmPassword"></b-form-input>
+        <b-form-input id="confirm-new-password" v-model="password.confirmPassword" name="confirm-new-password" type="password"></b-form-input>
       </div>
       <div>
         <b-button variant="primary" :disabled="!passwordMatch">

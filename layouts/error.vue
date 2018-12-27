@@ -5,11 +5,11 @@
         <div class="col-md-6">
           <div class="clearfix">
             <h1 class="text-center display-3">{{ error.statusCode }}</h1>
-            <h4 class="text-center" v-for="statusCode in statusCodes" :key="statusCode.code" v-if="error.statusCode === statusCode.code">{{ statusCode.message }}</h4>
-            <p class="text-center text-muted" v-if="error.statusCode === 401">
+            <h4 v-for="statusCode in statusCodes.filter(s => s.statusCode === error.statusCode)" :key="statusCode.code" class="text-center">{{ statusCode.message }}</h4>
+            <p v-if="error.statusCode === 401" class="text-center text-muted">
               <nuxt-link class="btn btn-info" :to="'/app-login?state=' + currentRouteState">Login</nuxt-link>
             </p>
-            <p class="text-center text-muted" v-else>
+            <p v-else class="text-center text-muted">
               <nuxt-link class="btn btn-info" to="/">Back to home</nuxt-link>
             </p>
           </div>
@@ -52,9 +52,6 @@ export default {
     }
   },
   computed: {
-    statusCode () {
-      return (this.error && this.error.statusCode) || 500
-    },
     message () {
       return this.error.message || '<%= messages.client_error %>'
     },

@@ -1,13 +1,13 @@
 <template>
   <router-link :to="to" class="nav-link" active-class="active">
-    <i :class="icon"></i> {{name}}
-    <b-badge :variant="badge.variant">{{badge.text}}</b-badge>
+    <i :class="icon"></i> {{ name }}
+    <b-badge :variant="badge.variant">{{ badge.text }}</b-badge>
   </router-link>
 </template>
 
 <script>
 export default {
-  name: 'sidebar-nav-link',
+  name: 'SidebarNavLink',
   props: {
     name: {
       type: String,

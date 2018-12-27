@@ -10,11 +10,11 @@
       <form method="post" @submit.prevent @submit="save(role)">
         <div class="form-group">
           <label for="code" v-text="$t('admin.role.labelCode')"></label>
-          <b-form-input id="code" name="code" v-model="role.code"></b-form-input>
+          <b-form-input id="code" v-model="role.code" name="code"></b-form-input>
         </div>
         <div class="form-group">
           <label for="description" v-text="$t('admin.role.labelDescription')"></label>
-          <b-form-input id="description" name="description" textarea :rows="3" v-model="role.description"></b-form-input>
+          <b-form-input id="description" v-model="role.description" name="description" textarea :rows="3"></b-form-input>
         </div>
         <div>
           <b-button variant="primary" type="submit">

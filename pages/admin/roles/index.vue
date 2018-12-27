@@ -30,13 +30,13 @@
             <router-link :class="['btn', 'btn-secondary', 'btn-sm']" :to="{ name: 'admin-roles-id', params: { id: item.item.code } }" :title="$t('common.modify', [ '', item.item.code ])">
               <i class="fa fa-pencil"></i>
             </router-link>
-            <b-button variant="danger" size="sm" v-b-modal.confirm-delete @click="role=item.item" :title="$t('common.delete', [ role.code ])">
+            <b-button v-b-modal.confirm-delete variant="danger" size="sm" :title="$t('common.delete', [ role.code ])" @click="role=item.item">
               <i class="fa fa-close"></i>
             </b-button>
           </template>
         </b-table>
         <div>
-          <b-pagination size="md" :total-rows="roles.totalElements" :per-page="paginationLimit" v-model.number="roles.number" @input="find(q, roles.number, paginationLimit)" />
+          <b-pagination v-model.number="roles.number" size="md" :total-rows="roles.totalElements" :per-page="paginationLimit" @input="find(q, roles.number, paginationLimit)" />
         </div>
       </div>
     </b-card>

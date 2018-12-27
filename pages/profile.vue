@@ -1,6 +1,6 @@
 <template>
   <div class="app-body">
-    <Sidebar :navItems="nav"/>
+    <sidebar :nav-items="nav" />
     <main class="main">
       <breadcrumb />
       <div class="container-fluid">

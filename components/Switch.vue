@@ -4,7 +4,8 @@
            class="switch-input"
            :value="value"
            :checked="isChecked"
-           @change="handleChange">
+           @change="handleChange"
+>
     <template v-if="isOn">
       <span class="switch-label" :data-on="on" :data-off="off"></span>
     </template>
@@ -67,13 +68,13 @@ export default {
       ]
     },
     switchType () {
-      return this.type ? `switch-${this.type}` : `switch-default`
+      return this.type ? `switch-${this.type}` : 'switch-default'
     },
     switchVariant () {
-      return this.variant ? `switch-${this.variant}` : `switch-secondary`
+      return this.variant ? `switch-${this.variant}` : 'switch-secondary'
     },
     switchPill () {
-      return !this.pill ? null : `switch-pill`
+      return !this.pill ? null : 'switch-pill'
     },
     switchSize () {
       return this.size ? `switch-${this.size}` : ''

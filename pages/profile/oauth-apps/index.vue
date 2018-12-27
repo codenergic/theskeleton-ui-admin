@@ -14,7 +14,7 @@
     </div>
     <br />
     <b-card v-for="app in apps.content" :key="app.id" class="mb-2">
-      <b-button variant="danger" class="float-right btn-sm" v-b-modal.confirm-delete @click="appToBeDeleted=app">
+      <b-button v-b-modal.confirm-delete variant="danger" class="float-right btn-sm" @click="appToBeDeleted=app">
         <i class="fa fa-times"></i>
         {{ $t('common.delete', []) }}
       </b-button>
@@ -22,9 +22,9 @@
         <i class="fa fa-cube bg-primary p-3 font-2xl mr-3 float-left"></i>
       </b-link>
       <b-link :to="{ name: $route.name + '-id', params: { id: app.id } }">
-        <h4 v-text="app.name" class="mb-1"></h4>
+        <h4 class="mb-1" v-text="app.name"></h4>
       </b-link>
-      <h5 v-text="app.id" class="text-muted"></h5>
+      <h5 class="text-muted" v-text="app.id"></h5>
     </b-card>
   </div>
 </template>

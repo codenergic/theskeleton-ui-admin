@@ -3,8 +3,8 @@ const loadingColor = process.env.LOADING_COLOR || '#20a8d8'
 
 module.exports = {
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     title: 'TheSkeleton',
     titleTemplate: '%s - TheSkeleton Admin',
@@ -13,14 +13,10 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'TheSkeleton Admin' }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
-  css: [
-    '~/assets/css/style.scss'
-  ],
+  css: ['~/assets/css/style.scss'],
 
   env: {
     loadingColor,
@@ -28,21 +24,21 @@ module.exports = {
   },
 
   /*
-  ** Customize the progress-bar color
-  */
+   ** Customize the progress-bar color
+   */
   loading: { color: loadingColor, height: '1px' },
 
   mode: 'spa',
 
   modules: [
-    [ '@nuxtjs/axios', {
-      baseURL: serverUrl + '/api',
-      requestInterceptor: (config, { store }) => {
-        return config
+    [
+      '@nuxtjs/axios',
+      {
+        baseURL: serverUrl + '/api'
       }
-    }],
-    [ '@nuxtjs/bootstrap-vue', { css: false } ],
-    [ '@nuxtjs/font-awesome' ]
+    ],
+    ['@nuxtjs/bootstrap-vue', { css: false }],
+    ['@nuxtjs/font-awesome']
   ],
 
   plugins: [
@@ -58,13 +54,13 @@ module.exports = {
   },
 
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     publicPath: process.env.PUBLIC_PATH || '/_/',
     /*
-    ** Run ESLint on save
-    */
+     ** Run ESLint on save
+     */
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({

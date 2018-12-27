@@ -8,7 +8,7 @@ export const state = () => ({
 })
 
 export const getters = {
-  isSessionValid (state, getters) {
+  isSessionValid (state) {
     if (state.session) {
       if (new Date().getTime() >= state.session.expires_at) {
         return false
@@ -41,7 +41,7 @@ export const mutations = {
 }
 
 export const actions = {
-  checkSession ({ commit, dispatch, getters, state }) {
+  checkSession ({ dispatch, getters, state }) {
     const session = window.localStorage.getItem('session')
     if (!session) {
       return dispatch('deleteSession').then(() => false)
@@ -70,7 +70,7 @@ export const actions = {
       return error.response.data
     })
   },
-  login ({ commit, dispatch, state }, hash) {
+  login ({ dispatch }, hash) {
     const session = queryString.parse(hash)
     const expiresTime = new Date(new Date().getTime() + (session.expires_in * 1000))
     session.expires_at = expiresTime.getTime()
@@ -79,7 +79,7 @@ export const actions = {
   logout () {
     return this.$axios.post('/../auth/logout')
   },
-  saveSession ({ commit, dispatch, getters }, session) {
+  saveSession ({ commit, dispatch }, session) {
     window.localStorage.setItem('session', JSON.stringify(session))
     commit('setSession', session)
     dispatch('findCurrentUser')

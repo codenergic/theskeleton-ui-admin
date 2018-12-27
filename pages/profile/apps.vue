@@ -6,8 +6,8 @@
         <i class="fa fa-times"></i>
         {{ $t('common.revoke') }}
       </b-button>
-      <h4 v-text="app.clientName" class="mb-1"></h4>
-      <b-badge :variant="v === 'APPROVED' ? 'primary' : 'light'" v-for="(v, k) in app.scopeAndStatus" :key="k" class="mr-1 px-2 py-1">{{ k }}</b-badge>
+      <h4 class="mb-1" v-text="app.clientName"></h4>
+      <b-badge v-for="(v, k) in app.scopeAndStatus" :key="k" :variant="v === 'APPROVED' ? 'primary' : 'light'" class="mr-1 px-2 py-1">{{ k }}</b-badge>
     </b-card>
   </div>
 </template>

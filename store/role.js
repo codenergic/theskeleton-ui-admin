@@ -23,12 +23,12 @@ export const actions = {
       return response.data
     })
   },
-  deleteRole ({ commit, dispatch, state }, code) {
+  deleteRole (ctx, code) {
     return this.$axios.delete(`/roles/${code}`).then(response => {
       return response.data
     })
   },
-  findRoles ({ commit, dispatch }, params = { q: '', page: 1, size: 20 }) {
+  findRoles ({ commit }, params = { q: '', page: 1, size: 20 }) {
     params.page -= 1
     params.sort = 'code,asc'
     return this.$axios.get('/roles', { params }).then(response => {
