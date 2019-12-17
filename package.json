@@ -24,7 +24,7 @@
     }
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.5.4",
+    "@nuxtjs/axios": "^5.9.0",
     "@nuxtjs/bootstrap": "^0.0.1",
     "@nuxtjs/bootstrap-vue": "^2.0.0",
     "@nuxtjs/font-awesome": "^1.0.4",
