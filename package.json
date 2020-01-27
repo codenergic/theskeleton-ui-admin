@@ -28,7 +28,7 @@
     "@nuxtjs/bootstrap": "^0.0.1",
     "@nuxtjs/bootstrap-vue": "^2.0.0",
     "@nuxtjs/font-awesome": "^1.0.4",
-    "bootstrap-vue": "^2.0.0-rc.27",
+    "bootstrap-vue": "^2.3.0",
     "moment": "^2.24.0",
     "nuxt": "^2.8.1",
     "query-string": "^6.10.1",
