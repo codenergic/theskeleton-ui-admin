@@ -30,7 +30,7 @@
     "@nuxtjs/font-awesome": "^1.0.4",
     "bootstrap-vue": "^2.0.0-rc.27",
     "moment": "^2.24.0",
-    "nuxt": "^2.8.1",
+    "nuxt": "^2.14.4",
     "query-string": "^6.10.1",
     "sockjs-client": "^1.3.0",
     "vue-cropperjs": "^4.0.0",
