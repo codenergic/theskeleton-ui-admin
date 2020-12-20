@@ -28,7 +28,7 @@ module.exports = {
    */
   loading: { color: loadingColor, height: '1px' },
 
-  mode: 'spa',
+  ssr: false,
 
   modules: [
     [
