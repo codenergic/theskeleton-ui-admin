@@ -15,28 +15,28 @@
       <div>
         <search-box-pagination :query="q" :page-size="paginationLimit" @search="v => find(v.query, $route.query.page, v.pageSize)"></search-box-pagination>
         <b-table hover small responsive="sm" class="my-3" :items="users.content" :fields="fields" :per-page="paginationLimit">
-          <template slot="itemNumber" slot-scope="item">
+          <template #cell(itemNumber)="item">
             {{ item.index + (users.size * users.number) - users.size + 1 }}
           </template>
-          <template slot="username" slot-scope="item">
+          <template #cell(username)="item">
             <router-link :to="{ name: 'admin-users-id', params: { id: item.value } }" v-text="item.value"></router-link>
           </template>
-          <template slot="email" slot-scope="item">
+          <template #cell(email)="item">
             <a :href="'mailto:' + item.value">
               <i class="fa fa-envelope"></i>
             </a>
             {{ item.value }}
           </template>
-          <template slot="unlocked" slot-scope="item">
+          <template #cell(unlocked)="item">
             <i :class="['fa', item.item.isNonLocked ? 'text-success fa-check' : 'text-danger fa-close']"></i>
           </template>
-          <template slot="roles" slot-scope="item">
+          <template #cell(roles)="item">
             <b-badge v-for="r in roles[item.item.username]" :key="r.code" class="mr-1" v-text="r.code"></b-badge>
             <b-button size="sm" :to="{ name: 'admin-users-id-roles', params: { id: item.item.username } }">
               <i class="fa fa-plus"></i>
             </b-button>
           </template>
-          <template slot="action" slot-scope="item">
+          <template #cell(action)="item">
             <b-button v-if="item.item.isNonLocked" variant="secondary" size="sm" :title="$t('common.lock', [ '', item.item.username ])" @click="lockUnlock(item.item, false)">
               <i class="fa fa-lock"></i>
             </b-button>
@@ -77,14 +77,14 @@ export default {
   },
   computed: {
     fields () {
-      return {
-        itemNumber: { label: '#' },
-        username: { label: this.$t('admin.user.labelUsername') },
-        email: { label: this.$t('admin.user.labelEmail') },
-        unlocked: { label: this.$t('admin.user.labelUnlocked') },
-        roles: { label: this.$t('admin.user.labelRoles') },
-        action: { label: this.$t('common.action') }
-      }
+      return [
+        { key: 'itemNumber', label: '#' },
+        { key: 'username', label: this.$t('admin.user.labelUsername') },
+        { key: 'email', label: this.$t('admin.user.labelEmail') },
+        { key: 'unlocked', label: this.$t('admin.user.labelUnlocked') },
+        { key: 'roles', label: this.$t('admin.user.labelRoles') },
+        { key: 'action', label: this.$t('common.action') }
+      ]
     },
     ...mapState({
       users: state => state.user.users,
