@@ -9,9 +9,6 @@ import { mapActions } from 'vuex'
 
 export default {
   methods: {
-    logoutSuccess () {
-      console.log('logoutSuccess')
-    },
     ...mapActions({
       deleteSession: 'auth/deleteSession',
       logout: 'auth/logout'
