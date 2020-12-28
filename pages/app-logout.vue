@@ -14,11 +14,15 @@ export default {
       logout: 'auth/logout'
     })
   },
-  mounted () {
-    this.logout().then(() => this.deleteSession())
-      .then(() => {
-        this.$router.push({ name: 'index' })
-      })
+  async mounted () {
+    const logoutWindow = window.open(`${process.env.serverUrl}/auth/logout`, '_blank')
+
+    await new Promise(resolve => {
+      window.setTimeout(resolve, 2000)
+    })
+    logoutWindow.close()
+    await this.logout()
+    await this.$router.push({ name: 'index', params: { logout: true } })
   }
 }
 </script>

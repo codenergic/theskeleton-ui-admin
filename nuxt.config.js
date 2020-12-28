@@ -1,5 +1,7 @@
+const appId = process.env.APP_ID || '0000015bb4a150850007bf0700000000'
 const serverUrl = process.env.SERVER_URL || 'https://theskeleton.codenergic.org'
 const loadingColor = process.env.LOADING_COLOR || '#20a8d8'
+const cookieSession = require('cookie-session')
 
 module.exports = {
   /*
@@ -19,6 +21,7 @@ module.exports = {
   css: ['~/assets/css/style.scss'],
 
   env: {
+    appId,
     loadingColor,
     serverUrl
   },
@@ -52,6 +55,21 @@ module.exports = {
   router: {
     linkActiveClass: 'active'
   },
+
+  serverMiddleware: [
+    {
+      handler: cookieSession({
+        name: 'session',
+        secret: 'Sup3rs3cr3tz'
+      })
+    },
+    {
+      path: '/app-login', handler: '~/middleware/auth-session-set'
+    },
+    {
+      path: '/', handler: '~/middleware/auth-session-check'
+    }
+  ],
 
   /*
    ** Build configuration

@@ -48,6 +48,12 @@ export default {
     }
   },
   mounted () {
+    // reload the page to trigger login if logout flag is true
+    if (this.$route.params.logout) {
+      this.$router.go(0)
+      return
+    }
+
     this.$stomp().then(client => {
       this.subscription = client.subscribe('/topic/server-time', message => {
         this.serverTime = moment(message.body)
