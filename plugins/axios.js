@@ -13,8 +13,8 @@ export default ({ app, store }) => {
     return config
   })
 
-  app.$axios.interceptors.request.use(config => {
-    config.headers.Authorization = store.getters['auth/getAuthorizationHeader']
+  app.$axios.interceptors.request.use(async config => {
+    config.headers.Authorization = await store.dispatch('auth/getAuthorizationHeader')
     return config
   })
 
