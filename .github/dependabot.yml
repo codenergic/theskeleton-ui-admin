@@ -1,0 +1,50 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "22:00"
+  open-pull-requests-limit: 10
+  reviewers:
+  - dianw
+  - diaxz
+  - vickyfaizal
+  ignore:
+  - dependency-name: eslint
+    versions:
+    - 7.18.0
+    - 7.19.0
+    - 7.20.0
+    - 7.21.0
+    - 7.22.0
+    - 7.23.0
+    - 7.24.0
+  - dependency-name: vue-i18n
+    versions:
+    - 8.22.4
+    - 8.23.0
+    - 8.24.0
+    - 8.24.1
+    - 8.24.2
+    - 8.24.3
+  - dependency-name: eslint-plugin-vue
+    versions:
+    - 7.5.0
+    - 7.6.0
+    - 7.7.0
+    - 7.8.0
+  - dependency-name: nuxt
+    versions:
+    - 2.15.0
+    - 2.15.1
+    - 2.15.2
+    - 2.15.3
+  - dependency-name: sass-loader
+    versions:
+    - 10.1.1
+    - 11.0.0
+  - dependency-name: "@nuxtjs/axios"
+    versions:
+    - 5.12.5
+    - 5.13.0
